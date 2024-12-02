@@ -3,7 +3,7 @@
 		<div class="singular-product">
 			<h1>{{ product.title }}</h1>
 			<blockquote>{{ product.description }}</blockquote>
-			<img :src="assetUrlBase + product.image" />
+			<MediaRespImage :url="product.image" :lightbox="true" />
 			<PagesMarkdownRenderMarkdown :markdownString="product.content" />
 		</div>
 	</main>
@@ -16,9 +16,6 @@ const { data: product } = reactive(await useAsyncData("product", () =>
 	queryContent("/products", route.params.slug).findOne())
 );
 
-const rtc = useRuntimeConfig();
-const cEnv = rtc.public.cloudinaryEnvUrl;
-const assetUrlBase = cEnv + "/image/upload" + '/c_scale/w_600/q_auto:best'
 </script>
 
 

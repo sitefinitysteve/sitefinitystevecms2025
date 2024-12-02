@@ -13,7 +13,7 @@ site_url: https://sailsnake-decapcms.netlify.app
 
 media_library:
   name: cloudinary
-  output_filename_only: true
+  # output_filename_only: true
   config:
     cloud_name: <YOUR_CLOUD_NAME_HERE>
     api_key: <YOUR_API_KEY_HERE> 

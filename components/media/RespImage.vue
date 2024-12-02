@@ -16,6 +16,8 @@
 
 <script setup>
 
+import cldDelivery from '~/composables/cldDelivery';
+
 // NOTES
 // This is a respsonvive image component via changing cloudinary transform parameters. And includes a single image instance lightbox function when enabled in props 
 
@@ -26,11 +28,6 @@ const props = defineProps({
 	color: String 
 });
 
-
-
-// Get Cloudinary enviroment url
-const rtc = useRuntimeConfig();
-const cEnv = rtc.public.cloudinaryEnvUrl;
 
 // Preset Cloudinary imaga size transformation
 const respSize = ref("w_1920")
@@ -45,7 +42,7 @@ onMounted(() => {
 
 // Build absolute url
 const imageUrl = computed(() => {
-	return cEnv + "/image/upload/f_auto,c_scale," + respSize.value + ",q_auto:best" + props.url;
+	return cldDelivery(props.url, 'f_auto,c_scale,' + respSize.value )
 })
 
 // set object fit in css
