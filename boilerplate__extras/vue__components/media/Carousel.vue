@@ -1,17 +1,15 @@
 <template>
 	<div class="carousel" :class="[{ enlargeActive: enlargeActive }, { enlarge: props.hasEnlarge }]">
-		<!-- <pre>{{ props.slides }} </pre> -->
 		<div class="carousel__inner" id="carousel__inner" ref="inner" :style="innerStyles" @click="toggleEnlarge">
 			<div v-if="props.hasEnlarge" class="enlarge-hint">
 				<span class="__enlarge" v-if="enlargeActive === false">&#10063;</span>
 				<span class="__minimize" v-if="enlargeActive === true">&#10064;</span>
 			</div>
 			<div class="slide" v-for="slide in slides" :key="[slide, enlargeActive]">
-				<img v-if="imageOnly" class="slide__image" :src="imageUrlBase + slide" width="300" height="300" :alt="slide.name" />
-				<img v-if="slide" class="slide__image" :src="imageUrlBase + slide" width="300" height="300" :alt="slide.name" />
+				<img v-if="imageOnly" class="slide__image" :src="cldDelivery(slide, w_300)" width="300" height="300" :alt="slide"/>
+				<img v-if="slide.image" class="slide__image" :src="cldDelivery(slide, w_300)" width="300" height="300" :alt="slide" />
 				<div v-if="!imageOnly" class="slide__content">
 					<h5>{{ slide.caption }}</h5>
-
 					<p>{{ slide.slide }}</p>
 				</div>
 			</div>
@@ -38,11 +36,12 @@
 
 const props = defineProps(["imageOnly", "slides", "timed", "hasEnlarge", "color"]);
 
+import cldDelivery from '~/composables/cldDelivery';
 
 // build url base
 const rtc = useRuntimeConfig();
 const cEnv = rtc.public.cloudinaryEnvUrl;
-const imageUrlBase = cEnv + "/image/upload/f_auto,c_scale,w_1920/";
+const imageUrlBase = cEnv + "/image/upload/f_auto,c_scale,w_1920,q_auto:best/";
 
 // colors from SCSS
 import variables from '~/assets/scss/variables.module.scss';
@@ -222,8 +221,7 @@ $car_width: 40vw;
 	display: grid;
 	grid-auto-flow: column;
 	grid-auto-columns: 100%;
-	grid-template-rows: 100%;
-	height: 30em;
+
 	@include media(xsm) {
 		height: auto;
 	}
@@ -286,7 +284,7 @@ $car_width: 40vw;
 .carousel__navigation-button {
 	background: none;
 	color: $white;
-	font-size: $font-size5;
+	font-size: $font-size3;
 	padding-inline: $spacing1; // addtional clickable area
 	cursor: pointer;
 }
@@ -309,15 +307,14 @@ $car_width: 40vw;
 	display: grid;
 	justify-content: center;
 	align-content: center;
-	z-index: 10;
+
 	span {
-		font-size: $font-size2;
+		font-size: $font-size1;
 		color: v-bind(accentColor);
 		text-align: center;
 
 		&::after {
-			font-size: $font-size7;
-			margin-top: $spacing4;
+			font-size: $font-size6;
 			content: "click to enlarge";
 			display: block;
 		}

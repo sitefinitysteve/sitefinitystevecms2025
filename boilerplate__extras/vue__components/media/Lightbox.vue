@@ -2,10 +2,10 @@
 	<div class="lightbox">
 		<div v-for="(image, i) in images" :key="i" class="__image--wrapper" :class="{ active: i === activeItem }"
 			@click="selectItem(i)">
-			<img v-if="image" class="__image--thumbnail" :src="imageUrlBaseSmall + image" awidth="300" height="300"
-				:alt="imageUrlBaseSmall" />
+			<img v-if="image" class="__image--thumbnail" :src="cldDelivery(image, 'w_300,f_auto')" awidth="300" height="300"
+				:alt="image" />
 			<div loading="lazy" v-if="image" class="__image--full">
-				<img :src="imageUrlBaseLarge + image" :alt="imageUrlBaseLarge" width="1920" height="1080" />
+				<img :src="cldDelivery(image, 'w_1920,f_auto')" width="1920" height="1080" :alt="image"/>
 			</div>
 		</div>
 		<div class="__box--overlay" :class="{ active: overlayActive }">
@@ -21,12 +21,9 @@
 // NOTES
 // This is a multi image lightbox component used to render mutliple images in a grid, usefull for simple portfolio displays
 
+import cldDelivery from '~/composables/cldDelivery';
 const props = defineProps(["images", "color"]);
 
-const rtc = useRuntimeConfig();
-const cEnv = rtc.public.cloudinaryEnvUrl;
-const imageUrlBaseSmall = cEnv + "/image/upload/c_scale,w_600,q_auto:best/";
-const imageUrlBaseLarge = cEnv + "/image/upload/c_scale,w_1920,q_auto:best/";
 
 // colors from SCSS
 import variables from '~/assets/scss/variables.module.scss';
