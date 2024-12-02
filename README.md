@@ -38,7 +38,8 @@ This boilerplate will get you going quick in building with Nuxt and Decap CMS. T
 
 * Layout components (logo, header, footer) already called in layout/default.vue
 
-* A markdown render component that renders markdown to an HTML string server side (NOTE: it is harnessing an experimental feature 'islandComponents'; to remove set: nuxt.config.ts: islandComponents =>  false, remove the '.server' suffix from ParseMarkdown.server.vue)
+* A responsive image component that calls a full width or downsized version of am image, is responsive to its parent container and has a built in lightbox (Props: lightbox, objectFit: Boolean, color: String)
+
 
 ### Composables:
 
@@ -165,3 +166,9 @@ In here you will find the dynamicFields.vue component that corresponds with the 
 
 * Copyright.vue:
 A component displaying current year and your branding
+
+
+### vue__composables/ (folder)
+
+* slugify.js:
+A simple composable that returns a slug typed string (handy for fetching a slug off a title)
