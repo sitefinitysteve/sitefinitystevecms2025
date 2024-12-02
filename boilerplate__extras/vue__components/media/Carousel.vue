@@ -6,8 +6,8 @@
 				<span class="__minimize" v-if="enlargeActive === true">&#10064;</span>
 			</div>
 			<div class="slide" v-for="slide in slides" :key="[slide, enlargeActive]">
-				<img v-if="imageOnly" class="slide__image" :src="cldDelivery(slide, w_300)" width="300" height="300" :alt="slide"/>
-				<img v-if="slide.image" class="slide__image" :src="cldDelivery(slide, w_300)" width="300" height="300" :alt="slide" />
+				<img v-if="imageOnly" class="slide__image" :src="cldDelivery(slide, 'w_1920')" width="300" height="300" :alt="slide"/>
+				<img v-if="slide.image" class="slide__image" :src="cldDelivery(slide, 'w_1920')" width="300" height="300" :alt="slide" />
 				<div v-if="!imageOnly" class="slide__content">
 					<h5>{{ slide.caption }}</h5>
 					<p>{{ slide.slide }}</p>

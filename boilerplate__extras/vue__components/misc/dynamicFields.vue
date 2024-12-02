@@ -4,7 +4,7 @@
 		'__' + props.zone.dfSettings.background
 	]" class="dynamic-fields">
 		<div class="__dynamic-field" :class="['df__' + field.type]" v-for="field in zone.dynamicField">
-			<PagesMarkdownRenderMarkdown v-if="field.type == 'text'" :markdownString="field.dfText"
+			<MDC v-if="field.type == 'text'" :value="field.dfText"
 				:key="[field.type, setLocale]" />
 			<DynamicRespImage v-if="field.type == 'image'" :url="field.image" :key="setLocale" />
 			<DynamicCarousel v-if="field.type == 'images' && field.displayType == 'carousel'" :imageOnly="true"

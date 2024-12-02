@@ -16,10 +16,6 @@ const props = defineProps({
 
 import cldDelivery from '~/composables/cldDelivery';
 
-const route = useRoute();
-const rtc = useRuntimeConfig();
-const cEnv = rtc.public.cloudinaryEnvUrl;
-
 const respSize = ref("w_1920")
 
 onMounted(() => {
@@ -29,7 +25,7 @@ onMounted(() => {
 })
 
 const videoUrl = computed(() => {
-	return cldDelivery(url, respSize.value)
+	return cldDelivery(props.url, respSize.value, 'video')
 })
 
 
