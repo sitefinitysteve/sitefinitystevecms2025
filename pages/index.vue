@@ -1,6 +1,6 @@
 <template>
 	<main id="main" class="home">
-		<MiscParseMarkdown :markdownString="home.content" />
+		<MDC :value="home.content" />
 	</main>
 
 </template>

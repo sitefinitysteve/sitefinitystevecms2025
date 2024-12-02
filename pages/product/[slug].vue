@@ -4,7 +4,7 @@
 			<h1>{{ product.title }}</h1>
 			<blockquote>{{ product.description }}</blockquote>
 			<MediaRespImage :url="product.image" :lightbox="true" />
-			<PagesMarkdownRenderMarkdown :markdownString="product.content" />
+			<MDC :value="product.content" />
 		</div>
 	</main>
 </template>

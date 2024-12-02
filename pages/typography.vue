@@ -1,7 +1,7 @@
 <template>
 	<main id="main" class="typography">
 		<span>{{ typography.title }}</span>
-		<MiscParseMarkdown :markdownString="typography.content" />
+		<MDC :value="typography.content" />
 	</main>
 </template>
 
