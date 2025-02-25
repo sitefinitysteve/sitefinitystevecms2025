@@ -7,19 +7,17 @@
       <div class="relative max-w-7xl mx-auto">
         <div class="text-center">
           <div>
-            <h1 class="">
-              From the blog ✍️
+            <h1 class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+              <span class="capitalize text-teal-500 mr-2">{{ $route.params.tag }} 🏷️</span>
+              <span class="font-normal">in the blog</span>
             </h1>
-            <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
-              Tutorials, Rants, Coding, Sitefinity, Javascript, it's all here. Please enjoy my content and let me know what you think!
-            </p>
           </div>
         </div>
         
         <div class="mt-12 grid grid-cols-4">
           <!-- Main content - Blog posts -->
           <div class="col-span-12 lg:col-span-3 gap-5 max-w-lg mx-auto lg:max-w-none">
-            <div v-for="post in paginatedPosts" :key="post._path" class="py-12">
+            <div v-for="post in filteredPosts" :key="post._path" class="py-12">
               <article class="blog-post space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                 <div>
                   <dl>
@@ -57,6 +55,11 @@
                 </div>
               </article>
             </div>
+            
+            <!-- Show message if no posts found -->
+            <div v-if="filteredPosts.length === 0" class="py-12 text-center">
+              <p class="text-lg text-gray-500">No posts found with this tag.</p>
+            </div>
           </div>
           
           <!-- Sidebar - Top posts and tags -->
@@ -80,7 +83,8 @@
                   <NuxtLink v-for="tag in getAllTags(data)" 
                             :key="tag" 
                             :to="`/blog/tag/${tag.toLowerCase()}`"
-                            class="tag inline-block cursor-pointer text-sm leading-5 font-medium text-gray-400 hover:text-white hover:bg-teal-500 bg-gray-200 py-1 px-3 rounded-full mr-3 mb-4">
+                            class="tag inline-block cursor-pointer text-sm leading-5 font-medium text-gray-400 hover:text-white hover:bg-teal-500 bg-gray-200 py-1 px-3 rounded-full mr-3 mb-4"
+                            :class="{ 'bg-teal-500 text-white': tag.toLowerCase() === $route.params.tag.toLowerCase() }">
                     {{ tag }}
                   </NuxtLink>
                 </ContentQuery>
@@ -88,10 +92,13 @@
             </div>
           </div>
         </div>
-
+        
         <div class="mt-5">
-          <!-- Pagination -->
-          <BlogPagination v-if="totalPages > 1" :current-page="1" :total-pages="totalPages" />
+          <NuxtLink id="clear-filter" 
+                    to="/blog"
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700 transition ease-in-out duration-150">
+            Clear filter
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -99,8 +106,24 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
 import { useAsyncData } from 'nuxt/app';
-import BlogPagination from '~/components/blog/Pagination.vue';
+
+// Get the current route
+const route = useRoute();
+const currentTag = route.params.tag.toLowerCase();
+
+// Get all blog posts
+const { data: posts } = await useAsyncData(`blog-posts-tag-${currentTag}`, () => 
+  queryContent('/blog').sort({ publishedAt: -1 }).find()
+);
+
+// Filter posts by tag
+const filteredPosts = computed(() => {
+  return posts.value.filter(post => 
+    post.tags && post.tags.some(tag => tag.toLowerCase() === currentTag)
+  );
+});
 
 // Format date to a readable format
 const formatDate = (date) => {
@@ -115,31 +138,13 @@ const getAllTags = (posts) => {
   return [...new Set(allTags)];
 };
 
-// Get all blog posts sorted by publishedAt in descending order
-const { data: allPosts } = await useAsyncData('all-blog-posts', () => 
-  queryContent('/blog').sort({ publishedAt: -1 }).find()
-);
-
-// Calculate total pages
-const perPage = 30; // Number of posts per page
-const totalPages = computed(() => {
-  return Math.ceil(allPosts.value.length / perPage);
-});
-
-// Get paginated posts for the first page
-const paginatedPosts = computed(() => {
-  const startIndex = 0; // First page
-  const endIndex = perPage;
-  return allPosts.value.slice(startIndex, endIndex);
-});
-
 // Set page metadata
 useHead({
-  title: 'Blog - SitefinitySteve',
+  title: `Posts tagged with ${currentTag} - SitefinitySteve Blog`,
   meta: [
     { 
       name: 'description', 
-      content: 'Tutorials, Rants, Coding, Sitefinity, Javascript, it\'s all here. Please enjoy my content and let me know what you think!' 
+      content: `Blog posts tagged with ${currentTag} - Tutorials, Rants, Coding, Sitefinity, Javascript, and more.` 
     }
   ]
 });
