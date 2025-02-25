@@ -112,6 +112,7 @@
 import { marked } from 'marked';
 import { useAsyncData } from 'nuxt/app';
 import { useRoute } from 'vue-router';
+import { onMounted, ref, nextTick } from 'vue';
 
 // Format date to a readable format
 const formatDate = (date) => {
@@ -123,7 +124,32 @@ const formatDate = (date) => {
 // Render markdown content from JSON
 const renderContent = (content) => {
   if (!content) return '';
-  return marked(content);
+  
+  // Create a temporary element to hold the content
+  const tempElement = document.createElement('div');
+  
+  // First, extract all embeddedscript elements to preserve them
+  const embeddedScriptRegex = /<div\s+class=['"]embeddedscript['"][^>]*data-src=['"]([^'"]+)['"][^>]*><\/div>/g;
+  const embeddedScripts = [];
+  let match;
+  
+  // Replace embeddedscript elements with placeholders
+  let processedContent = content.replace(embeddedScriptRegex, (match, dataSrc, offset) => {
+    const placeholder = `EMBEDDED_SCRIPT_PLACEHOLDER_${embeddedScripts.length}`;
+    embeddedScripts.push({ placeholder, html: match });
+    return placeholder;
+  });
+  
+  // Render markdown
+  const renderedContent = marked(processedContent);
+  
+  // Restore embeddedscript elements
+  let finalContent = renderedContent;
+  embeddedScripts.forEach(script => {
+    finalContent = finalContent.replace(script.placeholder, script.html);
+  });
+  
+  return finalContent;
 };
 
 // Get the current route
@@ -139,6 +165,161 @@ const currentIndex = allPosts.value.findIndex(post => post._path === currentPath
 // Get next and previous articles
 const nextArticle = currentIndex > 0 ? allPosts.value[currentIndex - 1] : null;
 const prevArticle = currentIndex < allPosts.value.length - 1 ? allPosts.value[currentIndex + 1] : null;
+
+// Function to load GitHub Gist embeds
+onMounted(() => {
+  // Wait for the content to be rendered
+  nextTick(() => {
+    loadEmbeddedGists();
+    
+    // Load Prism.js for syntax highlighting if it's not already loaded
+    if (!window.Prism) {
+      loadPrismJs();
+    }
+  });
+});
+
+// Function to load Prism.js dynamically
+const loadPrismJs = () => {
+  // Create and load Prism CSS
+  const prismCss = document.createElement('link');
+  prismCss.rel = 'stylesheet';
+  prismCss.href = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+  document.head.appendChild(prismCss);
+  
+  // Create and load Prism JS
+  const prismJs = document.createElement('script');
+  prismJs.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js';
+  prismJs.async = true;
+  prismJs.onload = () => {
+    // Load additional languages
+    const languages = [
+      'csharp', 'javascript', 'css', 'markup', 'bash', 'json', 'sql', 'typescript', 'scss'
+    ];
+    
+    languages.forEach(lang => {
+      const script = document.createElement('script');
+      script.src = `https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-${lang}.min.js`;
+      script.async = true;
+      document.head.appendChild(script);
+    });
+    
+    // Initialize Prism on any existing code blocks
+    if (window.Prism) {
+      setTimeout(() => {
+        window.Prism.highlightAll();
+      }, 500);
+    }
+  };
+  
+  document.head.appendChild(prismJs);
+};
+
+const loadEmbeddedGists = async () => {
+  // Find all embedded script elements
+  const embeddedScripts = document.querySelectorAll('.embeddedscript');
+  
+  for (const container of embeddedScripts) {
+    // Extract Gist URL and optional file parameter
+    const gistUrl = container.dataset.src;
+    if (!gistUrl) continue;
+    
+    // Extract Gist ID and file parameter if present
+    const gistIdMatch = gistUrl.match(/\/([a-zA-Z0-9]+)\.js/);
+    if (!gistIdMatch) continue;
+    
+    const gistId = gistIdMatch[1];
+    
+    // Check if a specific file is requested
+    const fileParam = new URL(gistUrl, 'https://example.com').searchParams.get('file');
+    
+    try {
+      // Fetch the Gist content using the GitHub API
+      const response = await fetch(`https://api.github.com/gists/${gistId}`);
+      const data = await response.json();
+      
+      if (!data || !data.files) {
+        container.innerHTML = '<div class="p-4 bg-gray-100 text-gray-800 rounded">Failed to load Gist</div>';
+        continue;
+      }
+      
+      // Get the requested file or the first file if no specific file is requested
+      let filename = fileParam;
+      let file;
+      
+      if (filename && data.files[filename]) {
+        file = data.files[filename];
+      } else {
+        // If the specific file wasn't found or no file was specified, use the first file
+        filename = Object.keys(data.files)[0];
+        file = data.files[filename];
+      }
+      
+      // Determine language for syntax highlighting
+      const fileExtension = filename.split('.').pop().toLowerCase();
+      let language = 'plaintext';
+      
+      // Map common file extensions to languages
+      const languageMap = {
+        'js': 'javascript',
+        'ts': 'typescript',
+        'html': 'html',
+        'css': 'css',
+        'scss': 'scss',
+        'cs': 'csharp',
+        'php': 'php',
+        'py': 'python',
+        'rb': 'ruby',
+        'java': 'java',
+        'json': 'json',
+        'xml': 'xml',
+        'md': 'markdown',
+        'sql': 'sql'
+      };
+      
+      language = languageMap[fileExtension] || 'plaintext';
+      
+      // Create a code element with syntax highlighting
+      const codeElement = document.createElement('pre');
+      codeElement.className = 'overflow-auto bg-gray-50 text-gray-800 rounded p-4 my-4';
+      codeElement.style.maxHeight = '500px';
+      
+      const code = document.createElement('code');
+      code.textContent = file.content;
+      code.className = `language-${language}`;
+      
+      codeElement.appendChild(code);
+      
+      // Create header with filename
+      const header = document.createElement('div');
+      header.className = 'flex justify-between items-center p-2 bg-gray-200 text-gray-800 text-sm rounded-t';
+      header.innerHTML = `
+        <span class="font-mono">${filename}</span>
+        <a href="${data.html_url}" target="_blank" class="text-teal-600 hover:text-teal-800">View on GitHub</a>
+      `;
+      
+      // Create container for the gist
+      const gistContainer = document.createElement('div');
+      gistContainer.className = 'gist-embed border border-gray-200 rounded shadow-sm my-6';
+      gistContainer.appendChild(header);
+      gistContainer.appendChild(codeElement);
+      
+      // Clear container and append content
+      container.innerHTML = '';
+      container.appendChild(gistContainer);
+      
+      // Apply syntax highlighting with Prism if available
+      if (window.Prism) {
+        setTimeout(() => {
+          window.Prism.highlightElement(code);
+        }, 100);
+      }
+    } catch (error) {
+      console.error('Error loading Gist:', error);
+      container.innerHTML = '<div class="p-4 bg-gray-100 text-gray-800 rounded">Error loading Gist</div>';
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -165,9 +346,59 @@ const prevArticle = currentIndex < allPosts.value.length - 1 ? allPosts.value[cu
     overflow-x: auto;
   }
   
+  code {
+    background-color: #f3f4f6;
+    border-radius: 0.25em;
+    padding: 0.2em 0.4em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.875em;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+  }
+  
+  pre code {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    border: none;
+    font-size: 0.9em;
+  }
+  
   img {
     max-width: 100%;
     height: auto;
+  }
+  
+  /* Styles for embedded gists */
+  .gist-embed {
+    margin: 1.5rem 0;
+    
+    pre {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    
+    code {
+      display: block;
+      padding: 0;
+      background-color: transparent;
+      white-space: pre;
+      overflow-x: auto;
+    }
+  }
+  
+  /* Loading state for embeddedscript elements */
+  .embeddedscript:empty::before {
+    content: "Loading code snippet...";
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    background-color: #f3f4f6;
+    border-radius: 0.375em;
+    color: #6b7280;
+    font-style: italic;
   }
 }
 </style> 
