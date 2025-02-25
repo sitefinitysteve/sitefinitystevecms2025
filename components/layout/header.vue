@@ -1,5 +1,5 @@
 <template>
-	<header id="header">
+	<header id="header" class="">
 		<LayoutLogo />
 		<NavigationMainMenu />
 	</header>
