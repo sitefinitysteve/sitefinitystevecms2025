@@ -6,39 +6,33 @@
         <p class="text-xl mt-4">Buff up your Sitefinity toolbox with our widgets 💪</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <div v-for="widget in widgets" :key="widget.title" class="p-6 bg-white rounded-lg shadow-md">
-          <div class="flex items-start">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-teal-500 text-white">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                  />
-                </svg>
-              </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="widget in widgets" :key="widget.title" 
+             class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105">
+          <div class="p-6">
+            <div class="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-teal-500 to-blue-500">
+              <component :is="widget.icon" class="h-8 w-8 text-white" />
             </div>
-            <div class="ml-4">
-              <h4 class="text-lg font-medium">{{ widget.title }}</h4>
-              <p class="mt-2">{{ widget.description }}</p>
-            </div>
+            <h3 class="text-xl font-bold text-center mb-3">{{ widget.title }}</h3>
+            <p class="text-gray-600 text-center">{{ widget.description }}</p>
           </div>
         </div>
       </div>
 
       <div class="mt-16 text-center">
-        <a
-          href="https://www.progress.com/sitefinity-cms/marketplace/add-ons/randomsitecontrolsmvc"
-          class="inline-block px-6 py-3 bg-orange-400 hover:bg-orange-600 text-white font-medium rounded-md transition duration-150 mr-2"
-        >Sitefinity Marketplace</a>
-        <a
-          href="https://rscdemo.sitefinitysteve.com/"
-          target="_blank"
-          class="inline-block px-6 py-3 bg-orange-400 hover:bg-orange-600 text-white font-medium rounded-md transition duration-150 mr-2"
-        >Live Demos</a>
+        <NavigationButton 
+          variant="primary" 
+          size="lg" 
+          class="mr-2"
+          @click="navigateTo('https://www.progress.com/sitefinity-cms/marketplace/add-ons/randomsitecontrolsmvc')"
+        >Sitefinity Marketplace</NavigationButton>
+        
+        <NavigationButton 
+          variant="primary" 
+          size="lg" 
+          class="mr-2"
+          @click="navigateTo('https://rscdemo.sitefinitysteve.com/', true)"
+        >Live Demos</NavigationButton>
       </div>
     </div>
 
@@ -53,17 +47,22 @@
 
         <div class="flex flex-wrap justify-center gap-8 mb-16">
           <div v-for="plugin in plugins" :key="plugin.title" class="w-1/2 md:w-1/4 p-2 text-center">
-            <a :title="plugin.title" :href="plugin.link">
+            <NavigationButton 
+              variant="ghost" 
+              @click="navigateTo(plugin.link, true)"
+              :title="plugin.title"
+            >
               <img :src="plugin.image + '.png'" :alt="plugin.title" class="mx-auto h-16 object-contain" />
-            </a>
+            </NavigationButton>
           </div>
         </div>
 
         <div class="text-center">
-          <a
-            href="https://nativescript.org/"
-            class="inline-block px-6 py-3 bg-orange-600 hover:bg-teal-500 text-white font-medium rounded-md transition duration-150"
-          >Create a mobile app</a>
+          <NavigationButton 
+            variant="secondary" 
+            size="lg"
+            @click="navigateTo('https://nativescript.org/')"
+          >Create a mobile app</NavigationButton>
         </div>
       </div>
     </div>
@@ -74,7 +73,11 @@
           <h2>ServiceStack RestApi templates</h2>
           <p class="text-xl mt-4">
             This is the fastest and best way to create a custom Sitefinity Service. Not MVC JsonResults, not Webforms Svc calls,
-            <a href="https://servicestack.net/" class="text-teal-600 hover:underline">ServiceStack</a> is fully licensed by Sitefinity, leverage it!
+            <NavigationButton 
+              variant="ghost" 
+              size="sm"
+              @click="navigateTo('https://servicestack.net/')"
+            >ServiceStack</NavigationButton> is fully licensed by Sitefinity, leverage it!
           </p>
         </div>
 
@@ -141,10 +144,11 @@ public class $NAME$Service : Service
 }
               </pre>
               <div class="mt-4 text-center">
-                <a
-                  href="https://www.devexpress.com/products/coderush/"
-                  class="inline-block px-6 py-3 bg-orange-600 hover:bg-teal-500 text-white font-medium rounded-md transition duration-150"
-                >Download CodeRush</a>
+                <NavigationButton 
+                  variant="secondary" 
+                  size="lg"
+                  @click="navigateTo('https://www.devexpress.com/products/coderush/')"
+                >Download CodeRush</NavigationButton>
               </div>
             </div>
           </div>
@@ -156,49 +160,62 @@ public class $NAME$Service : Service
 
 <script setup>
 import { ref } from 'vue';
+import NavigationButton from '~/components/navigation/button.vue';
+import { 
+  Bars3Icon, 
+  CodeBracketIcon, 
+  DocumentTextIcon, 
+  BoltIcon, 
+  MapPinIcon, 
+  MagnifyingGlassIcon, 
+  EllipsisHorizontalIcon 
+} from '@heroicons/vue/24/outline';
 
 const currentTab = ref('plain');
 
+// Updated widgets array without Twitter Feed and with Heroicons v2
 const widgets = [
   {
     title: "Tabstrip",
     description:
       "Drag-Drop widgets into a native Bootstrap or kendo tabstrip. The only tabstrip component available for Sitefinity that allows hosting of any content",
+    icon: Bars3Icon
   },
   {
     title: "Html Content Block",
     description:
       "Enter your content in a full-screen instance of VSCode in the browser, nothing to install, with intellisense and syntax highlighting. No content parsing, this thing is fast.",
+    icon: CodeBracketIcon
   },
   {
     title: "Markdown Editor",
     description:
       "Enter content as markdown, get a live preview to the right as you enter it. Nothing is cleaner than markdown, definitely not wysiwyg editors which bloat markup.",
+    icon: DocumentTextIcon
   },
   {
     title: "Page Title",
     description:
       "Drop on the top of a page to pull in the title automatically, or edit to change. Template is global so you can easily restyle site-wide without editing 1000 content blocks.",
-  },
-  {
-    title: "Twitter Feed",
-    description:
-      "Uses the twitter API to pull in content, Sitefinity removed twitter integration back around v11, I brought it back (but better)",
+    icon: BoltIcon
   },
   {
     title: "Google Maps",
     description:
       "Drag-Drop google map widget, with just about every option configurable in the designer",
+    icon: MapPinIcon
   },
   {
     title: "Widget Finder",
     description:
       "Ever wanted to know which pages contain which widgets (even layouts)... then this is your jam.",
+    icon: MagnifyingGlassIcon
   },
   {
     title: "And more...",
     description:
       "Extension methods like .GetTags(), .GetImage(), .Live(), .Master(), or just want images or docs in a ContentBlock to render with the ImageDoc .cshtml views, there's tons here",
+    icon: EllipsisHorizontalIcon
   },
 ];
 
@@ -239,6 +256,15 @@ const plugins = [
     image: "/images/components/green-android-logo",
   },
 ];
+
+// Function to handle navigation
+const navigateTo = (url, openInNewTab = false) => {
+  if (openInNewTab) {
+    window.open(url, '_blank');
+  } else {
+    window.location.href = url;
+  }
+};
 
 // Define meta information for the page
 useHead({
