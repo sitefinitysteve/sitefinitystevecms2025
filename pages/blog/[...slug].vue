@@ -21,58 +21,33 @@
         </header>
         
         <div class="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:col-gap-6 pb-8 xl:pb-10" style="grid-template-rows:auto 1fr">
-          <dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
-            <dt class="sr-only">Authors</dt>
-            <dd>
-              <ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
-                <li class="flex items-center space-x-2">
-                  <img src="https://pbs.twimg.com/profile_images/1630627663311192076/arxUvMn2_normal.jpg" 
-                       alt="Twitter Avatar" 
-                       loading="lazy" 
-                       class="w-10 h-10 rounded-full" />
-                  <dl class="text-sm font-medium leading-5 whitespace-no-wrap">
-                    <dt class="sr-only">Name</dt>
-                    <dd class="text-gray-900">Steve McNiven</dd>
-                    <dt class="sr-only">Twitter</dt>
-                    <dd>
-                      <a href="https://twitter.com/@stevemcniven" 
-                         class="text-teal-500 hover:text-teal-600">@stevemcniven</a>
-                    </dd>
-                  </dl>
-                </li>
-              </ul>
-            </dd>
-          </dl>
-          
-          <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2 xl:pl-6">
-            <div class="prose max-w-none pt-10 pb-8">
-              <div id="post-content" class="post__content markdown pt-4 md:pt-6 md:pb-24">
-                <!-- For JSON content, we need to render the content field directly -->
-                <div v-if="typeof doc.content === 'string'" v-html="renderContent(doc.content)"></div>
-                <!-- For Markdown content, use ContentRenderer -->
-                <ContentRenderer v-else :value="doc" />
-              </div>
-            </div>
-          </div>
-          
-          <footer class="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2">
+          <div>
+            <dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
+              <dt class="sr-only">Authors</dt>
+              <dd>
+                <ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
+                  <li class="flex items-center space-x-2">
+                    <img src="https://pbs.twimg.com/profile_images/1630627663311192076/arxUvMn2_normal.jpg" 
+                        alt="Twitter Avatar" 
+                        loading="lazy" 
+                        class="w-10 h-10 rounded-full" />
+                    <dl class="text-sm font-medium leading-5 whitespace-no-wrap">
+                      <dt class="sr-only">Name</dt>
+                      <dd class="text-gray-900">Steve McNiven</dd>
+                      <dt class="sr-only">Twitter</dt>
+                      <dd>
+                        <a href="https://twitter.com/@stevemcniven" 
+                          class="text-teal-500 hover:text-teal-600">@stevemcniven</a>
+                      </dd>
+                    </dl>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+            <footer class="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2">
             <div class="space-y-8 py-8">
-              <div v-if="nextArticle">
-                <h2 class="text-xs tracking-wide uppercase text-gray-500">Next Article</h2>
-                <div class="text-teal-500 hover:text-teal-600">
-                  <NuxtLink :to="nextArticle._path">{{ nextArticle.title }}</NuxtLink>
-                </div>
-              </div>
-              
-              <div v-if="prevArticle">
-                <h2 class="text-xs tracking-wide uppercase text-gray-500">Previous Article</h2>
-                <div class="text-teal-500 hover:text-teal-600">
-                  <NuxtLink :to="prevArticle._path">{{ prevArticle.title }}</NuxtLink>
-                </div>
-              </div>
-              
               <div>
-                <h2 class="text-xs tracking-wide uppercase text-gray-500">Top Posts</h2>
+                <h2 class="text-sm tracking-wide uppercase text-gray-500">Top Posts</h2>
                 <div class="text-teal-500 hover:text-teal-600">
                   <ul>
                     <ContentQuery path="/blog" :limit="5" :sort="{publishedAt: -1}" v-slot="{ data }">
@@ -86,22 +61,61 @@
                   </ul>
                 </div>
               </div>
+              
+              <div v-if="nextArticle">
+                <h2 class="text-sm tracking-wide uppercase text-gray-500">Next Article</h2>
+                <div class="text-teal-500 hover:text-teal-600">
+                  <NuxtLink :to="nextArticle._path">{{ nextArticle.title }}</NuxtLink>
+                </div>
+              </div>
+              
+              <div v-if="prevArticle">
+                <h2 class="text-sm tracking-wide uppercase text-gray-500">Previous Article</h2>
+                <div class="text-teal-500 hover:text-teal-600 pt-2">
+                  <NuxtLink :to="prevArticle._path">{{ prevArticle.title }}</NuxtLink>
+                </div>
+              </div>
             </div>
             
             <div class="pt-8">
               <NuxtLink class="text-teal-500 hover:text-teal-600" to="/blog">← Back to the blog</NuxtLink>
             </div>
           </footer>
+          </div>
+          
+          <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2 xl:pl-6">
+            <div class="prose max-w-none pt-10 pb-8">
+              <div id="post-content" class="post__content markdown pt-4 md:pt-6 md:pb-24">
+                <!-- For JSON content, we need to render the content field directly -->
+                <div v-if="typeof doc.content === 'string'" v-html="renderContent(doc.content)"></div>
+                <!-- For Markdown content, use ContentRenderer -->
+                <ContentRenderer v-else :value="doc" />
+              </div>
+            </div>
+          </div>
+        
         </div>
       </article>
       
-      <div class="bg-teal-700 mb-8">
-        <div class="mx-auto max-w-2xl py-16 px-4 text-center sm:py-20 sm:px-6 lg:px-8">
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            <span class="block">Boost your online presence.</span>
-          </h2>
-          <p class="mt-4 text-lg leading-6 text-indigo-200">Let us create the perfect digital experience for your company.</p>
-          <NuxtLink to="/contact" class="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-gray-600 hover:bg-indigo-50 sm:w-auto">Contact us now</NuxtLink>
+      <div class="bg-gradient-to-r from-teal-600 to-blue-600 rounded-xl shadow-lg overflow-hidden mb-8 mx-4">
+        <div class="mx-auto max-w-2xl py-12 px-6 sm:py-16 sm:px-8 relative">
+          <div class="absolute top-0 right-0 -mt-4 -mr-16 w-32 h-32 bg-white opacity-10 rounded-full"></div>
+          <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-24 h-24 bg-white opacity-10 rounded-full"></div>
+          
+          <div class="relative z-10">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <span class="block">Boost your online presence</span>
+            </h2>
+            <p class="mt-4 text-lg leading-6 text-white text-opacity-90">Let us create the perfect digital experience for your company.</p>
+            <NuxtLink 
+              to="/contact" 
+              class="mt-8 inline-flex items-center justify-center rounded-md bg-white px-5 py-3 text-base font-medium text-teal-700 hover:bg-opacity-90 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+              <span>Contact us now</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </ContentDoc>
