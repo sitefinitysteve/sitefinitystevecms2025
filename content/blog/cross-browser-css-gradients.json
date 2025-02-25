@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:27:43.2130000Z",
+  "legacyUrl": "/code/2012/03/16/cross-browser-css-gradients",
+  "needsFixing": false,
+  "slug": "cross-browser-css-gradients",
+  "featuredImage": "/images/stock/500x280/img19.jpg",
+  "markdown": true,
+  "title": "Cross-Browser CSS Gradients",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "### Edit: Content Update\n\nSince I posted this there's lots of great tools you can use to visualize your gradients, and nowdays it's just supported in all major browsers prefix free.\n\nHere's a [cool gradient generator](https://cssgradient.io/) to try.\n\n-----\n\nHeres a quick snippit to allow you to show CSS Gradients in all 3 major browsers\n\nJust re-load this in IE, Firefox, Safari, or Chrome...should look similar on all 3 without any CSS Background Sprites!\n\n```\nbackground: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#C1D11C), to(#FFFFFF)) rgb(246, 246, 246);\nbackground:-moz-linear-gradient(center top , #C1D11C, #FFFFFF);\nfilter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#C1D11C, endColorStr=#FFFFFF);\n```\n\nThis is a super useful URL to visualize and generate the gradients too  \n[https://css3please.com/](https://css3please.com/)",
+  "seoMetaImage": "/images/stock/500x280/img19.jpg",
+  "seoDescription": "How to use CSS Gradients in multiple browsers. The problem is when the spec isn't supported you need to use vendor prefixes."
+}

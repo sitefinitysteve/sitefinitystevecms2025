@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2017-09-08T15:40:50.8700000Z",
+  "legacyUrl": "/code/2017/09/08/sitefinity-forms-popup-template",
+  "needsFixing": false,
+  "slug": "sitefinity-forms-popup-template",
+  "featuredImage": "/images/stock/500x280/img9.jpg",
+  "markdown": true,
+  "title": "Sitefinity forms popup template",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Default MVC sitefinity forms template is missing a couple things  \n  \n1.  FormViewModel does not expose the forms title\n2.  Does not provide any way to specify a template... now it looks like you can set a custom form for a specific form based convention, but that would be annoying to keep re-implimenting.  What we want here is the ability to have an SF form popup in a modal window.\n3.  So based on #2 we're also missing some meta fields to change the button text... so... yeah\n\n**ANYWAY** on to the new template, for reference [this](https://github.com/Sitefinity/feather-widgets/blob/359ea2424a142f666fa856f7f30b06c006800f10/Telerik.Sitefinity.Frontend.Forms/Mvc/Views/Form/Index.cshtml) is the existing template.  \n\n### Usage to make a form popup with this template\n\n\n*   In the designer add a class name of \"modal\" or \"popup\"\n*   To change the button text add the class of \"title-<whatever>\".  Everything after the dash will be used in the title and \\*NOT\\* added to the class of the form. \n*   CssClass Examples:  \n    popup title-This is my Button  \n    modal title-Click Me\n\nTLDR: Basically this just wraps the existing form code in a bootstrap modal window code and only renders it if it see's \"popup\", \"modal\", or \"model\" in the CssClass field.  It would be awesome (any telerik'r reading this if there was a template dropdown).  \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/0550e4e1f1112075e34d0c5e935254f7.js\"></div>\n  \n### Here's the result\n\n![PopupForm-Image1](/images/posts/sitefinity-forms-popup-template/popupform-image1.png?sfvrsn=ff328b66_0 \"PopupForm-Image1\")  \n  \n![PopupForm-Image2](/images/posts/sitefinity-forms-popup-template/popupform-image2.png?sfvrsn=ef328b66_0 \"PopupForm-Image2\")",
+  "seoMetaImage": "/images/stock/500x280/img9.jpg",
+  "seoDescription": "Sitefinity doesn't natively allow for forms to popup in a modal window, but it's not that complex, here's how!"
+}

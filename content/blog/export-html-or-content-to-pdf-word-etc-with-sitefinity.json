@@ -1,0 +1,15 @@
+{
+    "title": "Export Sitefinity Content to Pdf or MSWord",
+    "needsFixing": false,
+    "content": "\\*\\* UPDATE August-20-2015\\*\\*  \nThis broke for us on Sitefinity 8.1.  The fix is to open your telerik accounts, and hopefully you have access to the devcraft package or the WPF controls.  Download the zip, and replace all the Telerik.Windows.X.dlls with the latest (in our case 2015.2.817.45).  Very important to not forget add every Dll to your assembly bindings or things like document indexing will break.  \n \n\nOne hidden gem in Sitefinity is that it contains tools from another Telerik division (WPF) which allows for document\\\\file creation.  It\u0027s not a 1/2 assed solution either.  Html-Pdf traditionally has been hard to pull off, and you\u0027re either stuck with an OpenSource solution like iTextSharp or paying thousands for an Html-Pdf library which often contain insane licensing restrictions (Per Cpu, etc).  \n  \nHowever for about the last 3-4 releases Sitefinity has the ability to do EXCELLENT Html-Pdf conversion via the RadDocument object.  \n  \nIt\u0027s pretty simple too...you just load whichever format provider you need, create a RadDocument, and call Export...done and done.  We use this at the university to take a Sitefinity DynamicContent item and place the fields into a pre-defined external html template.  We then give the user the option to export as word or pdf loading in that same HTML.  \n  \n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/4e0449b49302b46f4b3e.js\"\u003e\u003c/div\u003e  \n\nCool thing about this is the cost...$0 (Well I mean you bought Sitefinity, but it\u0027s another free value-add)",
+    "featuredImage": "/images/stock/500x280/img19.jpg",
+    "seoDescription": "Export Html to Pdf with Sitefinity at no additional cost",
+    "seoMetaImage": "/images/stock/500x280/img19.jpg",
+    "publishedAt": "2014-07-30T14:57:17.5270000Z",
+    "slug": "export-html-or-content-to-pdf-word-etc-with-sitefinity",
+    "legacyUrl": "/code/2014/07/30/export-html-or-content-to-pdf-word-etc-with-sitefinity",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

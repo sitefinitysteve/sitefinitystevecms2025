@@ -1,0 +1,13 @@
+{
+  "publishedAt": "2012-03-23T17:28:00.0000000Z",
+  "legacyUrl": "/code/2012/03/23/clientside-debugging-the-telerik-radcontrols",
+  "needsFixing": false,
+  "slug": "clientside-debugging-the-telerik-radcontrols",
+  "featuredImage": "/images/stock/500x280/img13.jpg",
+  "markdown": true,
+  "title": "Clientside Debugging the Telerik RadControls",
+  "tags": [],
+  "content": "### Documentation\n\nIf we're all being honest as programmers, it's really hard to keep documentation up to date.  There's the first reason, that it sucks, and the second reason is things change so rapidly in an agile environment new features and finishing projects come before adding in some xml documentation.\n\nSo this is teleriks documentation [LINK  \n](https://www.telerik.com/help/aspnet-ajax/introduction.html)\n\nIt's pretty solid as far as documentation and samples go, I rarely come across articles that are so out of date they don't work.  However there are still a TON of functions \"hidden\" that aren't in the documentation (could be they just haven't updated it yet).  \n  \n\n### Tools\n\n*   Browser: [Firefox](https://www.mozilla.com/en-US/firefox/firefox.html)\n*   Firefox Dev Tool: [Firebug](https://getfirebug.com/)\n*   JScript EditorExtensions: [LINK](https://visualstudiogallery.msdn.microsoft.com/872d27ee-38c7-4a97-98dc-0d8a431cc2ed) (adds C# code management to javascript)\n\n### Steps\n\n1.  Open the firebug\n2.  Find the script code you want to debug\n3.  Click to the left of the line number to add a breakpoint\n4.  Preform the action which will call the function (Breakpoint should then be hit)\n5.  Use the Right pane in firebug to see the currently accessible variables\n6.  Expand the variable (sender, or args for example), and look at all the wonderful magical things you can do!\n\n### Testing\n\n1.  When you have the breakpoint hit, open the firebug \"Console\" tab\n2.  In the right pane type in code which you want to execute.  It will run as if it's part of your code local to that clientside function.\n3.  Any variable which exists in the current function is available to you in the console tab.",
+  "seoMetaImage": "/images/stock/500x280/img13.jpg",
+  "seoDescription": "Here's how you can debug issues with the RadControls ClientSide Javascript API"
+}

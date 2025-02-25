@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-25T15:09:00.0000000Z",
+  "legacyUrl": "/code/2012/03/25/avoid-version-errors-with-assembly-binding",
+  "needsFixing": false,
+  "slug": "avoid-version-errors-with-assembly-binding",
+  "featuredImage": "/images/stock/500x280/img5.jpg",
+  "markdown": true,
+  "title": "Avoid Version errors with Assembly Binding",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "This is the code to bind the most commonly used assemblies\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/3f5667899cb5809dd7124e491198d4bc.js\"></div>\n  \nAdd this to your web.config, and you shouldn't need to wait anymore for control vendors in the marketplace to recompile against the latest release.  \n  \nThe root problem is .net is compiled against specific assembly versions for security reasons.  When you update Sitefinity to 8.2, lets say, my dll is compiled against 8.1... so when sitefinity loads my DLL is crashing saying \"HEY, WHERE'S Telerik.Sitefinity.Dll v8.1.5000.0!\".  This tells it to just calm down, and use 8.2, it's all good...  \n  \nSo obviously missing here are the \"newVersion\" numbers. Just browse over to your bin directory and inspect the properties of the above DLLs to get the version # to paste in. So if you just updated to 4.2.0.0 then put that in as the newversion.  \n  \nReference Url: [Link](https://msdn.microsoft.com/en-us/library/twy1dw1e.aspx)",
+  "seoMetaImage": "/images/stock/500x280/img5.jpg",
+  "seoDescription": "If you're getting a YSOD crash page due to a C# assembly version mismatch, this quick config change will fix you right up!"
+}

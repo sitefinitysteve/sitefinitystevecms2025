@@ -1,0 +1,15 @@
+{
+    "title": "Telerik Reporting: Export On Button Click",
+    "needsFixing": false,
+    "content": "I\u0027m posting this mostly for my own benifet since every time I need it I spend 20 minutes googling around to get the code snippet again.\n\nSo here\u0027s the acticle: [LINK](https://www.telerik.com/support/kb/reporting/designing-reports/exporting-a-report-to-pdf-programmatically.aspx)\n\nHere\u0027s the Code:\n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/7fd874150963a3e1ee4d0d91429b2bea.js\"\u003e\u003c/div\u003e\n\n**So you can change the extensions to the following:**\n\n*   IMAGE\n*   PDF\n*   RTF\n*   MHTML\n*   XLS\n*   CSV\n*   XPS\n\nThis comes from here: [LINK](https://www.telerik.com/help/reporting/programmatic-exporting-report.html)",
+    "featuredImage": "/images/stock/500x280/img9.jpg",
+    "seoDescription": "How to wire up a report download to a button click with Telerik Reporting",
+    "seoMetaImage": "/images/stock/500x280/img9.jpg",
+    "publishedAt": "2012-03-16T01:57:18.1630000Z",
+    "slug": "telerik-reporting--export-on-button-click",
+    "legacyUrl": "/code/2012/03/16/telerik-reporting--export-on-button-click",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

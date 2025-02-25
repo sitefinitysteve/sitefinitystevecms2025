@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "publishedAt": "2021-03-19T18:03:13.041Z",
+  "title": "Sitefinity Controller ActionResult not routing properly",
+  "slug": "sitefinity-controller-actionresult-not-routing-properly",
+  "seoDescription": "Oh no! I have a Custom Sitefinity Widget with ActionResult routes but every attempt to use them throws a 404.",
+  "content": "I just burned so much time on this I thought I'd write it out in case someone else googling around might find it useful.\n\nSo basically I had a page and dropped an widget (Controller) I made onto it.  It had an Index method and a Save method which I was trying to HttpPost back to.  The problem was the route wasn't ever being hit.  Was driving me crazy, so first I played around with the post data maybe that's why it wasn't being seen... nope.  Next I removed the HttpPost and tried to just /mypage-with-widget/Save to see if it could render on a regular HttpGet; nope.\n\nMaybe it needs for some reason [RelativeRoute], nope that prevented the entire widget even rendering at all.  What threw me most is that this is the first widget I've ever made using the VisualStudio UI to create the files instead of just making it by hand from scratch. I figured maybe it was adding something somewhere that make it behave weird in Sitefinity.\n\nLong story and about 3 hours of trying things later, it wasn't the widget at all, or the page permissions or anything.\n\n```\nEdit the Page PROPERTIES, find the \"Allow parameter validation\" checkbox, and make sure it's checked.\n```\n\nThat's all it was, after all that troubleshooting.\n\nThe thread I posted to the forums can be found [here](https://community.progress.com/s/question/0D54Q00008Vx5sQSAR/anyone-ever-had-a-controller-not-be-able-to-route-to-a-nonindex-action)"
+}

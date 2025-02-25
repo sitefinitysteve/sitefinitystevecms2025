@@ -1,0 +1,16 @@
+{
+    "title": "Disable RadControls embedded jQuery in Sitefinity",
+    "needsFixing": false,
+    "content": " jQuery double loading in Sitefinity sucks if you\u0027re anal about every last byte :) ...  \n  \nIf you follow the documentation though and disable via the web.config sitefinity just goes to hell in a hand-basket because it relies heavily on the RadControls.  When it was being developed way back, this wasn\u0027t a feature OF the RadControls so why would they account for it.  \n\n### Solution: Conditionally disable it in your masterpage\n\nThe answer is as simple as checking to see if you\u0027re in design mode...and then not disabling it.   \n  \n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/abfe2b483c152dcb083105dc22468ec0.js\"\u003e\u003c/div\u003e\n  \nI\u0027ve been running like this for over a week with zero issues...it\u0027s my new standard going forward.  \n  \nSo clearly this requires a .master Masterpage.  It also assumes that you have a RadScriptManager on your page called \"ScriptManager1\".  I assume if you don\u0027t you could write up something to find the injected manager and disable it that way.  \n\n**Note:** This will only work for editions of sitefinity running at [least RadControls Q2 2012](https://www.telerik.com/help/aspnet-ajax/scriptmanager-disabling-embedded-jquery.html)  \n  \nCheers,  \nSteve",
+    "featuredImage": "/images/stock/500x280/img16.jpg",
+    "seoDescription": "Disable the RadControls embedded jQuery in Sitefinity",
+    "seoMetaImage": "/images/stock/500x280/img16.jpg",
+    "publishedAt": "2012-12-10T17:48:44.9430000Z",
+    "slug": "disable-embedded-jquery-on-radcontrols",
+    "legacyUrl": "/code/2012/12/10/safely-disable-the-radcontrols-embedded-jquery-in-sitefinity",
+    "markdown": true,
+    "tags": [
+        "Tutorial",
+        "Sitefinity"
+    ]
+}

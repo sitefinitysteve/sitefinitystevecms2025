@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2012-11-20T13:52:36.8000000Z",
+  "legacyUrl": "/code/2012/11/20/small-thing-to-boost-performance",
+  "needsFixing": false,
+  "slug": "small-thing-to-boost-performance",
+  "featuredImage": "/images/stock/500x280/img12.jpg",
+  "markdown": true,
+  "title": "Loading Sitefinity faster on your dev box",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "This is one trick I don't really see posted anywhere related to Sitefinity performance.  \n  \nOk, so Sitefinity runs via IIS right...and IIS contains a worker process called \"w3wp.exe\".  By default that guy runs with Normal Priority on your system.  Meaning windows doesn't treat its processing as being any more or less important than the other processes.  \n  \n...but we think it is ;)  \n  \nSo turn it's priority up to high to get a boost on your dev\\\\live servers.  \n![High priority](/images/posts/small-thing-to-boost-performance/2012_11_20_faster_load_highpriority.png?sfvrsn=36078b66_2 \"2012_11_20_Faster_Load_HighPriority\")  \n  \nSo as you can see above in the \"User Name\" field, each of my sites runs in it's own app pool which can be identified easier (and obviously isolated).  \n  \nYou might also want to set your database process to high as well since SF clearly talks to the DB quite a bit.  In my case it's \"sqlservr,exe\" (the one using the most ram).  \n  \nI've found this significantly boosts my dev time going from a cold build to page load.  I have also yet to encounter anything \"strange\" by doing this, and this very site you're on now has the process set to High.  \n  \nKeep in mind this only works while the process is active, so if w3wp shuts down you'll need to do this again.  There are utilities you can get to save your prefs permanently though.  I have not tried [this one](https://www.askvg.com/how-to-permanently-set-process-priority-in-windows-task-manager/), but...  \n",
+  "seoMetaImage": "/images/stock/500x280/img12.jpg",
+  "seoDescription": "Here's a quick trick to get IIS on your local dev box to load up Sitefinity faster!"
+}

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:56:13.9300000Z",
+  "legacyUrl": "/code/2012/03/16/getting-ie6-8-working-with-css3",
+  "needsFixing": false,
+  "slug": "getting-ie6-8-working-with-css3",
+  "featuredImage": "/images/stock/500x280/img3.jpg",
+  "markdown": true,
+  "title": "Getting IE6-8 working with CSS3",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "CSS 3 styling is a huge timesaver for developers when trying to do common tasks such as Rounded Corners, or DropShadows.  However like most things Web, IE always comes along and kicks you right where the sun doesn't shine (ever had a client NOT use old IE?).  Part of the reason we want to use CSS is because it doesn't require you to\n\n1.  Download extra images (Sprited or sliced)\n2.  Generate extra markup to place those images\n\nYou're only solution is a polyfill.  Basically it'll hack the functionality back into IE though javascript.  There's lots of libraries to pick from, modernizer has them indexed for us though, just pick what you need over @ [HTML5 Cross Browser Polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills)",
+  "seoMetaImage": "/images/stock/500x280/img3.jpg",
+  "seoDescription": "IE hates CSS, a lot, clearly as a developer you are very aware of this.  But moreover it hates CSS3, lets just say it hates progress. Here's a fix..."
+}

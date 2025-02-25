@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2012-05-30T01:55:21.5400000Z",
+  "legacyUrl": "/code/2012/05/30/decorate-your-sitefinity-forms-with-kendoui",
+  "needsFixing": false,
+  "slug": "decorate-your-sitefinity-forms-with-kendoui",
+  "featuredImage": "/images/stock/500x280/img8.jpg",
+  "markdown": true,
+  "title": "Decorate your Sitefinity Forms with KendoUI",
+  "tags": [
+    "Tutorial",
+    "KendoUI"
+  ],
+  "content": "We're quite lucky that sitefinity uses plain Html (albeit a bit bloated thanks to the ID attributes).  However what it means on a fundamental level is that they're easier to style and extend.  If we had the RadControls being rendered out we'd have to have more complex designers, they'd be harder to style, yada yada.  So this is good news!  \n  \nSo lets say for example you need the functionality to have a user select a date.  Well you have two options.  Option 1 is to create a new sitefinity forms control, register it, re-build your project.  Option 2 is to run this $(\".mydate input\").kendoDatePicker();  \n\n### Steps:\n\n1.  Load jQuery and [KendoUI](https://demos.kendoui.com/web/overview/index.html) somehow on your page.   I don't care from where, or how, just make sure you don't get $ or kendo undefined javascript errors when the page runs the code.  Firebug is your friend on this one.\n2.  Put your form on the page\n3.  In a Javascript widget kendo-ize all the objects inside $(document).ready.\n\n### Things to Note:\n\n1.  So as you can see we have something REALLY cool...Rich Text Editing with one line of javascript :)  Now keep in mind the downside is that it'll save the resulting HTML back to the forms table encoded.  So it's not ideal unless you're going to consume the results some other way where you can decode it back to readable....but for an emailed form like using [Georges control](https://gsaadeh.com/blog/11-07-20/Forms_Module_Notification_1_2.aspx), you can do this quite easily.\n2.  Since we're Kendo-izing objects manually we can leverage every configuration\\\\method\\\\event kendo has to extend your form...go...nuts :)\n3.  Make sure to set CSS on your elements in order to specifically target the controls like I did with name and age.  It puts the class on the outer wrapper of the control...see **figure1**\n4.  USE FIREBUG! :)  It'll help with script errors, or locating the elements you want to initialize.\n5.  You will still probably need some CSS styles to fix some styling\n6.  This is how I did my forms on this site\n\n**figure1**  \n[![Kendo form decoration](/images/posts/decorate-your-sitefinity-forms-with-kendoui/2012_05_27_kendoformdecoration.png?sfvrsn=71058b66_2 \"2012_05_27_KendoFormDecoration\")](/images/posts/decorate-your-sitefinity-forms-with-kendoui/2012_05_27_kendoformdecoration.png?sfvrsn=71058b66_2)  \n\nCheers!",
+  "seoMetaImage": "/images/stock/500x280/img8.jpg",
+  "seoDescription": "Make your forms look and work super cool with KendoUI"
+}

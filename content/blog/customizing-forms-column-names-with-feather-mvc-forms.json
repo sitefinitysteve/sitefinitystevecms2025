@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2016-10-04T14:39:51.8670000Z",
+  "legacyUrl": "/code/2016/10/04/customizing-forms-column-names-with-feather-mvc-forms",
+  "needsFixing": false,
+  "slug": "customizing-forms-column-names-with-feather-mvc-forms",
+  "featuredImage": "/images/stock/500x280/img7.jpg",
+  "markdown": true,
+  "title": "Customizing Sitefinity MVC Form Column Names",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Hybrid forms have always had a way to customize the generated table names, you drop the form control into the designer, click edit, open Advanced, and change the name to something meaningful (instead of like TextBox1)  \n  \nProblem atm is Feathers designers forgot to add this, so it's now so much harder to do.  \n  \n1.  Edit form control\n2.  Click advanced\n3.  Click Model (button)\n4.  Click MetaField (button)\n5.  Enter your name into \"ColumnName\"\n6.  Save\n\n#### Important Notes\n\n*   This can only be done for \\*new\\* controls on the page, once you save and it generates, you're SOL  \n    \n*   This is as of SF 9.2",
+  "seoMetaImage": "/images/stock/500x280/img7.jpg",
+  "seoDescription": "How to edit the generic column form names in Sitefinity Feather MVC, it's a bit hidden now."
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Sanitize pasted content in the Sitefinity Editor",
+    "needsFixing": false,
+    "content": "This will be a quick post, there\u0027s not much to it :)  \n  \nBut Pre-feather (and currently in the backend) we used the RadEditor for all content modification.  So a long time ago they added the ability for us to configure the tools and functions of that editor in the SF backend under Advanced-\u003eAppearance.  \n  \nHowever the rogue kendo editor does not obey those settings, it\u0027s all client based and they haven\u0027t gotten around to finding some sort of bridge or backend config for kendo.  \n  \nQuick fix though:  \nOpen the cshtml file here: /ResourcePackages/YourPackage/client-components/html-field/sf-html-field.sf-cshtml  \n  \nYou can see it\u0027s all kendo MVVM based, so you can add\\\\remove tools or do whatever you want per the [kendo docs](https://docs.telerik.com/kendo-ui/api/javascript/ui/editor).  \n  \nThe relevant portion for us though can be seen [here](https://gist.github.com/sitefinitysteve/50bc19cd9b69af1b6249dfecfae6f795#file-sf-html-field-sf-cshtml-L8-L18).  Kendo documentation [here](https://docs.telerik.com/kendo-ui/api/javascript/ui/editor#configuration-pasteCleanup).",
+    "featuredImage": "/images/stock/500x280/img17.jpg",
+    "seoDescription": "How to prevent your Sitefinity content editors from pasting in bad content into the KendoUI Editor widget from MSWord, or content full of inline styling.",
+    "seoMetaImage": "/images/stock/500x280/img17.jpg",
+    "publishedAt": "2017-01-09T18:08:14.8200000Z",
+    "slug": "sanitize-pasted-content-sitefinity-editor",
+    "legacyUrl": "/code/2017/01/09/cleaning-pasted-content-in-the-mvc-feather-kendo-editor",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

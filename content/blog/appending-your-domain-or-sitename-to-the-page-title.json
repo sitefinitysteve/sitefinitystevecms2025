@@ -1,0 +1,13 @@
+{
+    "title": "Append text to a Sitefinity Page Title",
+    "needsFixing": false,
+    "content": "Here\u0027s a  trick to appending (or prefixing) your domain to your sitefinity site.\n\n### MVC\n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/2aaa3aa8d3f6dea8b7238a168b773ac2.js?file\u003dGlobal.asax.cs\"\u003e\u003c/div\u003e\n\n### Webforms\n\nEdit the code of your masterpage and paste this in  \n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/2aaa3aa8d3f6dea8b7238a168b773ac2.js?file\u003dmasterpage.aspx.cs\"\u003e\u003c/div\u003e\n\nIt wont work if it goes below the base.Render, so keep it above.  \n  \nI\u0027ve experimented and this is the safest place to do it as if you try in prerender, then visit a dynamic generated page with the PageTitleMode set to Append you\u0027d get this  \n  \npagename | mysite.com dynamicitemtitle\nnot  \npagename dynamicitemtitle | mysite.com",
+    "featuredImage": "/images/stock/500x280/img16.jpg",
+    "seoDescription": "How to append or prefix your site or domain to the page title reliably in Sitefinity",
+    "seoMetaImage": "/images/stock/500x280/img16.jpg",
+    "publishedAt": "2014-04-28T15:27:58.1000000Z",
+    "slug": "appending-your-domain-or-sitename-to-the-page-title",
+    "legacyUrl": "/code/2014/04/28/appending-your-domain-or-sitename-to-the-page-title",
+    "markdown": true,
+    "tags": []
+}

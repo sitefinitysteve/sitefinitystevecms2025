@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "publishedAt": "2021-06-15T19:10:54.296Z",
+  "title": "Sitefinity anonymous form submissions",
+  "slug": "sitefinity-anonymous-form-submissions",
+  "seoDescription": "How to configure Sitefinity to allow authenticated users to anonymously submit a Sitefinity Form.",
+  "content": "By default if a user is logged into Sitefinity a form submission will save their UserId to sf_form_entry, and thus the backend form responses show their username.\n\nHowever it's not uncommon to want to have a form for anonymous submission. Maybe you want a whistleblower form or something.\n\nThe problem though is there's nothing in the UI to allow for this, and moreover there's only 2 events in the Forms EventHub.  Created (Already saved to the database) and Updated (...entry updated). Neither allow data to be manipulated before save. \n\nSo very simply this runs a parameterized sql query to update that userid to a Guid.Empty anonymous user right after the entry is created.  Feel free to blow all of the whistles.\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/29701a533e91469acc94f57370fbd6fc.js\"></div>"
+}

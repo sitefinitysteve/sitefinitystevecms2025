@@ -1,0 +1,15 @@
+{
+    "title": "EmailTextField for Authenticated users",
+    "needsFixing": false,
+    "content": "One of the best parts of the [Sitefinity](https://www.sitefinity.com)[12.1 release](https://shorturl.at/mtMZ0) for us was the addition of custom email responses. So in a form that contains the Email field, someone can get a custom email sent back to them!  This is especially helpful if your form submission redirects to some landing page instead of a message.\n\nProblem though on an Intranet is using this new EmailTextField is redundant. It\u0027s an input\\[type\u003dtext\\] with a ton of validation and stuff, but we KNOW who the user is. \n\nSo the modification below checks to see if the user is authenticated, if they are, it\u0027s just a hidden field and no extra bloat.  You could though keep this file the same and just name a NEW template like Write.Authenticated.cshtml and pick that in the form control designer.\n\nThis is my modification to the default template.\n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/b9f2629dae499fc3709890469c5e1486.js\"\u003e\u003c/div\u003e\n\n### Installation\n\nAdd this to ~/Mvc/Views/EmailTextField/Write.Default.cshtml",
+    "featuredImage": "/images/stock/500x280/img16.jpg",
+    "seoDescription": "Don't bother your internal users with the Email form field to get custom form responses",
+    "seoMetaImage": "/images/stock/500x280/img16.jpg",
+    "publishedAt": "2019-10-30T19:31:38.8500000Z",
+    "slug": "emailtextfield-for-authenticated-users",
+    "legacyUrl": "/code/2019/10/30/emailtextfield-for-authenticated-users",
+    "markdown": true,
+    "tags": [
+        "Fixes"
+    ]
+}

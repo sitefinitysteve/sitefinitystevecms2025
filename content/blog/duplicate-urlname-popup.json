@@ -1,0 +1,15 @@
+{
+    "title": "Duplicate urlname popup fix using custom script",
+    "needsFixing": false,
+    "content": "I had a requirement recently to make a module in which the \"Title\" and \"UrlName\" were set based on a date field.  This is done in the DynamicContent Updating event automatically.  So if the user typed \"Bob\" in as the title of a new content item it would really be changed to \"2018-03-01-05-10AM\" on save... physically impossible for the user to make it anything but the date.  \n  \nSo from there the users were to Actions-\u003eDuplicate each item and change the dates for each new years content item.  \n  \nSo I encountered a problem in that on duplicate the title and urlname come down EXACTLY as they are on the old item, no appending a 1 or 2 or anything.  So when the user changes their date and hits save, they get a nice popup saying \"This content item already exists\" (because the UrlName is already taken by the item it\u0027s copied from).  \n  \nIf telerik is reading this... maybe please fix this logic :)  \n  \nSo the UrlName field is mirrored automatically to the Title, and you can change this to really be any text field, but the DATE isn\u0027t a test field and will crash if you set the mirror to it.  \n  \nThe fix I came up with is this:  \n* Add script to the Duplicate view for the content item  \n* Script polls the urlname field until it sees a value (callback worked)  \n* Script then uses the MSAjax (🤮) to find the control and invisibly change it\u0027s value  \n  \nHere is the script  \n  \n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/60745404bd9cdab8c4ed01566f4da72c.js\"\u003e\u003c/div\u003e\n  \nYou link it to the specific view by going to /Sitefinity/Administration/Settings/Advanced/ContentView then drilling down to  \n* TheContentType  \n* Views  \n* TheContentTypeBackendDuplicateView  \n* Scripts  \n  \nThen simply add a new script and tell it where it lives and the method name to call after its available (I love that feature, thx guys)  \n  \n![AddScriptToRun](/images/posts/run-scripts-in-backend-content-views-fix-for-duplicate-urlname/addscripttorun.png?sfvrsn\u003db6f08b66_2 \"AddScriptToRun\")  \n  \nSo obviously this is just one use-case but fundamentally you can run anything you want in any view, Insert, Edit, etc.  \n  \nPlease note this will (afaik) only work in the CURRENT \u003c v10.2 Sitefinity, obviously the MSAjax (🤮) $find will not work in the new angular 2 system; docs aren\u0027t out on that yet.",
+    "featuredImage": "/images/stock/500x280/img11.jpg",
+    "seoDescription": "Fixing duplicate content pops in Sitefinity, no more urlname issues. This will load and run a custom backend content view script to update the fields on the clientside.",
+    "seoMetaImage": "/images/stock/500x280/img11.jpg",
+    "publishedAt": "2018-03-01T16:26:25.7600000Z",
+    "slug": "duplicate-urlname-popup",
+    "legacyUrl": "/code/2018/03/01/run-scripts-in-backend-content-views-fix-for-duplicate-urlname",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T02:43:00.8770000Z",
+  "legacyUrl": "/code/2012/03/16/need-your-help-voting-in-an-openaccess-pits-issue",
+  "needsFixing": false,
+  "slug": "need-your-help-voting-in-an-openaccess-pits-issue",
+  "featuredImage": "/images/stock/500x280/img3.jpg",
+  "markdown": true,
+  "title": "Need your help voting in an OpenAccess PITS issue",
+  "tags": [
+    "Other"
+  ],
+  "content": "OpenAccess (Telerik DataAccess_ is a fantastic ORM....being able to query your database with a bunch of quick linq queries (whos results are cachable) is pretty cool.\n\nOne big hurdle though in migrating over existing databases is that (if you're like us) we use a lot of stored procedures.  Right now OpenAccess can handle those, but you get back ugly generic object arrays.  I like my strongly typed objects! :)\n\nThere's an open issue in PITS to help prioritize this issue, but my one meesly vote I don't think will help bump it's priority anywhere.  If you have a moment please [head over and click to vote.](https://www.telerik.com/support/pits.aspx#/public/openaccess/3601)\n\nThanks guys!  \nSteve",
+  "seoMetaImage": "/images/stock/500x280/img3.jpg",
+  "seoDescription": "Please help me vote in better OA Stored Procedure support using Teleriks PITS tracker"
+}

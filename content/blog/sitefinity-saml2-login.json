@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2020-07-06T23:27:17.9000000Z",
+  "legacyUrl": "/code/2020/07/06/sitefinity-saml2-login",
+  "needsFixing": false,
+  "slug": "sitefinity-saml2-login",
+  "featuredImage": "/images/stock/500x280/img1.jpg",
+  "markdown": true,
+  "title": "Configure Sitefinity with SAML2 Authentication",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Gonna base this off the [old SAML](https://knowledgebase.progress.com/articles/Article/How-to-configure-external-STS-Login-using-SAML-token) article from progress. It's so old it's not even referencing the latest Nuget packages.\n\nAdd the following NUGET packages\n\n* [Sustainsys.Saml2](https://www.nuget.org/packages/Sustainsys.Saml2)\n* [Sustainsys.Saml2.HttpModule](https://www.nuget.org/packages/Sustainsys.Saml2.HttpModule)\n* [Sustainsys.Saml2.Owin](https://www.nuget.org/packages/Sustainsys.Saml2.Owin)\n\nNow just register the provider in the Global.asax and impliment the handler, should be good to go!\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/585c0df16867207d326cb5e75e744cad.js\">",
+  "seoMetaImage": "/images/stock/500x280/img1.jpg",
+  "seoDescription": "How to configure Sitefinity for SAML2 (SAML 2.0) SSO authentication"
+}

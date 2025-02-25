@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2017-05-15T17:00:49.7670000Z",
+  "legacyUrl": "/code/2017/05/15/sitefinity-10-and-the-remote-certificate-is-invalid-according-to-the-validation-procedure",
+  "needsFixing": false,
+  "slug": "remote-certificate-is-invalid",
+  "featuredImage": "/images/stock/500x280/img8.jpg",
+  "markdown": true,
+  "title": "Remote certificate is invalid error, self sign a cert",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "```\nRemote certificate is invalid according to the validation procedure\n```\n\nSo the problem is that Identity Server 3 and Sitefinity need a valid SSL Cert in order to let you into the backend.  The KB docs are [crazy weak](https://knowledgebase.progress.com/articles/Article/error-the-certificate-is-invalid-according-to-the-validation-procedure-while-browsing-the-site-on-https-from-devserver) on detail.  \n  \nThe good news is that creating a local one for development is pretty easy to do. Lets assume we're wanting to secure our new \"dev.mysite.com\" setup in IIS.  \n  \n* Open Powershell as Administrator (right-click on it)  \n* Run this to get a self signed long expiry cert \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/a8cdd04fb1b4a49952819d5d2d71ccba.js\"></div>\n    \n* Open the \"Manage computer certificates\" window (through start\\\\programs, cortana search, whatever)\n    \n* Your cert should be under Personal->Certificates, click on it, find your cert\n    \n* Right-click->All Tasks->Manage Private Keys\n    \n* Give your sites App pool access (Example: iis apppool\\\\dev.mysite.com), save up\n    \n* Right-click the cert and Copy\n    \n* Now expand Trusted Root Certification Authorities->Certificates\n    \n* Paste your cert into here\n    \n* Now open your Sitefinity AuthenticationConfig.config, and put this into it  \n    \n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/e4436a102ad711e73965f8e25b1a9fce.js\"></div>\n    \n* Don't forget to edit your IIS bindings to use this new https certificate\n    \n*   1.  Open IIS \n    2.  Click your site\n    3.  Click Bindings\n    4.  If https is not here click Add (or if it is, select and hit edit)\n    5.  Fill in the details, choose the new dev.mysite.com cert in the bottom SSL dropdown.\n\n* REQUIRED FOR MACOS\\Parallels\n\nhttps://iboysoft.com/news/how-to-trust-a-certificate-on-mac.html\n\nI﻿f you don't do step 13, then the host browser will show insecure cert errors, even if windows is configured to trust.",
+  "seoMetaImage": "/images/stock/500x280/img8.jpg",
+  "seoDescription": "Remote certificate is invalid according to the validation procedure.  Sitefinity 10 introduced a new login system based on Identity Server 3 and now logging into the backend might throw certificate errors."
+}

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:28:36.8100000Z",
+  "legacyUrl": "/code/2012/03/16/tele-leaks-from-the-q1-2011-webinar",
+  "needsFixing": false,
+  "slug": "tele-leaks-from-the-q1-2011-webinar",
+  "featuredImage": "/images/stock/500x280/img10.jpg",
+  "markdown": true,
+  "title": "Leaks from the Telerik RadControls Q1 2011 Webinar",
+  "tags": [
+    "Previews"
+  ],
+  "content": "### Q: What is teleriks web vision going forward...Drop IE6, more jQuery less msajax, client binding...??**  \nA: Eventually, Yes, and Yes. :) We'll support IE6 for a while longer to best serve our customers. You'll definitely see more jQuery  \nand lest MS Ajax in the future, and with that more client-side power. More details coming in 2011...  \n  \n  \n### Q: Will msajax be refactored OUT for the controls?**  \nA: Not immediately. We've already been in a process of replacing many core client-side behaviors in the RadControls for ASP.NET AJAX with jQuery. That process will continue, but we'll likely maintain dependencies on MS AJAX. The MVC tools, on the other hand, are only dependent on jQuery.  \n\n Also: New Product Announcement within a month, and is expected to be included in the Ultimate Collection, so pick it up! :)",
+  "seoMetaImage": "/images/stock/500x280/img10.jpg",
+  "seoDescription": "Tidbits leaked from the Q1 2011 Webinar, here's the transcript from the chat"
+}

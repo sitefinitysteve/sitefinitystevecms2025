@@ -1,0 +1,68 @@
+/downloads              /components
+/blog/code              /blog
+/about-us              /
+/blog/code/:year/:month/:day/:slug /blog/:slug
+/search indexCatalogue=:value1 searchQuery=:value2 wordsMode=:value3 /search?text=:value1
+/blog/-in-category/categories/:slug /blog/tag/:slug
+
+/blog/tellarick-moranis /blog
+/blog/telling-your-hybrid-template-which-feather-resource-package-to-load /blog/hybrid-feather-resource-package-loading
+/blog/use-mvc-widgets-in-your-webforms-templates-or-masterpage-markup /blog/mvc-widgets-in-webforms-templates
+/blog/pre-7.1-dynamiccontent-single-hierarchical-widget-to-7.1s-new-multi-widget-system /blog/single-hierarchical-to-new-multi-widget-system
+/blog/sitefinity-10-and-the-remote-certificate-is-invalid-according-to-the-validation-procedure /blog/remote-certificate-is-invalid
+/blog/how-to-dynamically-navigate-content-from-list-to-detail-without-hardcoding-routes /blog/dynamically-navigate-content-from-list-to-detail
+/blog/how-to-swap-out-an-old-sitefinity-page-for-a-new-page /blog/swapping-sitefinity-page-for-a-new-version
+/blog/simple-way-to-add-toolbox-polish-to-your-custom-widgets /blog/customize-toolbox-widget-icons
+/blog/programmatic-personalization-problem-with-the-sitefinity-api /blog/personalization-issues-with-sitefinity-api
+/blog/run-scripts-in-backend-content-views-fix-for-duplicate-urlname /blog/duplicate-urlname-popup
+/blog/cleaning-pasted-content-in-the-mvc-feather-kendo-editor /blog/sanitize-pasted-content-sitefinity-editor
+/blog/fixing-sitefinity-hardcoded-taxa-content-filtering-assumptions /blog/hardcoded-taxa-content-filtering-assumptions
+/blog/sitefinity-hardcoded-taxa-content-filtering-assumptions /blog/hardcoded-taxa-content-filtering-assumptions
+/blog/nativescript-open-facebook-app-to-someones-profile /blog/open-facebook-app-to-someones-profile-nativescript
+/blog/safely-disable-the-radcontrols-embedded-jquery-in-sitefinity /blog/disable-embedded-jquery-on-radcontrols
+/blog/the-sitefinity-contentview-can-be-an-ass-$-@-sometimes /blog/contentview-master-detail-confusion
+/blog/finding-what's-causing-a-bad-webresource.axd-request /blog/debugging-a-bad-webresource-axd-request
+/blog/resolve-could-not-load-file-or-assembly-system.data.sqlite /blog/could-not-load-file-or-assembly-system-data-sqlite
+/blog/sitefinity-42-just-around-the-corner /blog
+
+/blog/get-700megs-more-dropbox-space-quick- /blog
+/blog/sitefinity-4-beta-released /blog
+/blog/sitefinitysteve.com-now-running-on-ajax-q2-2010 /blog
+
+/blog/sitefinity-4-0 /blog/sitefinity-4
+/blog/sitefinity-4-ctp-released-to-the-public- /blog/sitefinity-4
+/blog/sitefinity-4-0-ctp-video /blog/sitefinity-4
+/blog/sitefinity-4-0--not--pushed-back-to-2011 /blog/sitefinity-4
+/blog/sitefinity-4-release-candidate-info /blog/sitefinity-4
+/blog/sitefinity-4-sdk-released /blog/sitefinity-4
+/blog/happy-sitefinity-4-release-day /blog/sitefinity-4
+
+/blog/random-site-controls-updated /blog/random-site-controls-updates
+/blog/random-site-controls-updated-again /blog/random-site-controls-updates
+/blog/randomsitecontrols-50-preview-release /blog/random-site-controls-updates
+/blog/new-control--error-log-visualizer /blog/random-site-controls-updates
+/blog/new-control--expander /blog/random-site-controls-updates
+/blog/new-control--gmail-contact-form /blog/random-site-controls-updates
+/blog/new-control-window-content /blog/random-site-controls-updates
+/blog/new-control--file-download-picker /blog/random-site-controls-updates
+/blog/file-control-updated- /blog/random-site-controls-updates
+/blog/another-controls-update /blog/random-site-controls-updates
+
+/blog/tutorial  /blog/tag/tutorial
+/blog/fixes  /blog/tag/fixes
+/blog/reviews  /blog/tag/reviews
+/blog/rants  /blog/tag/rants
+/blog/news  /blog/tag/news
+/blog/other  /blog/tag/other
+/blog/previews  /blog/tag/previews
+
+/downloads/templates /components
+
+/about/contact.aspx /contact
+
+http://sitefinitysite.com https://www.sitefinitysteve.com 301!
+https://sitefinitysite.com https://www.sitefinitysteve.com 301!
+
+/trafficbot.life /404 502
+/bottraffic.live /404 502
+/bot-traffic.icu /404 502

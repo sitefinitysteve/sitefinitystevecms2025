@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2012-03-16T01:48:27.0170000Z",
+  "legacyUrl": "/code/2012/03/16/leverage-radeditor-to-strip-html",
+  "needsFixing": false,
+  "slug": "leverage-radeditor-to-strip-html",
+  "featuredImage": "/images/stock/500x280/img18.jpg",
+  "markdown": true,
+  "title": "Stripping HTML using the RadEditor",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "The RadEditor does a pretty badass job of stripping HTML since you can feed the html string into the .Content property, and then just read it back out via the Text property.  Here's a quick extension method which does just that\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/ac9ba56ec982688efd5c6041e4309d72.js?file=striphtml.cs\"></div>\n\n Ok so now this makes the StripHtml method available right on the object instead of needing to pass in a value and return something back.  Just like .ToString(), you'll now do .StripHtml()\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/ac9ba56ec982688efd5c6041e4309d72.js?file=inaction.cs\"></div>\n\n### Alternatives\n\nIf you HAVE the RadEditor in the project, might as well use it if you want to keep the project as light as possible.  But going forward really the *BEST* bet is the [HtmlAgilityPack](https://html-agility-pack.net/)",
+  "seoMetaImage": "/images/stock/500x280/img18.jpg",
+  "seoDescription": "Sometimes you just want the plain text from your HTML. If you already have the RadEditor installed, it can strip your HTML for you!"
+}

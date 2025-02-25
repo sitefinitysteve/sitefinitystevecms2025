@@ -1,0 +1,15 @@
+{
+    "title": "Great Tool to optimize your website",
+    "needsFixing": false,
+    "content": "[Mono Software Web Application Optimizer](https://wao.mono-software.com/)\n\nThis is a great tool to throw onto your website. For example I had a RadToolstrip which contained a few usercontrols, and some ajax going on. The result was a 161k page, posting back to the server and as you can well imagine this was SUPER laggy. Throwing WAO in there I was able to drop the size to 28k! I\u0027m a huge fan of being able to remove viewstate from the page equation...which really is where ASP.Net fails on the performance end. Give it a try, $99 for a domain license, crazy good deal. (no affiliation, just thought it\u0027d be handy for someone)",
+    "featuredImage": "/images/stock/500x280/img2.jpg",
+    "seoDescription": "This tool will help you optimize your site...very nice in that you don't have to do much work at all!",
+    "seoMetaImage": "/images/stock/500x280/img2.jpg",
+    "publishedAt": "2012-03-16T02:26:45.3470000Z",
+    "slug": "great-tool-to-optimize-your-website",
+    "legacyUrl": "/code/2012/03/16/great-tool-to-optimize-your-website",
+    "markdown": true,
+    "tags": [
+        "Reviews"
+    ]
+}

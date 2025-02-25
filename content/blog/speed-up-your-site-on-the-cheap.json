@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:23:51.3100000Z",
+  "legacyUrl": "/code/2012/03/16/speed-up-your-site-on-the-cheap",
+  "needsFixing": false,
+  "slug": "speed-up-your-site-on-the-cheap",
+  "featuredImage": "/images/stock/500x280/img10.jpg",
+  "markdown": true,
+  "title": "Improve performance with Rackspace Cdn",
+  "tags": [
+    "Reviews"
+  ],
+  "content": "I've started using [Rackspace CloudFiles](https://www.rackspacecloud.com/2027.html) on my site recently, and it's pretty awesome :)\n\n So you go into their backend and create containers (like amazon S3), and then upload your files into the containers.  Once you have the files in there, you just click a checkbox to expose the container on the CDN, then just copy\\\\paste the URLs for the images.\n\nNow I'm not 100% what they charge for to be honest as I've yet to ACTUALLY be charged for anything.  In my account settings all the images I'm serving up are showing as free operations.  Even if they do it's 15-18 cents per GIG, so at max I might pay .30 cents a month I'd guess.\n\n![Cloudfiles](/images/posts/speed-up-your-site-on-the-cheap/feb_20_2011_cloudfiles.png?sfvrsn=23078b66_2 \"feb_20_2011_CloudFiles\")\n\n...and it looks pretty slick eh :) The speed increase comes from the fact that the images are served not only from a different domain (parallelism), but also they're served on a CDN so they come from a server near your users!\n\n[Give it a try](https://www.rackspacecloud.com/2027.html)\n\n**\\*\\*EDIT\\*\\*  \nRackspace is now charging me for usage < 1 Gig, so it's no longer \"free\" :)  Like $1 a month, but still. - Dec 21, 2012**",
+  "seoMetaImage": "/images/stock/500x280/img10.jpg",
+  "seoDescription": "Rackspace has a pretty generous Cdn tier, leverage their cloud to serve up your images"
+}

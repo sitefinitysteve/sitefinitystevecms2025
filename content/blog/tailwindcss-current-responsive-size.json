@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2020-08-05T09:35:32.000Z",
+  "legacyUrl": "",
+  "needsFixing": false,
+  "slug": "tailwindcss-current-responsive-size",
+  "featuredImage": "/images/stock/500x280/img10.jpg",
+  "markdown": true,
+  "title": "Showing your Tailwindcss Responsive Breakpoint",
+  "tags": [
+    "Tutorial",
+    "TailwindCss"
+  ],
+  "content": "This little utility will render the current breakpoint size you're on, SUPER handy for responsive development\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/b4d437518cd795849d99577dc3e618d4.js\"></div>\n\nYou can actually Live-demo it in action down in my footer 👇  Just resize your screen and you'll see it change!",
+  "seoMetaImage": "/images/stock/500x280/img10.jpg",
+  "seoDescription": "How to figure out which Tailwindcss responsive breakpoint you're currently on"
+}

@@ -8,3 +8,6 @@ node_modules
 dist
 .DS_Store
 todo.txt
+oldsite
+oldsite/nuxt.config.ts
+oldsite/tsconfig.json

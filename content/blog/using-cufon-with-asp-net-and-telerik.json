@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T02:43:59.4000000Z",
+  "legacyUrl": "/code/2012/03/16/using-cufon-with-asp-net-and-telerik",
+  "needsFixing": false,
+  "slug": "using-cufon-with-asp-net-and-telerik",
+  "featuredImage": "/images/stock/500x280/img18.jpg",
+  "markdown": true,
+  "title": "Using Cufon with ASP.NET and Telerik",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "If you haven't ever tried it, [cufon](https://cufon.shoqolate.com/generate/) is quite the awesome little font replacer.  If done right, the user wont see any popping.  \n\nCufon requires a CSS selector engine to be [loaded](https://github.com/sorccu/cufon/wiki).  Now I've had a couple calls from users at work saying in FF 2.0 and IE6 they're not seeing the cufonated fonts.  I've always just assumed that the jQuery coming from the Telerik.Web.UI was sufficient...and turns out, IT IS! It's just the $telerik prefix that was hosing it.  \n\nSo lets modify the RadScriptManager to load cufon AFTER jQuery.\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/42684a14af76b6ed397aa223cd91b007.js\"></div>\n\nBooya, cufon now works on all browsers without having to add a reference to another jQuery library.",
+  "seoMetaImage": "/images/stock/500x280/img18.jpg",
+  "seoDescription": "Cufon is a cool tool, this should get you up and running with Cufon+RadControls"
+}

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T02:27:16.6030000Z",
+  "legacyUrl": "/code/2012/03/16/people--make-your-radeditor-voices-heard-",
+  "needsFixing": false,
+  "slug": "people--make-your-radeditor-voices-heard-",
+  "featuredImage": "/images/stock/500x280/img14.jpg",
+  "markdown": true,
+  "title": "Voice your RadEditor frustrations",
+  "tags": [
+    "News"
+  ],
+  "content": "Dr. Gabe Sumner has posted an awesome thread to voice our concerns with the RadEditor in hopes that the ajax guys can find and fix the problems before Sitefinity 4 comes out.  I know I get super frustrated sometimes with this editor, so post issues you find, and suggest whatever you want :D\n\n[Here's the link to the forum post](https://www.sitefinity.com/support/forums/sitefinity-4-x/general-discussions/radeditor-has-issues-when-i.aspx)\n\n### Editors note\nGabe Sumner may not actually be a doctor",
+  "seoMetaImage": "/images/stock/500x280/img14.jpg",
+  "seoDescription": "Help us fix the RadEditor, it mangles markup like it's intentional. "
+}

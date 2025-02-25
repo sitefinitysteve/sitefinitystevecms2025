@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-09-15T21:02:57.9200000Z",
+  "legacyUrl": "/code/2012/09/15/better-sitefinity-taxonomy-widget-you-should-use-this",
+  "needsFixing": false,
+  "slug": "better-sitefinity-taxonomy-widget-you-should-use-this",
+  "featuredImage": "/images/stock/500x280/img8.jpg",
+  "markdown": true,
+  "title": "Simplified no bloat html Sitefinity taxonomy widget",
+  "tags": [
+    "Fixes"
+  ],
+  "content": "he current sitefinity Taxon controls are...[extreme](https://www.sitefinity.com/devnet/forums/sitefinity-4-x/bugs-issues/frontend-taxonfield-control-markup.aspx).  So if you link a content item to one single category, and you have 5000 categories in your system, the client renders out all 5000 into a hidden control on the page (for some reason)...serves to do nothing but slow down everything b/c your DOM is massive (jQuery parsing, markup size from the server, etc).  \n  \nIt's been an open issue for over a year, no fix in just yet, so until then here's a replacement that just renders out the tags nice and clean (with a seperator)...modify as desired :)  \n  \n(Assumes the control lives here ~/Usercontrols/Widgets/Taxonomy/SimpleTaxa/SimpleTaxa.ascx)\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/a0b2120213b5c74385170b125c33094a.js\"></div>\n\nAgain, tweak as needed",
+  "seoMetaImage": "/images/stock/500x280/img8.jpg",
+  "seoDescription": "The Sitefinity Webforms native Taxonomy widget generates an absolutely monsterous amount of HTML markup. This tweak can trim it back."
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Changing the look of controls dropped onto your page",
+    "needsFixing": false,
+    "content": "Changing a sitefinity control view something really easy to do, we just need to get a current copy ascx control, move things around, then point the contol templateview over to our new file.  Which is just telling sitefinity to use our version instead of it\u0027s embedded one.\n\nFirst thing you want to do is go download your version of the Sitefinity External Templates from your Client.net account at [https://www.sitefinity.com](https://www.sitefinity.com).  Once you have the templates, extract the zip and find the view you want to modify.   \n  \nFor this example, we\u0027re going to use the blog templates.  \n  The control which shows all the blog items on the page is the one named **ContentViewItemList.ascx**.  You\u0027ll notice that it\u0027s just a couple repeater controls referencing a resource file. The first repeater is the one we want to deal, with as that\u0027s what\u0027s going to be displaying the blog entries.\n\n  You can see where it\u0027s inserting the Generic Blog content inside the **pnlPostContent** Panel control.  I normally leave this alone and go about moving the other items below it around.  However you should be careful of deleting some of the controls, I think the backend trys to reference the ID of a control on the page which doesn\u0027t exist.  To be safe, just set their visibility or display to false or none respectivly.\n\n_**...time passes as we modify the flow of the data...**_\n\n*   Ok, now in page edit mode, edit the BlogPosts control you\u0027ve dropped onto your page\n*   Click the Advanced Tab\n*   Locate the Appearance Section and expand it\n*   You want to look for the items that end with \"TemplatePath\"\n*   Click the selector beside it and find the template file you\u0027ve uploaded.  I would highly recommend not putting it under the Sitefinity root folder to avoid confusion dring upgrades\n*   Save-up, Publish, and then spend the next few minutes tweaking the css\n",
+    "featuredImage": "/images/stock/500x280/img11.jpg",
+    "seoDescription": "Modifying your controls with a new external template in Sitefinity 3.x",
+    "seoMetaImage": "/images/stock/500x280/img11.jpg",
+    "publishedAt": "2012-03-16T02:13:11.3030000Z",
+    "slug": "changing-the-look-of-controls-dropped-onto-your-page",
+    "legacyUrl": "/code/2012/03/16/changing-the-look-of-controls-dropped-onto-your-page",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

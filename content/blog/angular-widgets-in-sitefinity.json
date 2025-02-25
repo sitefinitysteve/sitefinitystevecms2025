@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2018-01-31T15:15:17.5970000Z",
+  "legacyUrl": "/code/2018/01/31/angular-widgets-in-sitefinity",
+  "needsFixing": false,
+  "slug": "angular-widgets-in-sitefinity",
+  "featuredImage": "/images/stock/500x280/img6.jpg",
+  "markdown": true,
+  "title": "Angular widgets in Sitefinity",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "The problem we need to solve here is that \"widgets\" can be placed anywhere on a page, and so if your \"widget\" needs to be an ng-app (which I like to do) it'll just break everything because there can only be _**ONE ng-app declaration**_ on a page.  Which clearly conflicts with how sitefinity works in that it allows users to drag on whatever they want, whenever they want.  \n  \nThe way to solve this is to bootstrap in the widgets in your script, it's super easy, here's how I did it.  Now I always have jQuery in here anyway, but some variant of this would clearly be fine.  \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/bd3d09a5c082e1c40c914533b5866d5e.js\"></div>\n  \n  \nIn a nutshell you just search the page for your widget (clearly class since Ids have to be unique on the page and a widget can be placed any number of times).  Then create a unique app id and chuck it into angular.bootstrap!  We need to pass in the dom element so it knows what to bind the app to, but this works quite well.  \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/5a142b4fac8affe8f7db5f5e653a80fd.js\"></div> \n  \nYou can also add angular right into the widgets cshtml so it'll load on the fly instead of putting it in the layout which would throw it on every page, even the pages that don't use this widget.  The @Html.Script helper will make sure the script is only loaded once site-wide.",
+  "seoMetaImage": "/images/stock/500x280/img6.jpg",
+  "seoDescription": "Sitefinity page designer loads in Angular, so here's now to have your Angular widget not conflict with that!"
+}

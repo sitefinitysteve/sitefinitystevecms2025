@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-05-25T19:51:16.5500000Z",
+  "legacyUrl": "/code/2012/05/25/javascript-date-formatting",
+  "needsFixing": false,
+  "slug": "javascript-date-formatting",
+  "featuredImage": "",
+  "markdown": true,
+  "title": "Javascript Date Formatting",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Working with dates in javascript sucks.\n\nLuckily if you have KendoUI in your project you can leverage it to do all the heavy lifting for you.  \n\nIt's JUST THIS EASY!\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/bacd2be9cb0728c2843b431685bf6edc.js\"></div>\n\nI mean since this was posted moment.js is WAY easier, but if kendo is there anyway, why add the extra library.",
+  "seoMetaImage": "",
+  "seoDescription": "Format javascript date objects to string formats using KendoUI...you're using it ANYWAY right?"
+}

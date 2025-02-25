@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2012-03-16T02:54:21.6930000Z",
+  "legacyUrl": "/code/2012/03/16/sitefinity-validation-of-viewstate-mac-failed",
+  "needsFixing": false,
+  "slug": "sitefinity-validation-of-viewstate-mac-failed",
+  "featuredImage": "/images/stock/500x280/img23.jpg",
+  "markdown": true,
+  "title": "Validation of viewstate MAC failed",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "This YSOD has been a pain in my ass for months and I just figured it out!\n  \n```\nServer Error in '/' Application.\n\n* * *\n\n\n=========================================\n\n_Validation of viewstate MAC failed. If this application is hosted by a Web Farm or cluster, ensure that <machineKey> configuration specifies the same validationKey and validation algorithm. AutoGenerate cannot be used in a cluster._\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n**Description:** An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.  \n  \n**Exception Details:** System.Web.HttpException: Validation of viewstate MAC failed. If this application is hosted by a Web Farm or cluster, ensure that <machineKey> configuration specifies the same validationKey and validation algorithm. AutoGenerate cannot be used in a cluster.  \n  \n**Source Error:**   \n\n[No relevant source lines]\n  \n**Source File:** c:\\\\Windows\\\\Microsoft.NET\\\\Framework\\\\v4.0.30319\\\\Temporary ASP.NET Files\\\\root\\\\db2b3bd9\\\\7adc1fcc\\\\App\\_Web\\_e5e088a0-e011-4214-b52b-638207e6bf61\\_65\\_basic.aspx.d63928b6.l8sr6pgw.0.cs **Line:** 0  \n```  \n\n  \nFor \"ME\" it has nothing to do with setting machine keys in the webconfig, modifying page nodes, etc etc...it was crazy simple.  \n  \nThe masterpage was defined like this  \n\n```\n<form id=\"form1\" action=\"/\" runat=\"server\">\n```\n\nThe problem is the \"action\" attribute...change it to this  \n\n```\n<form id=\"form1\" runat=\"server\">\n```\n\n  \nLike magic works again.   \n  \nSo this being a masterpage issue I think it's asp.net related not anything to do with Sitefinity per-say.",
+  "seoMetaImage": "/images/stock/500x280/img23.jpg",
+  "seoDescription": "Here's how you can address getting a Validation of viewstate MAC error screen in Sitefinity"
+}

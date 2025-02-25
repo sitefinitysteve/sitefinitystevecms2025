@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2023-03-17T16:44:12.109Z",
+  "title": "Unable to directly link to a backend Advanced Configuration Section",
+  "slug": "unable-to-directly-link-to-a-backend-advanced-configuration-section",
+  "seoDescription": "Sitefinity allows linking to the root element in the backend Advanced Configuration, but have you had it not work? I think I might know why...",
+  "content": "C﻿ame across this one the other day and I think I need to write it down so it's just out there.\n\nAt the time of this post when you visit the Sitefinity Advanced config (/Sitefinity/Administration/Settings/Advanced) and you click the items in the left page the URL doesn't change in the browser. So if you reload the page you completely lose your selected node. HOWEVER you should be able to manually send someone to a specific root node by adding the name you see into the route. Example /Sitefinity/Administration/Settings/Advanced/Toolboxes sends you right to the toolbox and that's all you see in the left page. Sadly we can't link to deeper than the root level.\n\nN﻿ow I've always just read the name from the left pane and used that in the Url, but yesterday the name of \"SomeWidgetConfiguration\" (/Sitefinity/Administration/Settings/Advanced/SomeWidgetConfiguration) wasn't working, just 404ing.\n\nT﻿he *FIX* was the naming of the ConfigSection class. I guess you need to call it SomeWidgetConfig (not Configuration), and then the \"Config\" is automatically stripped out of the UI and the Url now knows which section to route it to. \n\nS﻿o once I made the change the left sidebar now said \"SomeWidget\" and the resulting link is /Sitefinity/Administration/Settings/Advanced/SomeWidget.\n\nWeird and nice to know eh..."
+}

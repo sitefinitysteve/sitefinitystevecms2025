@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2016-05-19T18:31:34.6800000Z",
+  "legacyUrl": "/code/2016/05/19/finding-mvc-widgets-in-your-page-designer",
+  "needsFixing": false,
+  "slug": "finding-mvc-widgets-in-your-page-designer",
+  "featuredImage": "/images/stock/500x280/img4.jpg",
+  "markdown": true,
+  "title": "Finding MVC widgets in your page designer",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "We're going through a conversion process now on a site where we're migrating all the Webforms widgets to the Feather varients.  So now while the toolbar widgets themselves have a nice little MVC tag, the widgets on the page do not.  \n  \nHere's a quick little CSS snippit you can add to your site to add the MVC tag to the widget title...only in page edit mode.  Clearly one could also go the extra mile and put a class in the MVC or Webforms template to only run this IN webforms mode (as MVC pure would have this on every widget)\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/33ad900936621b79cb0a939369064392.js\"></div>",
+  "seoMetaImage": "/images/stock/500x280/img4.jpg",
+  "seoDescription": "When you're doing a migration from Hybrid to Pure MVC it's hard to know which widgets need to change, here's a quick trick!"
+}

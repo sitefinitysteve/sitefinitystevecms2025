@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "KendoUI"
+  ],
+  "publishedAt": "2021-12-08T14:20:23.396Z",
+  "title": "Custom Function Validation in KendoUI Spreadsheet",
+  "slug": "custom-function-validation-in-kendoui-spreadsheet",
+  "seoDescription": "How to write your own function for a KendoUI Spreadsheet cell, the documentation is a bit all over the place on the how to set it up.",
+  "content": "This is something I needed to come up with the other day, but the documentation is a bit too all over the place. Basically all I wanted to do was to take a cell and make sure it's value existed in an array I populated from a remote source.  In a nutshell, call a custom javascript function for the cell...\n\nSo here's a small example, just checks a local array, stripped clean for simplicity\n\nIt's important to note the syntax in the validation definition, it's [R1C1](https://bettersolutions.com/excel/formulas/cell-references-a1-r1c1-notation.htm) notation apparently. Relative cell notation, so R[0]C[0] is the current cell, which is why that's passed into the function.\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/5585282eb095a5e0bf1872b94e1a602c.js?file=arrayCheck.html\"></div>\r\n\n\nHere's another example that shows how to validate for a number\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/5585282eb095a5e0bf1872b94e1a602c.js?file=numCheck.html\"></div>\r\n\n## Note\n* Note how the args are the variable AND the data type\n* defineFunction has to exist BEFORE you initialize the spreadsheet element.\n"
+}

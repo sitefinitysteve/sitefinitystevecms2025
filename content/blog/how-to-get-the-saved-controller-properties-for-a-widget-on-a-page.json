@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2023-04-04T16:01:53.545Z",
+  "title": "How to get the saved Controller properties for a widget on a page",
+  "seoDescription": "Helper to query the sitefinity database for a Controllers saved properties on a page. Useful for querying through an ajax callback.",
+  "slug": "how-to-get-the-saved-controller-properties-for-a-widget-on-a-page",
+  "content": "Y﻿ou might find it handy to want to know what the public property data is on a widget (Mvc Controller) sitting on a page.  Like perhaps you need to pull in the data over a webservice. Doesn't matter, I'm not here to speculate on what your needs are!\n\nH﻿ere's the code:\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/eab2591d98f2aff4c76437ef5457b400.js\"></div>\n\n**V﻿ery very important note** though. The database only stores CHANGED properties.\n\nSo lets say you have a public property called Title\n\n```\np﻿ublic string Title { get;set; } = \"Some title\";\n  ```\n\nT﻿he above code snippet **will not** return a property called Title in the array unless you have edited the widget and changed the Title to something other than \"Some title\". So you'll need to read the defaults from the Controller if what you need isn't there.\n\nY﻿ou can get the widgets (Controllers) control id with the ViewData\n\n```\nthis.ViewData[\"controlDataId\"]\n  ```\n"
+}

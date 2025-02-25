@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:44:26.8970000Z",
+  "legacyUrl": "/code/2012/03/16/creating-extension-methods-with-openaccess",
+  "needsFixing": false,
+  "slug": "creating-extension-methods-with-openaccess",
+  "featuredImage": "/images/stock/500x280/img18.jpg",
+  "markdown": true,
+  "title": "Extension Methods with OpenAccess",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "This is a really cool thing to do in order to extend your OpenAccess Domain Model Context.  You can create an entire set of helper functions which instantly have access to the calling Context object.\n\nFirst step is to define the Extension class\n\n```\npublic static class ProductExtensions{\n    public static Product Get(this IQueryable<Product> products, int productId){\n        return products.FirstOrDefault(x => x.ID.Equals(productId));\n    }\n}\n```\n\nWhat this does is Extend the Products Collection property of your context.  So now everytime you need to get a product based on it's ID, you just have to do the following instead of the longer Linq predicate.\n\n```\nvar product = this.Context.Get(10); //Where the productID is 10, and this.Context is your model context object.\n```\n\nHowever we can also use this to extend the Context as well\n\n```\npublic static List<Product> GetTunaProducts(this StoreModel context) {\n    return context.Products.Where(x => x.Name.Contains(\"Tuna\")).ToList();\n}\n```\n\nSo to use this you could just call\n\n```\nvar products = this.Context.GetTunaProducts();\n```\n\nAnother great tip is being able to get a reference to your context object from INSIDE the extension method without needing to pass it in as a variable.\n\n```\npublic static IList<CommonLocation> GetTaggedLocations(this IQueryable<CommonLocation> locations, List<string> tags) {\n\n//Get the context based from the persistant collection\n\nvar context = AuthDB.Model.Context.GetContext(locations.First()) as AuthDB.Model.Context;\n\n//You dont need to do a .First() if the object being passed isn't a \n//collection, so for example if it was just \"this CommonLocation\"\n//I can send my query though a different table than CommonLocation now!\n\nvar p = (from l in context.CommonLocationLocationTags\n         where tags.Contains(l.CommonLocationTag.Tagname)\n         select l.CommonLocation);\n\nreturn p.ToList();\n}\n```",
+  "seoMetaImage": "/images/stock/500x280/img18.jpg",
+  "seoDescription": "Here's how you can Extend the Telerik OpenAccess context to improve your development API."
+}

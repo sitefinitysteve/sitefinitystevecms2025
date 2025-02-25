@@ -11,7 +11,7 @@ export default defineNuxtConfig({
 		},
 	},
 
-	modules: ["@nuxt/content"],
+	modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
 
 	content: {
 		markdown: {
@@ -29,6 +29,7 @@ export default defineNuxtConfig({
 	},
 
 	css: [
+		"@/assets/css/tailwind.css",
 		"@/assets/scss/normalize.css",
 		"@/assets/scss/fonts.scss",
 		"@/assets/scss/main.scss",

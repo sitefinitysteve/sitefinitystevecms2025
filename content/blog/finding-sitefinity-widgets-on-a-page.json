@@ -1,0 +1,13 @@
+{
+  "publishedAt": "2018-02-27T20:10:07.0070000Z",
+  "legacyUrl": "/code/2018/02/27/finding-sitefinity-widgets-on-a-page",
+  "needsFixing": false,
+  "slug": "finding-sitefinity-widgets-on-a-page",
+  "featuredImage": "/images/stock/500x280/img16.jpg",
+  "markdown": true,
+  "title": "Finding sitefinity widgets on a page",
+  "tags": [],
+  "content": "So new in RandomSiteControlsMVC is a widget that will let you see your widgets and which pages they are on.  \n  \n[Download from nuget](https://www.nuget.org/packages/RandomSiteControlsMVC)  \n  \n![WidgetFinder](/images/posts/finding-sitefinity-widgets-on-a-page/widgetfinder.png?sfvrsn=3cf08b66_2 \"WidgetFinder\")  \n  \nAlso available in v10.2.6600.0+ I moved the Content HTML widget from CodeMirror over to the VSCode Monaco editor the new SF backend started to use!  Please make sure your webroot has the AdminApp folder from 10.2.",
+  "seoMetaImage": "/images/stock/500x280/img16.jpg",
+  "seoDescription": "How on earth can you find out which pages contain specific widgets? We've got you covered, a new widget that will enumerate your widgets and show you where they live!"
+}

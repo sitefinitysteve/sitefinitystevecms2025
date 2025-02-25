@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2014-04-22T14:56:38.5500000Z",
+  "legacyUrl": "/code/2014/04/22/kendoui-sortable-widget-with-mvvm",
+  "needsFixing": false,
+  "slug": "kendoui-sortable-widget-with-mvvm",
+  "featuredImage": "/images/stock/500x280/img7.jpg",
+  "markdown": true,
+  "title": "KendoUI Sortable Widget with MVVM",
+  "tags": [
+    "Tutorial",
+    "KendoUI"
+  ],
+  "content": "I've been using [Kendos MVVM](https://demos.telerik.com/kendo-ui/web/mvvm/index.html) wherever I can, it's such an elegant way to render a javascript object.  So as of Q1 2014 here comes along this amazing new [sortable](https://demos.telerik.com/kendo-ui/web/sortable/index.html) widget!  It's just so badass...  \n  \nProblem is I didn't see an MVVM demo.  So after talking to support (really, the developer)...he said the widget was created to modify the DOM not be a fully bindable widget to replace the grid\\\\listview\\\\etc; this widget is to be like a LAYER on top of those.  \n  \nSo I crafted up this JSBin which seems to work...kinda have to handle the sorting\\\\ordering manually...perhaps this can be made into a plugin or something....however...she does work :)  \n  \n[Click for JSBin Link and Code](https://jsbin.com/cajacuvi/8/watch)  \n  ",
+  "seoMetaImage": "/images/stock/500x280/img7.jpg",
+  "seoDescription": "Here's the missing KendoUI MVVM Sortable widget demo you've always wanted!"
+}

@@ -1,0 +1,13 @@
+{
+  "publishedAt": "2015-03-05T16:43:55.1670000Z",
+  "legacyUrl": "/code/2015/03/05/how-to-stop-radlistview-bloating-your-page",
+  "needsFixing": false,
+  "slug": "how-to-stop-radlistview-bloating-your-page",
+  "featuredImage": "/images/stock/500x280/img10.jpg",
+  "markdown": true,
+  "title": "Prevent RadListView bloating your page with HTML",
+  "tags": [],
+  "content": "Most of the \"List\\\\Master\" widgets in Sitefinity Webforms use the telerik:RadListView control, and don't get me wrong, it's a GREAT server-side control to use.  Way nicer to code with than the standard asp:Repeater.  \n  \nLets look at the default events definition  \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/388b24a0e390e46e8d3c1531b6769e92.js?file=testpageold.aspx\"></div>\n  \nSo be default across the system they ALREADY stop all stylesheets from coming down.  Which is great right, you don't want any default styling, the control is basically a repeater.  \n  \nThe PROBLEM though is that there are clientside scripts that come down...a lot of them :)  It's more visible when you enable the CDN from the backend, but with just one single RadListView on your page you get.  \n\\- Core.js  \n\\- Custom jQuery.js  \n\\- RadListView.js  \n  \nBunch of beefy client scripts coming down which you will never use, and actually it'll also throw some markup at the bottom of your page to register the client objects as well.  \n  \nHere's the fix :)  \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/388b24a0e390e46e8d3c1531b6769e92.js?file=testpagefixed.aspx\"></div>\n  \nIf you just set EnableEmbeddedScripts to false you'll get script errors on the page because the script manager is putting the above mentioned markup\\\\code to register the widget.  So that's where you need to tell the scriptmanager to just NOT register this guy.  \n  \n...now boom, on all my pages where I don't have any RadControls I no longer have 2 versions of jQuery plus other bloat coming down.",
+  "seoMetaImage": "/images/stock/500x280/img10.jpg",
+  "seoDescription": "Optimize your Sitefinity RadListView definitions to prevent massive ASP.Net rendered html bloat"
+}
