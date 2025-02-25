@@ -7,7 +7,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="widget in widgets" :key="widget.title" 
+        <div v-for="widget in widgets.filter(w => !w.isSpecial)" :key="widget.title" 
              class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105">
           <div class="p-6">
             <div class="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-teal-500 to-blue-500">
@@ -15,6 +15,27 @@
             </div>
             <h3 class="text-xl font-bold text-center mb-3">{{ widget.title }}</h3>
             <p class="text-gray-600 text-center">{{ widget.description }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Special "Explore More" widget -->
+      <div v-if="widgets.some(w => w.isSpecial)" class="mt-12 max-w-2xl mx-auto">
+        <div class="bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 text-white">
+          <div class="p-8 text-center">
+            <div class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-white bg-opacity-20 backdrop-blur-sm">
+              <component :is="widgets.find(w => w.isSpecial).icon" class="h-10 w-10 text-white" />
+            </div>
+            <h3 class="text-2xl font-bold mb-4">{{ widgets.find(w => w.isSpecial).title }}</h3>
+            <p class="text-lg mb-6">{{ widgets.find(w => w.isSpecial).description }}</p>
+            <NavigationButton 
+              variant="secondary" 
+              size="lg"
+              class="bg-teal-600 text-white hover:bg-gray-100"
+              @click="navigateTo('https://github.com/sitefinitysteve/RandomSiteControls')"
+            >
+              View on GitHub
+            </NavigationButton>
           </div>
         </div>
       </div>
@@ -36,33 +57,76 @@
       </div>
     </div>
 
-    <div class="bg-gray-100 py-16">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2>Nativescript Plugins</h2>
-          <p class="text-xl mt-4">
-            <span class="typing">$ tns plugin add nativescript-auth0</span>
-          </p>
+    <!-- Redesigned Nativescript Plugins Section -->
+    <div class="relative py-20 overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900">
+      <!-- Decorative elements -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute inset-0 w-full h-full">
+            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grid-pattern)" />
+          </svg>
+          <svg width="0" height="0">
+            <defs>
+              <pattern id="grid-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" />
+              </pattern>
+            </defs>
+          </svg>
         </div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blue-500 opacity-20 blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-purple-500 opacity-20 blur-3xl"></div>
+      </div>
 
-        <div class="flex flex-wrap justify-center gap-8 mb-16">
-          <div v-for="plugin in plugins" :key="plugin.title" class="w-1/2 md:w-1/4 p-2 text-center">
-            <NavigationButton 
-              variant="ghost" 
-              @click="navigateTo(plugin.link, true)"
-              :title="plugin.title"
-            >
-              <img :src="plugin.image + '.png'" :alt="plugin.title" class="mx-auto h-16 object-contain" />
-            </NavigationButton>
+      <div class="container relative mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-white mb-4">NATIVESCRIPT PLUGINS</h2>
+          <div class="inline-block bg-black/30 backdrop-blur-sm rounded-lg px-6 py-3 text-white font-mono text-lg">
+            <span class="typing">$ tns plugin add nativescript-auth0</span>
           </div>
         </div>
 
-        <div class="text-center">
+        <!-- Hexagon grid layout for plugins -->
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+            <div v-for="plugin in plugins" :key="plugin.title" 
+                 class="group relative aspect-square">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-full h-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
+                  <!-- Hexagon shape with backdrop blur -->
+                  <div class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl"></div>
+                  
+                  <!-- Plugin logo and content -->
+                  <div class="relative z-10 p-4 text-center">
+                    <div class="bg-white/90 rounded-full p-3 w-20 h-20 mx-auto mb-3 flex items-center justify-center">
+                      <img :src="plugin.image + '.png'" :alt="plugin.title" class="max-h-12 max-w-12 object-contain" />
+                    </div>
+                    <h3 class="text-white font-medium text-sm md:text-base">{{ plugin.title }}</h3>
+                    
+                    <!-- Hover overlay with button -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/80 to-purple-600/80 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <button 
+                        @click="navigateTo(plugin.link, true)"
+                        class="bg-white text-indigo-700 px-4 py-2 rounded-lg font-medium transform transition-transform duration-300 hover:scale-105"
+                      >
+                        View Plugin
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-16">
           <NavigationButton 
             variant="secondary" 
             size="lg"
+            class="hover:bg-indigo-50 shadow-lg hover:shadow-xl transition-all duration-300"
             @click="navigateTo('https://nativescript.org/')"
-          >Create a mobile app</NavigationButton>
+          >
+            Create a Mobile App
+          </NavigationButton>
         </div>
       </div>
     </div>
@@ -212,10 +276,11 @@ const widgets = [
     icon: MagnifyingGlassIcon
   },
   {
-    title: "And more...",
+    title: "Explore More Features",
     description:
-      "Extension methods like .GetTags(), .GetImage(), .Live(), .Master(), or just want images or docs in a ContentBlock to render with the ImageDoc .cshtml views, there's tons here",
-    icon: EllipsisHorizontalIcon
+      "Extension methods like .GetTags(), .GetImage(), .Live(), .Master(), and many more utilities to enhance your Sitefinity development experience.",
+    icon: EllipsisHorizontalIcon,
+    isSpecial: true
   },
 ];
 
