@@ -1,21 +1,23 @@
 <template>
-	<div id="main-menu">
-		<div id="mobile-menu__toggle-button" @click="toggleMobileMenu()" :class="{ mobileMenuOpen: mobileMenuActive }">
-			<span>&#x2630;</span>
-			MENU 
+	<div id="main-menu" class="w-full">
+		<div id="mobile-menu__toggle-button" @click="toggleMobileMenu()" :class="{ 'is-active': mobileMenuActive }">
+			<span class="hamburger">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</span>
 		</div>
 
-		<nav :class="{ mobileMenuOpen: mobileMenuActive }">
-
-			<menu class="main-menu__basic">
-				<NuxtLink to="/home" class="menu-item" prefetch>
-					<span>home</span>
+		<nav :class="{ 'is-active': mobileMenuActive }">
+			<menu class="main-menu__items">
+				<NuxtLink to="/" class="menu-item" prefetch>
+					<span>Home</span>
 				</NuxtLink>
 				<NuxtLink to="/blog" class="menu-item" prefetch>
-					<span>blog</span>
+					<span>Blog</span>
 				</NuxtLink>
-				<NuxtLink to="/components" class="menu-item item--home" prefetch>
-					<span>components</span>
+				<NuxtLink to="/components" class="menu-item" prefetch>
+					<span>Components</span>
 				</NuxtLink>
 			</menu>
 		</nav>
@@ -23,7 +25,6 @@
 </template>
 
 <script setup>
-
 const links = ["products", "dynamic-fields", "contact"];
 const mobileMenuActive = ref(false);
 const route = useRoute();
@@ -42,126 +43,169 @@ watch(
 		mobileMenuActive.value = false
 	}
 )
-
 </script>
 
 <style lang="scss" scoped>
+#main-menu {
+	position: relative;
+	width: 100%;
+}
+
 nav {
-	display: grid;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	
 	@include media(xsm) {
-		padding-top: 8em; // pushes item below 'header' (toggle-button span:before)
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba($black, 0.95);
+		z-index: 100;
+		padding-top: 6rem;
+		overflow-y: auto;
+	}
+	
+	&.is-active {
+		display: flex;
+		animation: fadeIn 0.3s ease-in-out;
 	}
 }
 
-
-.main-menu__basic {
-	position: relative;
+.main-menu__items {
 	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
 	margin: 0;
 	padding: 0;
-
+	list-style: none;
+	
 	@include media(xsm) {
-		position: relative;
-		display: block;
-		height: 100%;
-		margin: 0;
-		padding-left: 0;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
 	}
-
-	span {
-		padding: $spacing2;
-		width: 8em;
-		@include media(xsm) {
-			width: auto;
-		}
-	}
-
+	
 	.menu-item {
-		cursor: pointer;
+		position: relative;
+		margin: 0 1rem;
+		
+		@include media(xsm) {
+			margin: 1rem 0;
+			width: 80%;
+			text-align: center;
+		}
+		
 		span {
 			display: block;
-			text-align: center;
-			list-style: none;
-			transition: $transition1;
+			padding: 0.5rem 0.75rem;
+			font-family: $font-accent;
+			font-size: $font-size6;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			color: $dark-grey;
+			transition: color 0.2s ease;
+			
+			@include media(xsm) {
+				color: $white;
+				font-size: $font-size4;
+				padding: 1rem;
+			}
 		}
-
-		@include media(xsm) {
-			&.router-link-active {
-				outline: 0.3em solid var(--hover-background-color);
+		
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 0;
+			height: 2px;
+			background-color: $base-color;
+			transition: all 0.3s ease;
+			transform: translateX(-50%);
+		}
+		
+		&:hover, &.router-link-active {
+			span {
+				color: $base-color;
+			}
+			
+			&::after {
+				width: 100%;
+			}
+		}
+		
+		&.router-link-active {
+			&::after {
+				background-color: $secondary-color;
 			}
 		}
 	}
 }
 
-
-// toggle states/ mobile
-
-nav {
+// Mobile menu toggle button
+#mobile-menu__toggle-button {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	z-index: 101;
+	cursor: pointer;
+	padding: 0.5rem;
+	
 	@include media(xsm) {
-		display: none;
-		menu {
-			display: block !important;
+		display: block;
+		position: fixed;
+		top: 1.5rem;
+		right: 1.5rem;
+		transform: none;
+	}
+	
+	.hamburger {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 24px;
+		height: 18px;
+		
+		.hamburger-line {
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: $dark-grey;
+			transition: all 0.3s ease;
+		}
+	}
+	
+	&.is-active {
+		.hamburger-line {
+			background-color: $white;
+			
+			&:nth-child(1) {
+				transform: translateY(8px) rotate(45deg);
+			}
+			
+			&:nth-child(2) {
+				opacity: 0;
+			}
+			
+			&:nth-child(3) {
+				transform: translateY(-8px) rotate(-45deg);
+			}
 		}
 	}
 }
 
-nav.mobileMenuOpen {
-	position: fixed;
-	display: grid;
-	grid-template-rows: auto max-content 1fr;
-	height: 100vh;
-	width: max-content;
-	top: 0;
-	right: 0;
-	background: $white;
-	&::before {
-		position: fixed;
-		content: "";
-		width: 100%;
-		height: 100vh;
-		backdrop-filter: blur(0.3em);
-		inset: 0;
+@keyframes fadeIn {
+	from {
+		opacity: 0;
 	}
-}
-
-#mobile-menu__toggle-button {
-	display: none;
-	cursor: pointer;
-	@include media(xsm) {
-		position: absolute;
-		z-index: 99;
-		display: block;
-		font-size: 0.8em;
-		text-align: center;
-		width: max-content;
-		margin-inline: auto;
-		justify-self: center;
-		padding: $spacing1;
-		margin-top: $spacing0;
-		right: 0;
-	}
-	span {
-		font-size: $font-size2;
-		display: block;
-	}
-}
-
-#mobile-menu__toggle-button.mobileMenuOpen {
-	position: fixed;
-
-	span::after {
-		display: block;
-	}
-}
-
-#main-menu {
-	@include media(xsm) {
-		position: absolute;
-		z-index: 99;
-		top: 0;
-		right: 0;
+	to {
+		opacity: 1;
 	}
 }
 </style>
