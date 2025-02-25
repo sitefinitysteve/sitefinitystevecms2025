@@ -1,45 +1,32 @@
 <template>
-	<header id="header" class="">
-		<LayoutLogo />
-		<NavigationMainMenu />
+	<header id="header" class="relative w-full py-3 px-6 shadow-sm backdrop-blur-md">
+		<div class="max-w-7xl mx-auto flex items-center justify-between">
+			<LayoutLogo class="flex-shrink-0" />
+			<NavigationMainMenu class="flex-grow flex justify-end" />
+		</div>
 	</header>
 </template>
 
-
 <style lang="scss" scoped>
-#header {
-	position: relative;
-	display: grid;
-	grid-template-columns: 1fr auto 1fr;
-	grid-template-rows: 1fr;
-	padding: $spacing2;
-	&::before {
-		position: absolute;
-		content: "";
-		width: 100%;
-		height: 0.1em;
-		top: 100%;
-		background-image: linear-gradient(90deg, $base-color, $secondary-color);
-	}
+header {
+	position: sticky;
+	top: 0;
+	z-index: 40; // Lower than the mobile menu z-index
+	border-bottom: 3px solid $base-color;
+	transition: all 0.3s ease;
+	
 	@include media(xsm) {
-		display: block;
-		padding: $spacing1 0;
-
-		#locale-toggle {
-			display: none;
-		}
+		padding-right: 4rem; // Add space for the hamburger menu
 	}
-}
-
-#header__logo {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-#main-menu {
-	grid-column: 2;
-	grid-row: 1;
-	align-self: center;
-	justify-self: center;
+	
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -3px;
+		left: 0;
+		width: 30%;
+		height: 3px;
+		background-color: $secondary-color;
+	}
 }
 </style>

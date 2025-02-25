@@ -16,6 +16,7 @@ h3, .h3 {
 }
 
 h1, .h1 {
+	display: inline-block;
 	font-size: $font-size1;
 	@include media(xsm) {
 		font-size: $font-size2;
@@ -74,10 +75,11 @@ main li {
 	margin-block: $spacing1;
 	line-height: 1.45em;
 }
-
+/*
 code {
 	background: $light-grey;
 	padding: 0 $spacing1;
 	display: inline-block;
 }
 
+*/

@@ -102,7 +102,7 @@
 <script setup>
 import { useRoute } from 'vue-router';
 import { useAsyncData } from 'nuxt/app';
-import BlogPagination from '~/components/blog/Pagination.vue';
+import BlogPagination from '~/components/blog/pagination.vue';
 
 // Get the current route
 const route = useRoute();
