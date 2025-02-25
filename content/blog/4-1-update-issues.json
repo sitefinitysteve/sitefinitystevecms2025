@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:15:53.1970000Z",
+  "legacyUrl": "/code/2012/03/16/4-1-update-issues",
+  "needsFixing": false,
+  "slug": "4-1-update-issues",
+  "featuredImage": "/images/stock/500x280/img12.jpg",
+  "markdown": true,
+  "title": "Update Issues for Sitefinity 4.1",
+  "tags": [
+    "Reviews"
+  ],
+  "content": "  So if you're like most people updating 4.0 to 4.1, you've had many sleepless nights spent up debugging issues, re-creating content, and probably punching holes in various walls.\n\n  Not going to say the release was rushed out, I assume it passed all the internal tests the QA team had, however in real world projects with custom controls the update just borked everything.  I tried moving 3 projects to 4.1, all failed in one way or another rather terribly.\n\n  Support I think was bombarded as well, bunch of tickets took days between responses, sometimes with me having to pester for updates (sorry guys).  [On top of tons of forum posts](https://www.sitefinity.com/devnet/forums/search.aspx?rtf=Forum&fid=531&start=0&q=4.1 issue&sort=R).\n\n  So right now we're sitting in 4.1 limbo.  No person in their right mind has updated and pushed it Live (I hope).  However good news is that the service pack which was initially scheduled for June, is now coming **NEXT WEEK** (tentative).\n\nAm I running 4.1 here on this site?...no...but not for lack of trying.  When I ran the old migration tool my site was severely hosed and once bitten twice shy.  I don't want to have to \"patch\" my site with hacks, I'd rather just drop in the new DLLs and go get a beer :)  I think the v4 update procedure thus far has spoiled me (your fault SF devs).  Everything I hear is that the issues which caused my upgrade to fail, are fixed.\n\nSo hang tight, and revert back to 4.0....lets keep our fingers crossed the 4.1 SP1 is finally a smooooth update (fingers crossed).  I have not lost faith in v4 yet, I've been lucky in that projects I have using it are internal with somewhat flexible release schedules where we can afford to wait.",
+  "seoMetaImage": "/images/stock/500x280/img12.jpg",
+  "seoDescription": "Sitefinity 4.0-4.1 has some issues updating, it's been a treck since v3, so here's what's up."
+}

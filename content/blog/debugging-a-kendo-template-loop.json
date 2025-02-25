@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-05-03T02:33:14.5230000Z",
+  "legacyUrl": "/code/2012/05/03/debugging-a-kendo-template-loop",
+  "needsFixing": false,
+  "slug": "debugging-a-kendo-template-loop",
+  "featuredImage": "",
+  "markdown": true,
+  "title": "Debugging a Kendo Template Loop",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "This just occurred to me as I was kendo templating so I thought I'd share it.  Seems obvious, but you know... :)  \n\nAnyway here's a sample [KendoUI](https://www.kendoui.com/) Template   \n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/51ac89773639257a54ab3c8c1df95347.js\"></div>\n\nSo you can see inside the pound signs we're using a plain old javascript for loop!\n\n Actually as long as you put a couple pound signs you can execute ANY javascript code in the template; which is nice:)  Other frameworks use \"syntax sugar\" to wrap the functionality into the string to be parsed out later like {{if}} for example.    \n\nInitially I was against this pound syntax, but really it's saved me a bunch of times where another framework would have hamstrung me because it didn't support complex logic in the \"sugar\".  Consider me converted!  \n\nSo if we think about it, then we could easily use the standard javascript debugging methods we're all used to...including console.log(), alert(), etc etc!  \n\nHere be me fiddle, enjoy",
+  "seoMetaImage": "",
+  "seoDescription": "It's sometimes hard to debug a javascript template, but with kendo templates being plain script tags, it's actually really easy!"
+}

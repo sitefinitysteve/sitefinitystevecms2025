@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2013-11-25T21:09:22.6670000Z",
+  "legacyUrl": "/code/2013/11/25/show-alt-text-in-the-images-grid",
+  "needsFixing": false,
+  "slug": "show-alt-text-in-the-images-grid",
+  "featuredImage": "/images/stock/500x280/img13.jpg",
+  "markdown": true,
+  "title": "Show Alt Text in the Sitefinity Images Module Grid",
+  "tags": [
+    "Sitefinity"
+  ],
+  "content": "Alternative Text is pretty much mandatory for images on the web, by default though, Sitefinity doesn't show this field (or provide a native sort method to find images missing it)  \n  \nQuick fix to add it though  \n  \nJust click on \"Columns\" and add a new \"DataColumnElement\"...set the fields to what you see below  \n  \n![Show alt text](/images/posts/show-alt-text-in-the-images-grid/alttext.png?sfvrsn=30078b66_2 \"alttext\")\n\n### Update 2020: This only applies to the OLD UI, not the new AdminUI",
+  "seoMetaImage": "/images/stock/500x280/img13.jpg",
+  "seoDescription": "Add an images Alt Text to the Sitefinity Images Module backend Grid"
+}

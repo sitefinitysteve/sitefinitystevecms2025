@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2024-12-19T14:26:15.640Z",
+  "title": "Nativescript iOS Simulator Laravel API Error: The certificate for this server is invalid",
+  "slug": "nativescript-ios-simulator-the-certificate-for-this-server-is-invalid",
+  "seoDescription": "Learn how to fix the invalid certificate error when connecting your NativeScript iOS simulator to a Laravel API. Step-by-step solution for local development issues.",
+  "content": "T﻿his took me a bit to find an answer so I figured I'd add it in here to hopefully help others.\n\nHere's the error when you try to call your API in Nativescript on iOS\n\n``` \nThe certificate for this server is invalid. You might be connecting to a server that is pretending to be “localtest.test” which could put your confidential information at risk. \n```\n\n/Users/YOUR_USERNAME/Library/Application Support/Herd/config/valet/CA/LaravelValetVASelfSigned.pem\n\nThen in the simulator, go to Settings -> General -> About -> Certificate Trust Settings\n\nIn finder drag and drop the certificate into the simulator and it will be added to the trusted list.\n\nYou might need to back out to settings home, then back in to see it enabled\n\n\n\nN﻿ow in your App_Resources\\iOS\\info.plist add\n\n```\n\n<key>NSAppTransportSecurity</key>\n\n<dict>\n\n<key>NSAllowsArbitraryLoads</key>\n\n<true/>\n\n<key>NSExceptionDomains</key>\n\n<dict>\n\n<key>tripclok.test</key>\n\n<dict>\n\n<key>NSExceptionAllowsInsecureHTTPLoads</key>\n\n<true/>\n\n<key>NSIncludesSubdomains</key>\n\n<true/>\n\n<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>\n\n<true/>\n\n</dict>\n\n</dict>\n\n</dict>\n\n```\n\n```\n\nn﻿s clean\n\nn﻿s run ios\n\n```\n\nS﻿hould be good now"
+}

@@ -1,0 +1,15 @@
+{
+    "title": "More tools for Generic Content in Sitefinity 3.x",
+    "needsFixing": false,
+    "content": "The text editor that comes built into Sitefinity which is found on just about every module is the [RadEditor](https://www.telerik.com/products/aspnet-ajax/editor.aspx) from [Telerik](https://www.telerik.com). \n\nProblem seems to be that the amount of controls available on the toolbar is super minimal compaired to what is actually available to the RadEditor.  Luckily as always Telerik has make it super easy to expand.\n\nJust loadup the **~/Sitefinity/Admin/ControlTemplates/EditorToolsFile.xml** and simply add in the tools you would like to use!  Even better, just load in all the tools from **~/Sitefinity/Admin/ControlTemplates/EditorToolsFileAll.xml** to get everything!\n\n  I\u0027d recommend **_against_** adding in the _font size, family, background, and color boxes_ if you\u0027re making a page editable to non-developers or designers.  What I\u0027ve noticed is that the look and feel of the page can get a bit messy since they don\u0027t always know what looks good in the context of your site.  What you can do is create paragraph items in the XML for them to select blocks of code then wrap them in those tags.  This way you can set the styles yourself in the css to maintain a consistent look and feel across your site.\n\n**Resources:**  \n[RadEditor ToolsFile Options  \nRadEditor Demos Page](https://demos.telerik.com/aspnet-ajax/editor/examples/overview/defaultcs.aspx)",
+    "featuredImage": "/images/stock/500x280/img13.jpg",
+    "seoDescription": "The amount of controls available on the toolbar is super minimal compaired to what is actually available to the RadEditor.  Luckily as always Telerik has make it super easy to expand.",
+    "seoMetaImage": "/images/stock/500x280/img13.jpg",
+    "publishedAt": "2012-03-16T02:36:03.1070000Z",
+    "slug": "more-editing-options-for-your-generic-content",
+    "legacyUrl": "/code/2012/03/16/more-editing-options-for-your-generic-content",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

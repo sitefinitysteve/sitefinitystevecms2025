@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-06-11T12:28:58.6930000Z",
+  "legacyUrl": "/code/2012/06/11/time-to-disqus",
+  "needsFixing": false,
+  "slug": "time-to-disqus",
+  "featuredImage": "/images/stock/500x280/img13.jpg",
+  "markdown": true,
+  "title": "Adding Disqus to your Sitefinity 4 site",
+  "tags": [
+    "News"
+  ],
+  "content": "[![disqus logo](https://mediacdn.disqus.com/1339396490/img/logo/logo_light.png)](https://www.disqus.com/)\n\nOk, so since the release of Sitefinity 4, we've been saddled with a pretty basic commenting system...for example still we have no hierarchical threads, email notification system, and no ability to add a thread to a generic page.  At the very least I'd like to get an email when I get a comment so I don't have to check back daily for feedback right?  \n  \nSo, say goodbye to Sitefinity Comments, and hello to DISQUS on sitefinitysteve!  \n  \n### Note 2020-09-24\nThese are now in a Github repo you can fork and use \n[Check it out here](https://github.com/sitefinitysteve/RandomSiteControls/tree/master/Disqus)\n\nLater versions of Sitefinity now DO contain a native comment widget, although it's really bare bones, if not bad.  Disqus still might be a good idea, I just don't have MVC widgets.",
+  "seoMetaImage": "/images/stock/500x280/img13.jpg",
+  "seoDescription": "Sitefinity 4 doesn't ship with a commenting system, it's one of the things that didn't make it from v3 (yet). Here's how you can use the Disqus platform instead."
+}

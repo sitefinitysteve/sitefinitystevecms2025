@@ -1,0 +1,16 @@
+{
+    "title": "Installing ELMAH with Sitefinity",
+    "needsFixing": false,
+    "content": "* UPDATE *\n[Official Docs since this was posted](https://www.progress.com/documentation/sitefinity-cms/administration-configure-elmah-on-your-site)\n\nELMAH: [Error Logging Modules and Handlers for ASP.NET](https://code.google.com/archive/p/elmah/) is a pretty awesome error logger.  I\u0027ve installed it on a couple sitefinity instances so I figured I\u0027d blog about it to help some others with it.\n\nIf you\u0027ve never seen it, here are a couple resources:\n\n1.  [Scott Hanselman](https://www.hanselman.com/blog/ELMAHErrorLoggingModulesAndHandlersForASPNETAndMVCToo.aspx)\n2.  [Detailed Setup Document](https://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)\n\n It\u0027s an HttpModule which intercepts all crashes and logs them to a single table in your database, then provides a nice simple interface (and rss feed) to see the log items.\n\n#### STEP 1\nWeb.Config Updates\n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/473d2f5fb2b31b8848af8e7c210422e5.js\"\u003e\u003c/div\u003e\n\n#### STEP 2\nSQL Script to create the table (included in the download file in the db folder)\n\n#### STEP 3\nCopy the Assemblies to your bin folder (ignore the SqlLite and VistaDB dlls)\n\nNow you can visit [https://www.yoursite.com/Sitefinity/elmah.axd](https://www.yoursite.com/Sitefinity/elmah.axd), log in, and hopefully see no errors ;)",
+    "featuredImage": "/images/stock/500x280/img16.jpg",
+    "seoDescription": "ELMAH: Error Logging Modules and Handlers for ASP.NET is a pretty awesome error logger.  I've installed it on a couple sitefinity instances so I figured I'd blog about it to help some others with it.",
+    "seoMetaImage": "/images/stock/500x280/img16.jpg",
+    "publishedAt": "2012-03-16T02:38:52.7370000Z",
+    "slug": "installing-elmah-with-sitefinity",
+    "legacyUrl": "/code/2012/03/16/installing-elmah-with-sitefinity",
+    "markdown": true,
+    "tags": [
+        "Tutorial",
+        "Sitefinity"
+    ]
+}

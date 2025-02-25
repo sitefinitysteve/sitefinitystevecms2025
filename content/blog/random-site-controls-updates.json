@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:52:09.7700000Z",
+  "legacyUrl": "/code/2012/03/16/random-site-controls-updated",
+  "needsFixing": false,
+  "slug": "random-site-controls-updates",
+  "featuredImage": "/images/stock/500x280/img6.jpg",
+  "markdown": true,
+  "title": "Stiefinity v3 RandomSiteControls Release Notes",
+  "tags": [
+    "News"
+  ],
+  "content": "## 2012/03/15\n\nAdded two new controls and compiled it against 3.7 SP4\n\nCssFileLinker is a copy of what you get in Sitefinity 4...allows not only linking a CSS file to the page, but also writing inline css rules inside a plain text box (better than in the html mode of a radeditor)\n\nJsFileLinker, same idea as the CssFileLinker, but you can choose where the script renders on the page...Header, Where you drop it, or Footer.\n\n[Download](Item with ID: 'e7d6d0f6-d507-40d3-82e4-d9746528b8a3' was not found!)\n\n## 2012/03/16\nAdded a new control to the RandomSiteControls Sql RadGrid\n\n#### Features\n*   Backend Designer to pick Grouping, Filtering, Sorting, Skin, etc\n*   Pick connectionstrings from a combobox based on the web.config (or freeform)\n*   Freeform Select Statement\n\n## 2012/04/16\n\nSo my 5.0 controls have been sent off to telerik for testing and hopefully publishing if everything goes okay.  \n  \n#### New Controls:\n\n* Button\n* RadButton\n \nAlso there's now a vertical tabstrip and the ability to set a css class per tab on the strip.  \n  \nWish me luck on getting it approved!  \n  \n### Update: 2020/09/24\nContact for files\nCheers,  \nSteve",
+  "seoMetaImage": "/images/stock/500x280/img6.jpg",
+  "seoDescription": "Release notes for the original RandomSiteControls for Sitefinity v3"
+}

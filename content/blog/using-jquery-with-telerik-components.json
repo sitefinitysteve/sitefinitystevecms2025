@@ -1,0 +1,15 @@
+{
+    "title": "Using jQuery with Telerik Components",
+    "needsFixing": false,
+    "content": "Did you know just by having the Telerik.Web.UI in your project you have instant jQuerification!  Teleriks client-side functions apparently heavily use jQuery so they rely on it being there and thus embed it into the WebResource.   Which means you don\u0027t have to make a separate request to include it on your site.\n\nThe only tricky part is to use **$telerik.$** instead of just **$**.\n\nIf your heart is set on just using **$**, then try this\n\n```\nvar $ \u003d $telerik.$;\n``` \n\nSo for example to add a class to element with the id \"test\" use \n\n```\n$telerik.$(\u0027#test\u0027).addClass(\u0027big\u0027);\n```\n\nCheckout all the $telerik object goodies here [https://www.telerik.com/help/aspnet-ajax/telerik-static-client-library.html](https://www.telerik.com/help/aspnet-ajax/telerik-static-client-library.html)",
+    "featuredImage": "/images/stock/500x280/img14.jpg",
+    "seoDescription": "Did you know just by having the Telerik.Web.UI in your project you have jQuery available?",
+    "seoMetaImage": "/images/stock/500x280/img14.jpg",
+    "publishedAt": "2012-03-16T02:28:00.3170000Z",
+    "slug": "using-jquery-with-telerik-components",
+    "legacyUrl": "/code/2012/03/16/using-jquery-with-telerik-components",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

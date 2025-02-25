@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:29:34.5170000Z",
+  "legacyUrl": "/code/2012/03/16/essential-vs2010-javascript-addin",
+  "needsFixing": false,
+  "slug": "essential-vs2010-javascript-addin",
+  "featuredImage": "/images/stock/500x280/img4.jpg",
+  "markdown": true,
+  "title": "Essential VS2010 Javascript Extension",
+  "tags": [
+    "Reviews"
+  ],
+  "content": "I just saw this on a [MIX session recording,](https://channel9.msdn.com/Events/MIX/MIX11/FRM12) and I LOVE it\n\nThis adds in C# designtime behaviors into Javascript.  What I mean by that is (from the [JScript Editor Extensions page](https://visualstudiogallery.msdn.microsoft.com/872d27ee-38c7-4a97-98dc-0d8a431cc2ed))\n\n#### Brace Matching\n\nAdds support for automatically highlighting the matching opening or closing brace to the one currently at the cursor. Supports matching parenthesis: (), square brackets: \\[\\], and curly braces: {}. Braces in strings, comments and regular expression literals are ignored.\n\n#### Outlining / Cold-folding\n\nAdds support for automatically creating outlining regions for JScript blocks. Blocks are detected via opening and closing curly braces. Braces in strings, comments and regular expression literals are ignored.\n\n#### Current Word Highlighting\n\nAdds support for highlighting all instances of the word currently at the cursor.\n\n[GET IT NOW](https://visualstudiogallery.msdn.microsoft.com/872d27ee-38c7-4a97-98dc-0d8a431cc2ed)",
+  "seoMetaImage": "/images/stock/500x280/img4.jpg",
+  "seoDescription": "Great Visual Studio 2010 Extension to add C# designtime behaviors into the Javascript editor."
+}

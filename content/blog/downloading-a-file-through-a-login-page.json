@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2021-08-05T14:27:59.581Z",
+  "title": "Downloading a file through a login page",
+  "slug": "downloading-a-file-through-a-login-page",
+  "seoDescription": "When you click a protected file in Sitefinity it sends you to the login page, but after login the user is left looking at a blank page, here's how to resolve that.",
+  "content": "When you click a **protected** file in Sitefinity it will send you over to your login page with a ReturnUrl back to the file, so something to this effect will be the URL\n\n```\nhttps://www.yoursite.com/login?ReturnUrl=https%3a%2f%2fwww.yoursite.com%2fdocs%2fdefault-source%2fsomefile.pdf%3fStatus%3dMaster%26sfvrsn%3dca0ac48b_2%26download%3dtrue\n```\n\nThe fundamental issue though is that files are sent through an HttpHandler which can't do a redirect to somewhere else AFTER it sends you the file through the browser. So while the client does get the file, they're just staring at a blank page with the login auth route...\n\n```\nhttps://www.yoursite.com/Sitefinity/Authenticate/OpenID/connect/authorize?client_id=sitefinity&redirect_uri=https%3A%2F%2Fwww.yoursite.com%2F&response_mode=form_post...\n```\n\nThe fix is to do a couple things...\n\n- Step 1:You want to detect the return url is a file and send it to an actual internal page to show the download (In this case a \"Your file will download in 5 seconds...\" thing.\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/c19c4e16f16e9449fe182ef92ca58fbd.js\"></div>\n\n- Step 2: You want to have a Custom MVC widget on that page to handle that file download\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/85a8a0995ca3ad9ad04bfb408ab5dd12.js\"></div>\n\nSo this is a WHOLE lot when it should be an OOTB feature, lets call this a bug, please go upvote it [here](https://sitefinity.ideas.aha.io/ideas/SF-I-2548)"
+}

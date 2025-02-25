@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2022-12-27T21:48:01.644Z",
+  "title": "How to join a party with XBox xCloud and not get the ms-xbl-multiplayer link error",
+  "slug": "how-to-join-a-party-with-xbox-xcloud-and-not-get-the-ms-xbl-multiplayer-link-error",
+  "seoDescription": "Trying to accept an invite link when connected to xCloud on a PC keeps throwing a ms-xbl-multiplayer error, here's how to get it to work.",
+  "content": "Had this issue over the weekend trying to play Sea of Thieves with 1 XBox, and 2 people with Cloud accounts. Branching out it seems the problem is generically associated with connecting 2 cloud accounts into a game.\n\nSo lets say you launch the XBox app, connect to your cloud game. Your friend sends you an invite to their party from their cloud. You press your controllers xbox button, or the Win-G gamebar shortcut... and accept the invite.  Boom, Windows store popup because it can't find \"ms-xbl-multiplayer link\"... every time. \n\nS﻿o the problem is that it's looking for the installed copy of the cloud game you're trying to play.\n\nT﻿he way to fix it is you have to bypass the entire gamebar system altogether!\n\n* Both launch the game via xCloud (xbox.com/play) \rNOT THE XBOX APP!\n\r\n* One of you send the invite to the friend by clicking on the XBox button top left in the browser and NOT from your controller. This is running through the rendered cloud instance, not your PC...\n\r\n* The other person now also uses the browser based top left xbox button to accept the invite.\n\nS﻿o I guess this works because the game is running on a cloud xbox instance, not your PC directly (well I guess obviously)\n\nF﻿ixed us up for Sea Of Thieves, should work fine for you as well!\n"
+}

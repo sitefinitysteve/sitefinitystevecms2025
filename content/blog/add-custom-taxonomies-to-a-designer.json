@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2013-01-02T14:58:44.9800000Z",
+  "legacyUrl": "/code/2013/01/02/add-custom-taxonomies-to-a-designer",
+  "needsFixing": false,
+  "slug": "add-custom-taxonomies-to-a-designer",
+  "featuredImage": "/images/stock/500x280/img23.jpg",
+  "markdown": true,
+  "title": "Add Custom Taxonomies to a Designer",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Props for this to Rado, and hopefully this \"hack\" will be obsolete once they implement it into the UI native.  \n  \n\\--------------------  \n1) Use the ViewMap. Host type is Telerik.Sitefinity.Web.UI.ControlDesign.DynamicContentSelectorsDesignerView. [Sitefinity Blog Post](https://www.sitefinity.com/blogs/joshmorales/posts/josh-morales-blog/2011/08/01/5_things_useful_examples_of_the_sitefinity_viewmap)  \n  \n2) The change you need to do is add one more FilterSelectorItem in the Items collection of the Filter selector\n\n```\n<designers:FilterSelectorItem ID=\"FilterSelectorItem11\" runat=\"server\" Text=\"By Submission Type\"\n    GroupLogicalOperator=\"AND\" ItemLogicalOperator=\"OR\" ConditionOperator=\"Contains\"\n    QueryDataName=\"submissiontypes\" QueryFieldName=\"submissiontypes\" QueryFieldType=\"System.Guid\">\n    <SelectorResultView>\n        <sitefinity:FlatTaxonSelectorResultView ID=\"FlatTaxonSelectorResultView1\" runat=\"server\" \n            TaxonomyId=\"8C310B34-2E2D-4085-B252-90D4EE13E34E\" \n            WebServiceUrl=\"~/Sitefinity/Services/Taxonomies/FlatTaxon.svc\"\n            AllowMultipleSelection=\"true\">\n        </sitefinity:FlatTaxonSelectorResultView>\n    </SelectorResultView>\n</designers:FilterSelectorItem>\n```\n \nDepending on the taxonomy type (Flat or Hierarchical) you need to decide what kind of selector to use. You can pretty much copy the markup for categories for example and just change field names and taxonomy ids.  \n  \nThis approach is applicable for all widgets such as news, blog posts, etc.",
+  "seoMetaImage": "/images/stock/500x280/img23.jpg",
+  "seoDescription": "How to leverage the ViewMap to filter by custom taxonomies in the designer "
+}

@@ -1,0 +1,15 @@
+{
+    "title": "Screenshot of Sitefinity 4 Analytics",
+    "needsFixing": false,
+    "content": "Gabe just twittered a SF4 analytics screenshot\n\n[![Analytics](https://cdn.cloudfiles.mosso.com/c54112/x2_12b232c)](https://tweetphoto.com/19604268)\n\n### Update:\n\nGabe tweeted a link to a demo of the Analytics module [here](https://www.sitefinity.com/blogs/gabesumner/posts/10-04-24/sitefinity_web_analytics_ndash_downloadable_preview.aspx).  Ok, so now what it does is just poll one of your existing google analytics accounts to show the data all silverlightified.  So just follow the directions to make a dummy project (no need to attach it to your CTP instance).  As of right now it\u0027s just a showcase and doesn\u0027t have even 1/2 of the GA data.",
+    "featuredImage": "/images/stock/500x280/img12.jpg",
+    "seoDescription": "Here what the Sitefinity 4.0 Analytics screen looks like",
+    "seoMetaImage": "/images/stock/500x280/img12.jpg",
+    "publishedAt": "2012-03-16T02:35:05.9000000Z",
+    "slug": "screenshot-of-sitefinity-4-analytics",
+    "legacyUrl": "/code/2012/03/16/screenshot-of-sitefinity-4-analytics",
+    "markdown": true,
+    "tags": [
+        "Previews"
+    ]
+}

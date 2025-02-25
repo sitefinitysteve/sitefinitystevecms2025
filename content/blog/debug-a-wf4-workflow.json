@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T02:51:37.2770000Z",
+  "legacyUrl": "/code/2012/03/16/debug-a-wf4-workflow",
+  "needsFixing": false,
+  "slug": "debug-a-wf4-workflow",
+  "featuredImage": "/images/stock/500x280/img1.jpg",
+  "markdown": true,
+  "title": "Debug A WF4 Workflow",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "I came across this trying to debug the ProductsWorkflow.xamlx in the products sample.  When you just jump into debug mode and put some breakpoints in the xamlx, they never get hit so it SEEMS as if the workflow isn't workflowing (see what I did there?)\n\nThe problem is actually visible in the debug Output window though\n\nYou should see something like \n\n```\nFile not found C:\\\\Feodorov\\\\Projects\\\\Sitefinity 4\\\\SDK\\\\Samples\\\\CS\\\\Products\\\\ProductsWorkflow.xamlx\n```\n\nSo if you then open the xamlx by right-clicking, open-with, Xml Editor you can see right at the top (**XamlDebuggerXmlReader.FileName**) that its trying to look for a version to debug with.  In this case it's pointing at a location which won't exist on your machine.\n\nSo it's a quick fix, just change that path to wherever you installed the SDK sample (so like (C:\\\\SDK\\\\products\\\\Products\\\\ProductsWorkflow.xamlx)\n\nThen re-build, and try debugging again...we have XAMLX breakpoint debugging!",
+  "seoMetaImage": "/images/stock/500x280/img1.jpg",
+  "seoDescription": "Windows Workflow Foundation files are XAMLX and sometimes your breakpoint just don't get hit, perhaps give this a try."
+}

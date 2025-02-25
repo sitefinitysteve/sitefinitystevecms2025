@@ -1,0 +1,11 @@
+{
+  "publishedAt": "2020-08-19T23:01:18.599Z",
+  "title": "Exclude pages from netlifys sitemap plugin",
+  "content": "I included the [netlify sitemap plugin](https://github.com/netlify-labs/netlify-plugin-sitemap) in my [nuxt.js](https://nuxtjs.org/) site. However I kept getting excluded pages still showing up!  Hopefully this saves you some time if it's happening to you as well.\n\nYou need to remember nuxt is generating static HTML files, so even though the route is /contact/success the page to exclude (since it's looking at files) is /contact/success.html\n\nHere's an example of a working nuxt.js netlify.toml with working excludes.\n\n*Note* the [netlifycms](https://www.netlifycms.org/) admin route is NOT an html file, do not add it to there.\n\n```\n[build]\n  publish = \"dist\"\n  command = \"yarn generate\"\n  functions = \"app/functions\"\n\n[[plugins]]\n  package = \"@netlify/plugin-sitemap\"\n\n  [plugins.inputs]\n    exclude = [\n      '**/admin',\n      '**/200.html',\n      '**/about.html',\n      '**/contact/success.html',\n    ]\n```",
+  "seoDescription": "Excluding pages\\routes from netlify-plugin-sitemap",
+  "slug": "exclude-pages-from-netlifys-sitemap-plugin",
+  "tags": [
+    "Tutorial",
+    "Netlify"
+  ]
+}

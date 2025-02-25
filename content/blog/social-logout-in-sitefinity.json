@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2017-12-20T20:16:51.7770000Z",
+  "legacyUrl": "/code/2017/12/20/social-logout-in-sitefinity",
+  "needsFixing": false,
+  "slug": "social-logout-in-sitefinity",
+  "featuredImage": "/images/stock/500x280/img21.jpg",
+  "markdown": true,
+  "title": "Social Logout in Sitefinity",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "This comes from a ticket that took like 9 months to resolve, so I'm posting it to save others the hassle :)  \n  \nThe site has a company login that is \\*just\\* Google auth, no SF or any other mechanism to get in.  The problem was on logout of sitefinity the user was still logged into google.  So when they click the sitefinity login button again they don't even get prompted to log into google (since they already are), sitefinity just sends them right in.  \n  \nSo on a public computer you can see where this causes problems right... if user X forgets to sign out of google and user Y sits down, sitefinity logs user Y in AS user X.  \n  \nHere's how to fix this  \n1) Configure identity server to allow a specific redirect url after sitefinity logout, you do that here:  \n\n*   Authentication\n*   SecurityTokenService\n*   IdentityServer\n*   Clients\n*   sitefinity\n*   PostLogoutRedirectUris\n*   ...click Create new, add your Url\n\n![SocialLogoutPostLogoutUrl1](/images/posts/social-logout-in-sitefinity/sociallogoutpostlogouturl1.png?sfvrsn=43e88b66_0 \"SocialLogoutPostLogoutUrl1\")  \n  \nSo sitefinity's logout route is this  \n\n```\n/Sitefinity/SignOut?sts\\_signout=true&redirect\\_uri=\n```\n  \n  \nOne would think you could just change it to be   \n\n```\n/Sitefinity/SignOut?sts\\_signout=true&redirect\\_uri=https://mail.google.com/mail/u/0/?logout&hl=en&hlor\n```\n    \nBut you would be **wrong**, this is what took so long to resolve the ticket... the redirect uri actually needs to be **ENCODED** at this point or it won't work.  \n  \nSo this URI will work just fine  \n\n```\n/Sitefinity/SignOut?sts\\_signout=true&redirect\\_uri=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F%3Flogout%26hl%3Den%26hlor\n```\n  \nWhat happens from here is you're sent to the SF logout page, properly logged out from sitefinity then instantly sent over to the google signout page and signed out from there as well.  \n  \nWorks fantastic!",
+  "seoMetaImage": "/images/stock/500x280/img21.jpg",
+  "seoDescription": "If your users log in with a social account, they also then need a way to log OUT of that social account as well right?"
+}

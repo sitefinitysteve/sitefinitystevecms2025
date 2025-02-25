@@ -1,0 +1,15 @@
+{
+    "title": "Sitefinity RadWindow popup styles",
+    "needsFixing": false,
+    "content": "In sitefinity 3.x there are zero telerik skins which look normal in the backend, however it\u0027s super easy to skin them so they conform to the style and look native.\n\nRadWindow:\n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/36b93805652645ef568ca5345181ebbd.js\"\u003e\u003c/div\u003e\n\nEverything there is optional except for these guys**: Skin\u003d\"Sitefinity\"** \u0026 **EnableEmbeddedSkins\u003d\"false\"**. \n\nThis is telling the Window to use a skin postfix of \"Sitefinity\" and EnableEmbeddedSkins says \"don\u0027t look in the Telerik.Web.UI for that css file\".  Which is pretty important since there IS an embedded skin named Sitefinity, but it\u0027s the Sitefinity 4 theme which looks a little odd in a 3.x content.  Except for maybe the RadEditor, the borderless button style looks so crazy awesome in just about any page.\n\nHappy Styling",
+    "featuredImage": "/images/stock/500x280/img17.jpg",
+    "seoDescription": "In sitefinity 3.x there are zero telerik skins which look normal in the backend, however it's super easy to skin them so they conform to the style and look native.",
+    "seoMetaImage": "/images/stock/500x280/img17.jpg",
+    "publishedAt": "2012-03-16T02:15:35.4400000Z",
+    "slug": "sitefinity-radwindow-popup-styles",
+    "legacyUrl": "/code/2012/03/16/sitefinity-radwindow-popup-styles",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

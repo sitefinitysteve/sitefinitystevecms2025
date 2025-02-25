@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-15T23:24:12.8300000Z",
+  "legacyUrl": "/code/2012/03/15/how-to-get-free-credits-on-your-shared-hosting-plan",
+  "needsFixing": false,
+  "slug": "how-to-get-free-credits-on-your-shared-hosting-plan",
+  "featuredImage": "/images/stock/500x280/img16.jpg",
+  "markdown": true,
+  "title": "How To Get Free Credits on your Shared Hosting plan",
+  "tags": [
+    "Reviews"
+  ],
+  "content": "If you're shared hosting plan is like mine, and they guarantee 99.9% uptime, I HIGHLY recommend you signup for a **free** [Pingdom.com](https://www.pingdom.com/) account.\n\nSo you can set it up to monitor your websites uptime, and it'll generate a report which you can fire off to your host when they fail to meet the 99.9% guarantee.  Moreover it'll email you when your site goes down so you can bug the host to fix the problem.\n\n\\*\\*DISCLAIMER\\*\\*   \nI am not at all affiliated with pingdom, I just love the service.\n\n### 2019 EDIT\n\nPingdom is now a paid service, still good, but not as \"Free\"",
+  "seoMetaImage": "/images/stock/500x280/img16.jpg",
+  "seoDescription": "Monitor your sites uptime with Pingdom, prove to your host they failed the 99.9% uptime guarantee."
+}

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-06-06T16:05:26.1230000Z",
+  "legacyUrl": "/code/2012/06/06/resolve-could-not-load-file-or-assembly-system.data.sqlite",
+  "needsFixing": false,
+  "slug": "could-not-load-file-or-assembly-system-data-sqlite",
+  "featuredImage": "/images/stock/500x280/img2.jpg",
+  "markdown": true,
+  "title": "Could not load file or assembly System.Data.SQLite",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "This YSOD error drove me batty for a few hours, simple resolution though.  \n  \n```\nCould not load file or assembly 'System.Data.SQLite' or one of its dependencies. An attempt was made to load a program with an incorrect format\n```\n\nYou'll experience it with Sitefinity when you setup a new site in IIS.  By default \"Enable 32-Bit Applications\" in the App Pool settings for the new site are \"FALSE\"...turn it to \"TRUE\" and it'll all work fine again (\\*sigh\\*)  \n\n#### Update Dec 28th, 2012\nThat assembly doesn't appear to be required, just kill it from the bin folder and you don't need to run in 32-bit more anymore.  \n  \nCheers",
+  "seoMetaImage": "/images/stock/500x280/img2.jpg",
+  "seoDescription": "Have you just deployed your Sitefinity site to live and you get a YSOD of System.Data.SQLite?  Here's likely the quick fix for the issue!"
+}

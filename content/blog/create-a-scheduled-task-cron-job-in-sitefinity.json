@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "publishedAt": "2021-01-22T15:05:14.948Z",
+  "title": "Create a Scheduled Task\\Cron job in Sitefinity",
+  "slug": "create-a-scheduled-task-cron-job-in-sitefinity",
+  "seoDescription": "Sitefinity can run code in the background through scheduled tasks or cronjobs. Here's a complete sample created using the idea of a mail system to flush out messages, it's pretty easy.",
+  "content": "Sitefinity has the ability to create cronjobs that run on timers in the background, they call them **ScheduledTasks**. They handle things like publishing\\unpublishing on specific dates, but you can hook into the system yourself to run tasks as well! 🔥\n\nIf you want to see what your site is doing, since there's no UI for it, have a peek inside the **sf_scheduled_tasks** table.\n\nSo here's a sample of what I have going on a Live site.  The concept is a mail system that runs on a timer to look for new messages, then flushes a queue.  All that code though is stripped out though, but it would exist [here](https://gist.github.com/sitefinitysteve/a31c7aba66deeccb1a8cf1da294210d4#file-automailerscheduledtask-cs-L48-L50). \n\nThis expands on the [Official Documentation](https://www.progress.com/documentation/sitefinity-cms/schedule-a-task) by making sure there are no other instances of this task in the database, we REALLY didn't want to have multiple instances of this class executing at the same time. Maybe it's overkill, but that's better than multiple tasks 😊\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/a31c7aba66deeccb1a8cf1da294210d4.js\"></div>\n\nSo you need to register in inside your Global.asax, and the code can obviously just live wherever since it's compiled. Depending on the frequency of it's execution you can dial back the logging I have to not bloat out your log folder. In the official code on the site I use a Sitefinity [Configuration element](https://www.progress.com/documentation/sitefinity-cms/for-developers-create-a-new-configuration) so I can turn it on or off without restarting the site."
+}

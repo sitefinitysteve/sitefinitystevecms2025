@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "publishedAt": "2021-03-25T13:41:01.367Z",
+  "title": "Viewing what's in your Sitefinity Sitemap",
+  "slug": "viewing-whats-in-your-sitefinity-sitemap",
+  "seoDescription": "Sitefinity generates it's sitemap to a .gz file which Google\\Bing can read, but I can't.  Here's how you can dump a readable version.",
+  "content": "You can generate a Sitemap automatically at /Sitefinity/Administration/sitemap/sitemap\n\nSo there's two links on that page\n* https://yoursite/sitemap/sitemap.gz\r\n* https://yoursite/sitemap/sitemap-index.xml\n\nThe .gz you can't view in browser, and the xml just points at the gz\n\nSo WHY would we want to view the Sitemap you're probably thinking.  There's a couple reasons, but the primary being you need to be able to audit that someone hasn't forgotten to remove a page from indexing, or maybe you have a dynamic content widget that's generating bad routes because it's not in \"Master\" mode.\n\nSo we're just going to take Sitefinity's [documentation](https://www.progress.com/documentation/sitefinity-cms/add-a-custom-url-to-the-sitemap) example and expand on it a bit.\n\nWe're going to make sure there's no trailing slashes in the output, it seems to do that to the homepage at least. Also remove localhost, because why not... Then finally we're going to just loop through all the pages and dump them to a ~/sitemap.txt file you can access in your browser!\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/d0c360d9d969d422ce2d4854327f5b5a.js\"></div>"
+}

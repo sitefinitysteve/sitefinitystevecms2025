@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:40:38.8470000Z",
+  "legacyUrl": "/code/2012/03/16/sitefinity-ecommerce-module-coming--soon-",
+  "needsFixing": false,
+  "slug": "sitefinity-ecommerce-module-coming--soon-",
+  "featuredImage": "/images/stock/500x280/img17.jpg",
+  "markdown": true,
+  "title": "Sitefinity eCommerce module coming",
+  "tags": [
+    "News"
+  ],
+  "content": "Well I don't know how soon is \"soon\" :)\n\n But the latest release news feed from telerik has this nice tidbit\n\nTelerik's **recent acquisition of leading San Diego-based web design and development firm, Mallsoft**, paves the way for the integration of e-commerce support and underscores the company's dedication to providing its users with the most complete CMS solution possible. The introduction of Mallsoft's complementary e-commerce technologies to the Sitefinity platform also assures users will save valuable time, resources, and money by eliminating the need to select and integrate software from third-party vendors. The incorporation of Mallsoft's development staff and leadership team as part of Telerik extends the company's presence in the U.S., allowing it to engage more deeply with partners and customers alike.  \n\"We are extremely excited to be a part of the Telerik family, which employs some of the brightest people in the industry.  The vision we saw several years ago with Sitefinity CMS and knowing where it is heading, gave us the confidence that the product will quickly evolve into a leading web presence platform,\" said Steve Miller, president of Mallsoft.  \"Telerik i_s an amazing company that truly delivers more than expected, as will Sitefinity eCommerce.\"\n\n[Mallsoft](https://www.mallsoft.com/) being a Sitefinity partner which specializes in eCommerce solutions.\n\n[Link](https://www.telerik.com/company/press-center/company-news/telerik-unveils-powerful-sitefinity-4-0-content-management-solution.aspx)\n\n### Update 2020\n\nNobody should be using the resulting Module, which for some reason still exists in Sitefinity 13+.  It's a featureless bug riddled disaster, Mallsoft dropped so many balls we're drowning.",
+  "seoMetaImage": "/images/stock/500x280/img17.jpg",
+  "seoDescription": "Sitefinity acquires eCommerce company Mallsoft to create a custom eCommerce module for Sitefinity 4."
+}

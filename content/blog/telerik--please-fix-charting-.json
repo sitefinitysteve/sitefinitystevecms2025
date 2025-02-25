@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:55:30.9600000Z",
+  "legacyUrl": "/code/2012/03/16/telerik--please-fix-charting-",
+  "needsFixing": false,
+  "slug": "telerik--please-fix-charting-",
+  "featuredImage": "/images/stock/500x280/img7.jpg",
+  "markdown": true,
+  "title": "Telerik, Please fix charting!",
+  "tags": [
+    "Rants"
+  ],
+  "content": " I don't think I've ever been so frustrated with a charting control or wizard in my life.  Both in Telerik reporting and in ASP.NET Ajax.  Have a look at some of the [demos](https://demos.telerik.com/aspnet-ajax/chart/examples/databinding/customization/defaultcs.aspx) they have up.  Everything seems to be nice and easy, however good luck actually building one, hope you have about 5 hours of frustration open :/\n\nI think part of the problem for me is that they've nested visual properties rather deeply inside the charting object.  To their credit, it's rather logical, just time consuming to figure out where to go.  [This post](https://www.telerik.com/community/forums/reporting/telerik-reporting/when-does-the-chart-object-become-a-first-class-control.aspx) illustrates some of my frustrations.  Also the nomenclature is hard to wrap your head around.  Look at this...[here's the chart](https://www.telerik.com/help/aspnet-ajax/radchartbasics.html), go crazy and make it with all code.\n\nWhy is there no chart designer?  I should be able to build a chart visually bound to my data...not have to rip apart my dataset, create groupings, then foreach through that to make my Series items...etc etc.  There is no part of the RadChart deserving of the \"Rad\" prefix.\n\nWant to add an extra level of frustration?  Bind the Data to OpenAccess which doesn't appear to support Anon Aggregates yet (\\*crosses fingers for this weeks release\\*).  You have to get a full result set, then do an in-memory query on that, then take that and build your chart.\n\nThis post is of Q1 2010, and on their forums they've stated they have zero plans to change. **\\*sigh\\***",
+  "seoMetaImage": "/images/stock/500x280/img7.jpg",
+  "seoDescription": "Telerik charting is so unbelievably frustrating to use, it really needs some love."
+}

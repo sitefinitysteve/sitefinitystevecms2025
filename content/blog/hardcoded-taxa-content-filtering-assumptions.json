@@ -1,0 +1,17 @@
+{
+    "title": "Sitefinity Taxa Filtering hardcoded to only use AND",
+    "needsFixing": false,
+    "content": "Sitefinity has one major bug in it\u0027s implementation of taxa filtering seem here: [View Link](https://github.com/Sitefinity/feather/blob/0a6d311b9970f6f78331e83ba0bcbb65680029e9/Telerik.Sitefinity.Frontend/Mvc/Models/ContentModelBase.cs#L535)  \n  \nIt basically assumes you always want an \"AND\" between taxonomies you have no ability to do an \"OR\"; this is a **massive** assumption. Let me give you an example of why this is a problem:  \n  \n\"Show me all people tagged with brown hair OR categoriezed with red sunglasses\"  \n  \nSitefinity would interpret those taxa selections as  \n  \n\"Show me all people tagged with brown hair AND categoriezed with red sunglasses\"  \n  \nIt would be easily solved if they exposed a new property on the root model and just referenced it there like this  \n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/63b2e6ada06a6c7f062c2625faa96f82.js\"\u003e\u003c/div\u003e\n  \n...or something to that effect, it can be an advanced designer model property.  \n  \nI\u0027ve been yelling at a wall over this for years and nobody over there seems to see why it\u0027s an issue, so I thought I\u0027d share our workaround (which is terrible for content editors who dont know C#\\\\json\\\\html whatever btw).  \n  \n\n1.  Don\u0027t select any taxa in your designer, set it to all items in the content tab\n2.  Click Advanced-\u003eModel\n3.  In the FilterExpression box type in your required filters per the [filterexpression documentation](https://docs.sitefinity.com/filter-expressions-for-content-items)\n\nThe caveat is of course that you need to filter the taxa by IDs, and where the heck do you find those you might say... well... we can easily expose them to showup in the backend taxa lists like on tags here: /Sitefinity/Content/Flat  \n  \nHere\u0027s how you do that (see images below):  \n\n1.  Open Advanced settings\n2.  Drill down to the appropriate taxa content view (flat or hierarchical)\n3.  Find the grid view, click create new DataColumnElement\n\n![TaxaListAddId](/images/posts/fixing-sitefinity-hardcoded-taxa-content-filtering-assumptions/taxalistaddid.png?sfvrsn\u003d1d2a8b66_0 \"TaxaListAddId\")  \n  \nAnd here\u0027s what she looks like when you refresh the Tags grid  \n  \n![TaxaListResult](/images/posts/fixing-sitefinity-hardcoded-taxa-content-filtering-assumptions/taxalistresult.png?sfvrsn\u003dd2a8b66_2 \"TaxaListResult\")  \n  \nNow you or your users can just copy\\\\paste the Ids into custom filter expressions which will confuse you at a later date when you open the widget to see no taxa selected in the UI.  \n  \n...or ignore all this and write a complex custom widget to do the same thing  \n  \n** PLEASE TELERIK, QUICK PATCH THIS GUY IN! **",
+    "featuredImage": "/images/stock/500x280/img11.jpg",
+    "seoDescription": "Modifying the AND\\OR logic combining sitefinity taxa",
+    "seoMetaImage": "/images/stock/500x280/img11.jpg",
+    "publishedAt": "2016-11-15T20:59:39.7570000Z",
+    "slug": "hardcoded-taxa-content-filtering-assumptions",
+    "legacyUrl": "/code/2016/11/15/fixing-sitefinity-hardcoded-taxa-content-filtering-assumptions",
+    "markdown": true,
+    "tags": [
+        "Tutorial",
+        "Rants",
+        "Sitefinity"
+    ]
+}

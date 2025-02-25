@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-06-17T19:27:38.7000000Z",
+  "legacyUrl": "/code/2012/06/17/introducing-sitefinity-primer-nuget-101",
+  "needsFixing": false,
+  "slug": "introducing-sitefinity-primer-nuget-101",
+  "featuredImage": "/images/stock/500x280/img1.jpg",
+  "markdown": true,
+  "title": "Introducing Sitefinity Primer NuGet 1.0.1",
+  "tags": [
+    "News"
+  ],
+  "content": "### Note 2020-09-24: This is very outdated now and shouldn't be used. Sitefinity comes built in with a Warmup Module, use that instead, more robust.\n\nCommunity, [meet the primer](https://nuget.org/packages/SitefinityPrimer), primer, meet the [community](https://www.sitefinity.com/devnet/forums.aspx).  \n  \nInitial release is clearly missing things like e-Commerce, but I'll add them in later :)  \n  \nIt's a page which lives at ~/Sitefinity/Primer/ (once you install the package).  The idea is that it hits a bunch of backend Sitefinity URLs all at once (or you can prime sections individually).  \n  \nThe end result is it makes clicking around the backend be more responsive.  I'm sure you've noticed that when you initally hit pages in the sitefinity backend for the first time it takes a few seconds to respond quickly, then it's okay.  So the primers job is to just hit all those for you!  \n  \n\n`PM> Install-Package SitefinityPrimer`\n\nEnjoy!  \n  \n\\*\\*EDIT\\*\\* 1.0.3 I renamed primer.aspx to default.aspx",
+  "seoMetaImage": "/images/stock/500x280/img1.jpg",
+  "seoDescription": "Suffering from a slow startup to your Sitefinity v4 project? This Nuget package will hit a bunch of urls to warm things up."
+}

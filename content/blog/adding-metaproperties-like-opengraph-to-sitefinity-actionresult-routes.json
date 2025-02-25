@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "publishedAt": "2021-04-06T12:40:46.905Z",
+  "title": "Adding MetaProperties like OpenGraph to ActionResult routes",
+  "slug": "adding-metaproperties-like-openGraph-to-sitefinity-actionresult-routes",
+  "content": "Dynamically created pages through custom routes in Sitefinity are pretty great.  But the problem always is that they then have bad SEO because they inherit their page meta from the ACTUAL page the controller\\widget is sitting on (to generate this route).\n\nThis is the official the way to set your OpenGraph or Meta Title\\Meta Description properties on your custom routes.\n\n```\nvar description = \"Some content description\";\n\r\n\r\nMetadataModel metadataProperties = new MetadataModel()\r\n{\r\n    MetaTitle = \"My widget page title\",\r\n    MetaDescription = description,\r\n    OpenGraphDescription = description,\r\n    Url = Util.CurrentHttpContext.Request.Url.ToString()\r\n};\n\r\n\r\nthis.ViewBag.Metadata = metadataProperties;\n```\n\nBig thanks to Stanislav Velikov (Progress Software) for the assist, this doesn't seem to be anywhere in the KB.",
+  "seoDescription": "Here's how you can add meta description or opengraph properties to your dynamically created Sitefinity page routes in your custom widget controllers."
+}

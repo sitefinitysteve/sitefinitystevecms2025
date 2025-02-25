@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2024-02-29T00:52:53.302Z",
+  "title": "This extension is not installable on any currently installed products Visual Studio 2022 ARM",
+  "slug": "this-extension-is-not-installable-on-any-currently-installed-products-visual-studio-2022-arm",
+  "seoDescription": "How to install a Visual Studio 2022 extension that hasn't been updated to support Visual Studio 2022 ARM yet.",
+  "content": "There's so many Extensions in the Visual Studio marketplace, but very few have been updated for ARM, which is incredibly frustrating as most will *just work* right out of the box.\n\nY﻿ou'll click on it and get a \"This extension is not installable on any currently installed products\" error.\n\nI﻿ can't guarantee ALL will work perfectly, but here's how to get them to work\n\n* Download the VSIX\n\n* Run, if it works, you're done!  If not... continue\n\n* Install 7Zip\n\n* Open the VSIX in 7Zip\n\n* Open the \"extension.vsixmanifest\" file\n\n* Look for the ProductArchitecture node with \"amd64\"\n\n* Change it to \"arm64\"\n\n* Save it back to the vsix\n\n.﻿..now install fine"
+}

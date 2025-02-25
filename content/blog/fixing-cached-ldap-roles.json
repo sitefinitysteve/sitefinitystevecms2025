@@ -1,0 +1,16 @@
+{
+    "title": "Fixing Cached Ldap Roles",
+    "needsFixing": false,
+    "content": "Sitefinity\u0027s Ldap implementation aggressively caches every ldap query, which is good (really), however there\u0027s a massive hole in the implementation.  \n  \nAdd\\\\Remove users to roles though SF backend was never implemented.  So the only way to modify a users role is to open up AD itself and tweak them there, however there\u0027s no way for SF to be made aware of the changes.  \n  \nOne would think that if you get the user to logout then log back in it would re-check roles and apply the changes, however like I said above, the caching is aggressive.  Every Ldap query result is cached, which means the roles of the user are as well.  \n  \nThe only options to fix are to recycle your app pool, and depending on the complexity of the site and amount of users it might be a 5-10 minute recycle time, OR wait for the configured ldap cache timeout (users love hearing \"try again in 20 minutes, maybe\").  \n  \nThe frustating part for me is Sitefinity didn\u0027t even want to investigate the issue, or they\u0027re pretending it\u0027s not an issue... the provider is 1/2 done, and has a giant major flaw in it, and the response was \"Figure it out yourself\".  \n  \nOkay great, so after trying to debug with pdb files... here\u0027s the answer  \n  \nNow this needs to happen BEFORE the user physically logs in, we here luckily use the SF STS where we can call this before the physical code to log someone in.  If you dont use the STS your only real option is to wrap this helper into a widget that your admins can trigger after they change the AD roles.  \n  \nI would encourage anyone reading this to vote for this to be core, and maybe the team finish the LDAP provider so we can add\\\\remove roles.  \n  \n[Portal Item 1](https://feedback.telerik.com/Project/153/Feedback/Details/162991-issues-with-the-login-when-an-ldap-user-is-updated-on-the-ldap-server)  \n[Portal Item 2](https://feedback.telerik.com/Project/153/Feedback/Details/138566-clear-ldap-cache-on-user-role-change)  \n[Portal Item 3](https://feedback.telerik.com/Project/153/Feedback/Details/183924-implement-ldap-role-functions-in-ldaproleprovider)",
+    "featuredImage": "/images/stock/500x280/img4.jpg",
+    "seoDescription": "Sitefinitys Ldap implementation aggressively caches every ldap query, which is good (really), however there's a massive hole in the implementation, heres how to fix it.",
+    "seoMetaImage": "/images/stock/500x280/img4.jpg",
+    "publishedAt": "2016-03-03T17:28:53.9230000Z",
+    "slug": "fixing-cached-ldap-roles",
+    "legacyUrl": "/code/2016/03/03/fixing-cached-ldap-roles",
+    "markdown": true,
+    "tags": [
+        "Tutorial",
+        "Rants"
+    ]
+}

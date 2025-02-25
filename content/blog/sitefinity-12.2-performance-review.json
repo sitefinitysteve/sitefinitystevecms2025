@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2019-11-06T18:09:20.4800000Z",
+  "legacyUrl": "/code/2019/11/06/sitefinity-12.2-performance-review",
+  "needsFixing": false,
+  "slug": "sitefinity-12.2-performance-review",
+  "featuredImage": "/images/stock/500x280/img11.jpg",
+  "markdown": true,
+  "title": "Sitefinity 12.2 Performance Review",
+  "tags": [
+    "Reviews"
+  ],
+  "content": "Sitefinity 12.2 is out today and touts big perf updates, so of course I had to upgrade and see if it was another like \"saving 1 second\" kind of performance tweak, or legit measurable.\n\n...it was measurable\n\nAll tests in Release Mode, and I run everything through IIS with a local host file entry for the domain, and local cert.\n\n  \n**12.1**\n\n*   Cold (Not loaded into IIS): 57 seconds\n*   Warm (IIS process active), Fresh Build: 52 seconds\n*   Warm, Change MVC Template: 8 seconds\n\n  \n\n**12.2**\n\n*   Cold (Not loaded into IIS): 17 seconds\n*   Warm (IIS process active), Fresh Build: 35 seconds\n*   Warm, Change MVC Template: 6 seconds\n\nIt'll be even faster on our beefy webserver, noice job team!\n\n![Noice](/images/posts/sitefinity-12.2-performance-review/noice.gif)",
+  "seoMetaImage": "/images/stock/500x280/img11.jpg",
+  "seoDescription": "Sitefinity 12.2 says it has performance updates... but does it?"
+}

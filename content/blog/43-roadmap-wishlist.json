@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-15T23:23:18.9230000Z",
+  "legacyUrl": "/code/2012/03/15/43-roadmap-wishlist",
+  "needsFixing": false,
+  "slug": "43-roadmap-wishlist",
+  "featuredImage": "/images/stock/500x280/img16.jpg",
+  "markdown": true,
+  "title": "Sitefinity 4.3 Roadmap wishlist",
+  "tags": [
+    "Previews"
+  ],
+  "content": "### Modules\n\n*   Polls, give me polls :) ...not a 1/2 assed quick version either\n*   [Custom Types Module ala most other CMSs](https://www.sitefinity.com/devnet/forums/sitefinity-4-x/general-discussions/custom-content-type-builder.aspx)\n*   Multipage forms\n*   Ability to set the Form Control Validation in the simple UI mode\n*   No developer names on forms column export\n*   Forms: Sort by _**SUBMISSION**_ _**DATE**_\n\n### Pages\n\n*   Custom Fields UI\n*   (Multiple URLS on Blogs and Pages don't take Regex validation into effect, this is a PITS issue, but highly important so I dont have to use the url rewrite module just because an old page has a space)\n\n### Widgets\n\n*   Webeditors, client side content pickers (controls) for custom desigers and auto-generated \"advanced\" mode.\n*   Enhanced Designers, all scrollbar bugs fixed, I should see no scrollbars ever.\n*   Searching in all library controls\n*   Grid views in library controls...I want to see tags and details\n*   Breadcrumb control (this I hope comes with 4.2 SP1)\n*   Custom layout PROPERTIES...let me develop and enhance the best part of the CMS!\n*   Widget template versioning\n*   Widget template designer...I don't want text-wrapping...I'd rather have a scroll car and ideally I'd like syntax highlighting (no pressure)\n*   Widget template control field TYPE selectors in the add column popup\n\n### Misc\n\n*   Native RSS UI Feedability for all content Items\n*   NOTIFICATIONS: Seriously...it was released january, email me when someone submits comment to a blog, submits a form, etc etc...notify me if someone takes a dump on my site :)\n*   [UI for adding template images](https://www.sitefinity.com/devnet/forums/sitefinity-4-x/sdk/thumbnail-images-for-custom-templates.aspx)\n*   Everything it needs to do everything\n\n### Analytics\n\n*   Store custom sitefinity specific data, not just generic GA data.\n\n...I'll add to this as I think of things, or perhaps submit your own suggestions...ahh crap baby is running away brb",
+  "seoMetaImage": "/images/stock/500x280/img16.jpg",
+  "seoDescription": "We're still missing a bunch of things in Sitefinity coming from v3, here's what I would like to see in Sitefinity 4.3+"
+}

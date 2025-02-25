@@ -14,6 +14,9 @@
 				<NuxtLink to="/typography" class="menu-item" prefetch>
 					<span>typography</span>
 				</NuxtLink>
+				<NuxtLink to="/blog" class="menu-item" prefetch>
+					<span>blog</span>
+				</NuxtLink>
 			</menu>
 		</nav>
 	</div>

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:59:30.6370000Z",
+  "legacyUrl": "/code/2012/03/16/radcontrols-q2-2010-beta-has-arrived",
+  "needsFixing": false,
+  "slug": "radcontrols-q2-2010-beta-has-arrived",
+  "featuredImage": "/images/stock/500x280/img12.jpg",
+  "markdown": true,
+  "title": "RadControls Q2 2010 Beta has arrived",
+  "tags": [
+    "Reviews"
+  ],
+  "content": "Ok I won't [re-post](https://blogs.telerik.com/blogs/posts/10-06-23/meet_the_telerik_asp_net_ajax_q2_2010_beta_release.aspx) the details of the new controls.  However I would like to point out an awesome new feature of the RadEditor (which we all use).\n\nDIVable content area!\n\nIt's a bigger deal than you might think...what it means is that we no longer have to maintain two separate stylesheets for both the page and the editors content area.\n\nIt also means when an editor loads, the content will already be inside instead of (potentially) having to wait a second or two for it to \"pop\" in as it would load through an IFrame.\n\nPlay with it [here](https://demos.telerik.com/aspnet-ajax-beta/editor/examples/contentareamodediv/defaultcs.aspx)",
+  "seoMetaImage": "/images/stock/500x280/img12.jpg",
+  "seoDescription": "Radcontrols 2010 Q2 has hit beta, lets dig in and see what's new"
+}

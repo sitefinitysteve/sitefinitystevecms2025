@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2014-05-16T17:40:16.2670000Z",
+  "legacyUrl": "/code/2014/05/16/use-mvc-widgets-in-your-webforms-templates-or-masterpage-markup",
+  "needsFixing": false,
+  "slug": "mvc-widgets-in-webforms-templates",
+  "featuredImage": "/images/stock/500x280/img5.jpg",
+  "markdown": true,
+  "title": "MVC Widgets in your Sitefinity WebForms Templates",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "First off thanks to [Ivan](https://plus.google.com/112813764974421063538/posts) for pointing me in the right direction  \n  \nIt's actually really simple...there's a webforms control that's like a placeholder, tell it the controller you want to render and boom, she's there.  \n\n### Here's an example\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/ddf102e31f7a983877df551af87ef62d.js?file=Page1.aspx\"></div>\n  \n### If you need to add properties\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/ddf102e31f7a983877df551af87ef62d.js?file=Page2.aspx\"></div>\n\n...awesome  \n  \n### Other Resources\n\n*  [https://www.sitefinity.com/blogs/slavo-ingilizovs-blog/2013/10/21/new-mvc-goodness-in-sitefinity-6.2](https://www.sitefinity.com/blogs/slavo-ingilizovs-blog/2013/10/21/new-mvc-goodness-in-sitefinity-6.2)\n* [https://www.sitefinity.com/blogs/stefani-tacheva-s-blog/2014/03/11/how-to-check-whether-url-parameters-are-resolved-in-pages-with-mvc-widgets](https://www.sitefinity.com/blogs/stefani-tacheva-s-blog/2014/03/11/how-to-check-whether-url-parameters-are-resolved-in-pages-with-mvc-widgets)",
+  "seoMetaImage": "/images/stock/500x280/img5.jpg",
+  "seoDescription": "Use a Sitefinity MVC Widget on your Webforms templates without needing to drag\\drop."
+}

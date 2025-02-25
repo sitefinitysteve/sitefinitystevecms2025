@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "publishedAt": "2021-02-04T19:15:06.784Z",
+  "title": "Blocking bottraffic or trafficbot url requests from jacking up your Google Analytics",
+  "seoDescription": "Blocking requests like bottraffic.live or trafficbot.life from triggering on your site. These requests come in the thousands and jack up your Google Analytics.",
+  "content": "I'm going to prefix this with the following: I am not a RegEx expert, I just screwed around for a bit on [regexr.com](https://regexr.com/) until something looked right.\n\nThis is what I came up with [regexr.com/5lp2n](https://regexr.com/5lp2n)\n\n```\n(bot.*traffic|traffic.*bot)[.a-z]+\n```\n\nMy thought is, any request that starts with \"bot\" and ends with \"traffic\" (or visa versa) AND has a period with something after it. I don't have a single URL on the site that should match those patterns, so I think this is solid, but any Regex Gurus could weigh in if they want [@stevemcniven](https://twitter.com/stevemcniven)\n\nHere's the web.config IIS Rewrite rule, it'll abort the request so your error pages won't even render (with the GA scripts on them)\n\n```\n        <rule name=\"Block bottraffic routes\" patternSyntax=\"ECMAScript\" stopProcessing=\"true\">\r\n          <match url=\"(bot.*traffic|traffic.*bot)[.a-z]+\" />\r\n          <conditions>\r\n             <add input=\"{URL}\" pattern=\"((?=bot-?)|(?=traffic))[.a-z]+\" />\r\n          </conditions>\r\n          <action type=\"AbortRequest\" />\r\n        </rule>\n```",
+  "slug": "blocking-bottraffic-or-trafficbot-url-requests-from-jacking-up-your-google-analytics"
+}

@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2020-06-23T19:43:37.8430000Z",
+  "legacyUrl": "/code/2020/06/23/how-to-dynamically-navigate-content-from-list-to-detail-without-hardcoding-routes",
+  "needsFixing": false,
+  "slug": "dynamically-navigate-content-from-list-to-detail",
+  "featuredImage": "/images/stock/500x280/img23.jpg",
+  "markdown": true,
+  "title": "Navigating from List to Detail no hardcoded routes",
+  "tags": [
+    "Tutorial",
+    "Sitefinity"
+  ],
+  "content": "The problem with a free-flowing CMS where users can add content anywhere, is that users can add content anywhere. A common problem is you might want your users to be able to click on a list item, then have a \"Back\" or \"Browse more\" button in the UI at the bottom of the detail view.\n\nThis is simple with a static site because the routes are known in advance and never change, but a CMS is powered by a database and a user could restructure the sitemap on a whim, we just don't have the luxury of hardcoding routes.\n\nHere's the fix though in a nutshell\n\n*   List links pass along a returnUrl querystring parameter\n*   Detail page looks for that and creates a back button\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/bab17ee1b50530f05cccd5e48d21922f.js\"></div>\n\nThis sample also adds a fallback route, you could just skip and hide the button instead if you want. Just don't ALWAYS count on the querystring being there. If you don't check for NULL on it, the view will throw an exception.",
+  "seoMetaImage": "/images/stock/500x280/img23.jpg",
+  "seoDescription": "How to dynamically navigate content from List to Detail without hardcoding routes."
+}

@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2012-03-16T02:53:15.2370000Z",
+  "legacyUrl": "/code/2012/03/16/continuing-the-sitefinity-kendoui-posts",
+  "needsFixing": false,
+  "slug": "continuing-the-sitefinity-kendoui-posts",
+  "featuredImage": "/images/stock/500x280/img14.jpg",
+  "markdown": true,
+  "title": "Continuing the Sitefinity KendoUI posts",
+  "tags": [
+    "Tutorial",
+    "KendoUI"
+  ],
+  "content": "So falafel posted a couple nice KendoUI article, which was then followed up with by Josh Morales.  Links to both can be found [here](https://www.sitefinity.com/blogs/joshmorales/posts/12-03-02/using_kendo_ui_with_sitefinity_user_controls.aspx) on josh's blog.\n\nHowever both posts have you download KendoUI to your webroot, then link them in with CSS\\\\JS links.\n\nWhat's NOT widely known is that sitefinity as of (at least) 4.4 comes **embedded** with KendoUI; actually the new module builder UI is built using it.  Shenanigans you say?...nope, have a peek at [JustDecompile](https://www.telerik.com/products/decompiler.aspx) below.\n\n(As I was asking for permission to post this, Mr. Morales also noticed this and posted it to twitter first :)  So I'd expect a more in depth and frankly much better blog post on the topic to follow shortly, however just to get the word out...I shall finish this poorly written article)\n\n So to link them in your pages, you just need to use your handy dandy ResourceLinks control [(thanks josh)](https://gist.github.com/1960567).  Also as josh points out the kendo theme \"skins\" aren't here and would need to be attached somehow to your page to get all the [fancyness](https://demos.kendoui.com/themebuilder/index.html).\n\n```\n<sf:ResourceLinks id=\"resourcesLinks1\" runat=\"server\">\n    <sf:resourcefile javascriptlibrary=\"JQuery\" />\n    <sf:ResourceFile Name=\"Telerik.Sitefinity.Resources.Scripts.Kendo.kendo.all.min.js\" Static=\"True\" />\n    <sf:ResourceFile Name=\"Telerik.Sitefinity.Resources.Scripts.Kendo.styles.kendo_common_min.css\" Static=\"True\" />\n</sf:ResourceLinks>\n  ```\n\nThis is what it looks like in [JustDecompile](https://www.telerik.com/products/decompiler.aspx), which you can browse to yourselves right now.\n\n![Just Decompile](/images/posts/continuing-the-sitefinity-kendoui-posts/2012_03_04_sfjustdecompile.png?sfvrsn=76058b66_2 \"2012_03_04_sfJustDecompile\")  \n\nor\n\n![Just Decompile 2](/images/posts/continuing-the-sitefinity-kendoui-posts/2012_03_04_sfjustdecompile_2.png?sfvrsn=77058b66_2 \"2012_03_04_sfJustDecompile_2\")  \n\nSo now you can use the full power of Kendo in your projects, however the only change I MIGHT make is that right now it's using the kendo.all.min file and on the front end I usually prefer to use the kendo.web.min as I almost never use charting.  So the size of the .all.min.js is larger than the .web.min.js...",
+  "seoMetaImage": "/images/stock/500x280/img14.jpg",
+  "seoDescription": "KendoUI is embedded in Sitefinity, here's how to use it."
+}

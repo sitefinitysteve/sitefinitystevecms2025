@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2022-11-16T14:07:18.061Z",
+  "title": "Auditing page permissions",
+  "slug": "auditing-page-permissions",
+  "seoDescription": "Quickly pull in who has custom access to Sitefinity page permissions through this handy SQL Stored Procedure!",
+  "content": "W﻿e have a huge site with lots of pages and nesting. If you've ever used Sitefinity's permission editor you can appreciate how absolutely painful it is to navigate that UI. It's incredibly slow, and there's absolutely no way you're going through every. single. page.\n\nS﻿o I came up with a quick SQL script to audit the custom page permissions. It'll show you basically broken permissions, not inherited on every page... which is what you should be wanting, but you'll also see the parent pages incase pages have the same name somewhere in the structure.\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/e501e027daf16e6cc34ebbe73862934c.js\"></div>\n\nT﻿here's one change you might need to make, and that's to link it to sf_users instead of through sf_user_profile_link. I have it through there because we're on Ldap and there's nothing in sf_users, but every user has a profile so I can sneak out the nickname through that (nickname is the email).\n\nS﻿o from here just call it into SQL, OR expose it through a ServiceStack service, or directly from backend code into a custom widget, it's quite fast to execute.\n\nE﻿njoy!"
+}

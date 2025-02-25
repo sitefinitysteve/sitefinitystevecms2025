@@ -1,0 +1,16 @@
+{
+    "title": "Sitefinity ORM Context Management explained",
+    "needsFixing": false,
+    "content": "This is too good of a google+ thread to not share [LINK](https://bit.ly/Xzdy1v)  \n  \nIf you don\u0027t want to read through, here\u0027s quick summary:  \n  \n**Do not wrap your managers in using statements  \n\n```\nusing(DynamicModuleManager manager \u003d DynamicModuleManager.GetManager()){  \n   //Code  \n}\n```\n  \nWhy?    \n  \nEverytime you get a manager, sitefinity stores it for the duration of your http request.  If you dispose it in a _using statement_ it\u0027ll be disposed when that statement completes so the next control\\\\widget that tries to use the manager will have to create a new instance of it (instead of just using the existing shared one).    \n  \nThink of it like a [bucket full of managers](https://www.harryandhisbucketfullofdinosaurs.com/)",
+    "featuredImage": "/images/stock/500x280/img7.jpg",
+    "seoDescription": "Ever wondered how Sitefinity is managing it's openaccess content?  Wonder what the best practices are for using the Managers?...Ivan and Radoslav explain it all!",
+    "seoMetaImage": "/images/stock/500x280/img7.jpg",
+    "publishedAt": "2012-12-17T17:43:31.8230000Z",
+    "slug": "sitefinity-context-management-explained-from-the-experts",
+    "legacyUrl": "/code/2012/12/17/sitefinity-context-management-explained-from-the-experts",
+    "markdown": true,
+    "tags": [
+        "Tutorial",
+        "Sitefinity"
+    ]
+}

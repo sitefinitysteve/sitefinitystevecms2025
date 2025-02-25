@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2017-01-27T15:17:03.1300000Z",
+  "legacyUrl": "/code/2017/01/27/kendo-grid-update-cannot-read-property-data-of-undefined",
+  "needsFixing": false,
+  "slug": "kendo-grid-update-cannot-read-property-data-of-undefined",
+  "featuredImage": "/images/stock/500x280/img14.jpg",
+  "markdown": true,
+  "title": "Kendo Grid: cannot read property data of undefined",
+  "tags": [
+    "Fixes"
+  ],
+  "content": "I'm posting this because I wasn't able to find the answer by googling.  It seems it's a fairly generic error that can mean a bunch of things, but this solved it for me.  \n  \n### Scenario\n  \nKendo Grid, bound to remote datasource trying to enable CRUD.  \n  \nWhen does it happen: Edit->Update  \n  \n### Error\n\n```\nUncaught TypeError: Cannot read property 'data' of undefined\n    at init.setup (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:28)\n    at init.create (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:28)\n    at Object.<anonymous> (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:28)\n    at Function.Deferred (ScriptResource.axd?d=OfhH2xFGzDSYc0LaAaaOD08yz4IMU64J5fBMHu0-Lz13cohNhivVQFfhqawUAIMaGh_RVi-P3FmRXW…:2)\n    at init._promise (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:28)\n    at init._send (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:28)\n    at init.sync (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:28)\n    at init.saveRow (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:50)\n    at init._editUpdateClick (Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl16_TSM&compress=2&_TSM_CombinedScripts_=%3b%3bT…:50)\n    at HTMLAnchorElement.d (ScriptResource.axd?d=OfhH2xFGzDSYc0LaAaaOD08yz4IMU64J5fBMHu0-Lz13cohNhivVQFfhqawUAIMaGh_RVi-P3FmRXW…:2)\n```\n\n### Resolution\n\nWas quite simple actually, my Datasource schema didn't define the \"id\" property  \n\n```\nschema: {  \n  model: {  \n    id: \"UserId\",\n    otherprop: \"something\"\n  }\n}  \n\n```\n  \n\n### Note to kendo guys\n\nWould be nicer if the error messages were more specific, or I guess would be nicer if there were error messages not just js crashes.  This error could really [be a bunch of things](https://www.google.ca/search?q=kendo+grid+update+cannot+read+property+%27data%27+of+undefined).",
+  "seoMetaImage": "/images/stock/500x280/img14.jpg",
+  "seoDescription": "KendoUI widgets such as the Grid often expose a cannot read property data of undefined error. It's pretty generic and not helpful, here's what it means."
+}

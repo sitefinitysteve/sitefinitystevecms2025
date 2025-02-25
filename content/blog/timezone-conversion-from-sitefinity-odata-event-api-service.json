@@ -1,0 +1,10 @@
+{
+  "tags": [
+    "Tutorial"
+  ],
+  "publishedAt": "2023-04-13T19:08:48.349Z",
+  "title": "Timezone conversion from Sitefinity OData Event API Service",
+  "seoDescription": "I wrested with the Sitefinity timezone conversion through the OData API so you don't have to.",
+  "content": "S﻿o this all came about with the ask for showing a kendoTooltip popup when hovering on an event in the scheduler. The issue with showing the data is that none of the data you want to show comes across in the default endpoint. It's basically the title and dates, enough for the item to render... and as it should be, you want it fast and lean.\n\nT﻿he rest of the data can be pulled (quickly) from the OData endpoint at /api/default/events\n\n```\n//Something like this\nvar itemdefaulturl = item.find(\".event-item\").data(\"itemdefaulturl\");\nvar route = \"/api/default/events?$filter=ItemDefaultUrl eq '\" + itemdefaulturl.replace(\"'\", \"%27%27\") + \"'\";\n```\n\n*Note the replace as single quotes in a urlname (thanks for not filtering those out on create btw Sitefinity...) will break the querystring.*\n\nAnywho, the date format from the native endpoint is WCF, and it's an ISO string from the OData endpoint.\n\nSo here's how you can convert that to actually use it properly without going insane\n\n```\nvar eventStartDate = new Date(data.EventStartWithOffset);\n                                                   \neventStartDate.setMinutes(eventStartDate.getMinutes() + eventStartDate.getTimezoneOffset());\n\nvar dateString = kendo.toString(eventStartDate, \"MM/dd/yyyy h:mm tt\")); //Let kendo convert it to readable for you\n```\n",
+  "slug": "timezone-conversion-from-sitefinity-odata-event-api-service"
+}

@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T01:45:40.6070000Z",
+  "legacyUrl": "/code/2012/03/16/finding-what's-causing-a-bad-webresource.axd-request",
+  "needsFixing": false,
+  "slug": "debugging-a-bad-webresource-axd-request",
+  "featuredImage": "/images/stock/500x280/img12.jpg",
+  "markdown": true,
+  "title": "Debugging a bad WebResource.axd request",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "[Telerik has a great blog post](https://blogs.telerik.com/blogs/posts/07-03-26/debugging_asp_net_2_0_web_resources_decrypting_the_url_and_getting_the_resource_name.aspx) on how to figure out where a bad WebResource.axd request is coming from.\n\nWhen you use firebug you just see a string of seemingly garbage appended to WebResource.axd.  The post by Hristo gives you an aspx page you can drop into your site which will accept that WebResource URL and decrypt if for you!\n\n[decrypting_the_url_and_getting_the_resource_name](https://blogs.telerik.com/blogs/posts/07-03-26/debugging_asp_net_2_0_web_resources_decrypting_the_url_and_getting_the_resource_name.aspx)",
+  "seoMetaImage": "/images/stock/500x280/img12.jpg",
+  "seoDescription": "Asp.net packages resources into these massive AXD cachebusted bundled requests, but they are an absolute nightmare to look though."
+}

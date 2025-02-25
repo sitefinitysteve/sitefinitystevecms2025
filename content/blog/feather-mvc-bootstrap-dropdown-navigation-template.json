@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2017-03-20T14:41:07.4270000Z",
+  "legacyUrl": "/code/2017/03/20/feather-mvc-bootstrap-dropdown-navigation-template",
+  "needsFixing": false,
+  "slug": "feather-mvc-bootstrap-dropdown-navigation-template",
+  "featuredImage": "/images/stock/500x280/img6.jpg",
+  "markdown": true,
+  "title": "Feather MVC bootstrap dropdown navigation template",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Feather ships with a bunch of OOTB bootstrap nav templates, one missing though is a bootstrap Dropdown (not to be confused with the *select* which is actually there just not named properly so it doesn't show up in the UI... just a bug)   \n  \n[Here's an example of a bootstrap dropdown](https://getbootstrap.com/components/#dropdowns)\n\nSo the tricky part is being able to set the Dropdown **title** as the Navigation widget doesn't provide any sort of meta field to denote that.  The solution is to use the CSS field and to just wrap your \"Title\" in Percent symbols like this...  \n  \n![Navdropdown](/images/posts/feather-mvc-bootstrap-dropdown-navigation-template/navdropdown.tmb-medium.png?sfvrsn=c52a8b66_1 \"Navdropdown\")\n\n  \n\n**IMPORTANT:** Place in /ResourcePackages//MVC/Views/Navigation\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/fac3193a67bc20aa1274aef4bf1ec8a4.js\"></div>",
+  "seoMetaImage": "/images/stock/500x280/img6.jpg",
+  "seoDescription": "Add a bootstrap dropdown navigation template to Sitefinity"
+}

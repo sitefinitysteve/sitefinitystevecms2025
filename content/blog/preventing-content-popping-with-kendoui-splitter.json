@@ -1,0 +1,16 @@
+{
+  "publishedAt": "2012-03-16T01:39:31.3930000Z",
+  "legacyUrl": "/code/2012/03/16/preventing-content-popping-with-kendoui-splitter",
+  "needsFixing": false,
+  "slug": "preventing-content-popping-with-kendoui-splitter",
+  "featuredImage": "/images/stock/500x280/img16.jpg",
+  "markdown": true,
+  "title": "Preventing Content Popping with KendoUI",
+  "tags": [
+    "Tutorial",
+    "KendoUI"
+  ],
+  "content": "So this is a sample of how to enable the splitter\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/531b4b8c6c12478e6950aca205b69f0a.js?file=kendo1.html\"></div>\n\nSo once you start getting crazy with the content IN the splitter you'll notice (on page load) all the content in a tiny box on your screen then \\*BAM\\* kendo takes over and you have splitters.  This is because the html is downloaded and shown, styles applied, then the javascript runs usually in my case in document.ready.  So this happens pretty fast, but sometimes you'll get a bit of lag where you will see the page being re-organized (especially full-screen implementations)\n\nQuick fix though\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/531b4b8c6c12478e6950aca205b69f0a.js?file=kendo2.html\"></div>\n\nSo the same idea applys everywhere really...this example is just with the splitter.  If you're seeing content \"Pop\", just hide it until Kendo has finished Kendoing :)",
+  "seoMetaImage": "/images/stock/500x280/img16.jpg",
+  "seoDescription": "Watching your page render html, then having it just pop into becoming a javascript widget is really jank for your users, lets fix that."
+}

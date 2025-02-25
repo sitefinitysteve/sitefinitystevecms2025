@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T02:51:10.3930000Z",
+  "legacyUrl": "/code/2012/03/16/justcode-template-list",
+  "needsFixing": false,
+  "slug": "justcode-template-list",
+  "featuredImage": "/images/stock/500x280/img4.jpg",
+  "markdown": true,
+  "title": "JustCode Template List",
+  "tags": [
+    "News"
+  ],
+  "content": "Using the new 4.4 Module builder I've started to make available a list of telerik [JustCode templates](https://www.telerik.com/products/justcode/code-templates.aspx).\n\nFirst up: Sitefinity Custom Designer Script (contains samples)\n\n**NOTE** JustCode Q3 2011 SP1 or greater required as they revamped their template engine.\n\n[View Template](https://www.sitefinitysteve.com/downloads/templates)\n\n\\*\\*EDIT\\*\\*\n\nFor those who don't know, JustCode is teleriks visual studio productivity addon.  It's included in your Ultimate Collection, and also I believe Premium Collection (or standalone license)...it's like teleriks version of CodeRush\\\\R#.   \n[Feature Matrix](https://www.telerik.com/products/justcode/justcode-feature-matrix.aspx)\n\nSo this is a video of what the first template I added does:  \n\n[View on youtube](https://youtu.be/zIQTRYCqEjk)\n\n### Note 2020-09-24\nTelerik discontinued the product a while ago, I recommend [DevXpress Coderush](https://www.devexpress.com/products/coderush/) instead.",
+  "seoMetaImage": "/images/stock/500x280/img4.jpg",
+  "seoDescription": "Here are some Telerik JustCode Templates you can use in the Sitefinity 4.4 Module builder."
+}

@@ -1,0 +1,16 @@
+{
+    "title": "Loading a specific Feather Template in Hybrid Mode",
+    "needsFixing": false,
+    "content": "So if you have an existing Hybrid template and try to drop on a bootstrap layout widget (for example) you\u0027ll get an error that it can\u0027t find the template in ~/ResourcePackage/...  \n  \nThis makes sense in that when you base your page on a Bootstrap cshtml template it knows to load Bootstrap, but if you base it on a Masterpage, that Masterpage doesn\u0027t live in the context of a resource package and you might have like 4 resource package themes in your project...WHICH TO LOAD!  \n  \nThe solution is super easy and elegant, just I think maybe not documented?  \n  \n1) Open the page templates: /Sitefinity/Design/PageTemplates  \n2) On **each** template you need linked to a ResourcePackage click Actions-Properties  \n3) Set the developer name to this convention **ResourcePackage**.**templatename**  \n  \nSo lets say you want to use bootstrap and your template is called Root it would be  \nBootstrap.Root  \n  \nThat\u0027s all there is to it, now feather will load all of it\u0027s templates from the Bootstrap folder.",
+    "featuredImage": "/images/stock/500x280/img13.jpg",
+    "seoDescription": "Specifying a resource package for Sitefinity Feather in hybrid mode",
+    "seoMetaImage": "/images/stock/500x280/img13.jpg",
+    "publishedAt": "2015-10-07T18:46:30.0970000Z",
+    "slug": "hybrid-feather-resource-package-loading",
+    "legacyUrl": "/code/2015/10/07/telling-your-hybrid-template-which-feather-resource-package-to-load",
+    "markdown": true,
+    "tags": [
+        "Sitefinity",
+        "Tutorial"
+    ]
+}

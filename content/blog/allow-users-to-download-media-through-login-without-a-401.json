@@ -1,0 +1,16 @@
+{
+    "title": "Redirect to protected document after login",
+    "needsFixing": false,
+    "content": "Media content in Sitefinity can be permissioned, which is great.  However in an unauthenticated state if the user clicks a link to the file from either an email link, or on the site somewhere they get a 401 response, not a link to your login page with a passthrough to the file.  \n  \nHere\u0027s how you can get around that...  \n  \n\n### Step 1: Detect the error\n\nBasically all we\u0027re doing here is capturing any error message related to documents so we can manually send them to the login page.\n\n\u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/9d22b8ea8e0856e5f465.js\"\u003e\u003c/div\u003e \n\n\n### Step 2: Create the page\\\\widget to serve the file\n\nSo this could be an aspx page, ascx control, mvc control, simpleview widget...doesn\u0027t matter.  You just need something to serve them up the file.  I mean it\u0027s probably a better idea for this to be a sitefinity page that can be permissioned with a widget on it.  This code is just something we did a long time ago...  \n  \n \u003cdiv class\u003d\u0027embeddedscript\u0027 data-src\u003d\"https://gist.github.com/sitefinitysteve/d2ace979338e4d59e1f2.js\"\u003e\u003c/div\u003e\n  \nThat\u0027s it!...next step is for telerik to get to making the functionality native without modification...or at least the ability to enable it.",
+    "featuredImage": "/images/stock/500x280/img2.jpg",
+    "seoDescription": "If a document is protected and the anonymous user is sent to the login page, once they login they aren't sent to the document.  Here's the fix to send them over to avoid frustration.",
+    "seoMetaImage": "/images/stock/500x280/img2.jpg",
+    "publishedAt": "2014-11-11T13:31:31.6000000Z",
+    "slug": "allow-users-to-download-media-through-login-without-a-401",
+    "legacyUrl": "/code/2014/11/11/allow-users-to-download-media-through-login-without-a-401",
+    "markdown": true,
+    "tags": [
+        "Tutorial",
+        "Sitefinity"
+    ]
+}

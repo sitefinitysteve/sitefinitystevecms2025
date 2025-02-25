@@ -1,0 +1,16 @@
+{
+    "title": "Sitefinitys ContentView can be an ass#$%@ sometimes",
+    "needsFixing": false,
+    "content": "Just about all content controls in sitefinity in one way or another inherits from ContentView...and ContentView can toggle between a MasterView (list mode) and DetailMode (single view).  \n  \nSo here\u0027s the problem...ContentView assumes if you only have **ONE** item selected you want it to render in DetailMode.  In every case, no exceptions...\n\n#### BAD CONTENTVIEW, BAD!\n\n![Ashamed dog](/images/posts/the-sitefinity-contentview-can-be-an-ass-$-@-sometimes/ashamed-dog.jpg?sfvrsn\u003d3e078b66_2 \"ashamed-dog\")\n\n### Why is this bad?\n\nWell it makes assumptions for you...so your designer might say \"On the left bar I want a list of images, when someone clicks them, a lightbox pops up showing the larger image\".   \n  \n  So great, you plop on the ImageAssetsField control and all looks fine...until someone uploads only one image.  \n  \n  What happens now is that your list of thumbnails has turned into one giant fullsized image which (unless you do overflow:hidden on the sf\\_cols) is overflowing into your content area with no lightboxing  So now we\u0027re wayyyy down the rabbit hole of unintended content with no ability to even fix it.  \n  \n  Lets even say that your designer wants a piece of module builder related content to appear in a list on a page...again, all works...until only one Guid is linked, then the stupid item shows up in full detail mode instead of maybe just a simple ul\\\\li with a title and description.  \n  \nMOREOVER...when it\u0027s in detail mode it also changes the stupid Page title and breadcrumb :p...  \n\n### \"Well can\u0027t I just make the detail view template look like the master item?\"\n\nTechnically?...yeah, you could...but it\u0027s a huge pain and literally duplicates all your templates.  Make a quick tweak to master, better make sure to do it as well in the DetailFakeMaster template...and also better remember to duplicate the master views on every single new content type (just in case)..._pain in the ass_\n\n### \"Well why don\u0027t you just set it to render in Master?\"\n\n...you can\u0027t, believe me, I\u0027d love to...this is where I think there\u0027s a bug or a fundamental design \"oops\".  It just toggles based on count \u003e 1...  \n\n### \"What about a custom control?\"\n\nSure, but...for every piece of content in sitefinity?...go nuts...crazy person :)  \n\n### Where to go from here\n\n[Ivan](https://plus.google.com/u/0/112813764974421063538/posts) [says he\u0027ll look into it](https://t.co/eZfPNztFqk), for 6.0?...doubtful...but hopefully not to much longer after :/  I\u0027d LOOVE it to be in 6 if it\u0027s such a small change...but seeing as everyone keeps saying 6.0 will be out in april...we\u0027re down to the wire.",
+    "featuredImage": "/images/stock/500x280/img15.jpg",
+    "seoDescription": "The problem with the assumtions Sitefinity ContentView makes",
+    "seoMetaImage": "/images/stock/500x280/img15.jpg",
+    "publishedAt": "2013-04-23T15:25:51.2300000Z",
+    "slug": "contentview-master-detail-confusion",
+    "legacyUrl": "/code/2013/04/23/the-sitefinity-contentview-can-be-an-ass-$-@-sometimes",
+    "markdown": true,
+    "tags": [
+        "Rants",
+        "Sitefinity"
+    ]
+}

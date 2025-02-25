@@ -1,0 +1,13 @@
+{
+  "publishedAt": "2019-06-11T17:31:14.4030000Z",
+  "legacyUrl": "/code/2019/06/11/simple-way-to-add-toolbox-polish-to-your-custom-widgets",
+  "needsFixing": true,
+  "slug": "customize-toolbox-widget-icons",
+  "featuredImage": "/images/stock/500x280/img9.jpg",
+  "markdown": true,
+  "title": "Changing the look of toolbox widget icons",
+  "tags": ["Tutorial"],
+  "content": "If you make custom widgets, I'd bet they look like this in the toolbox  \n  \n![Dashboard](/images/posts/simple-way-to-add-toolbox-polish-to-your-custom-widgets/dashboard.png)  \n  \nSo that tells no story at all...  \n  \nWhat you need to do is in your ControllerToolboxItem attribute, implement the CssClass property  \n  \n  \n![Subunit](/images/posts/simple-way-to-add-toolbox-polish-to-your-custom-widgets/subunit.png)  \n  \nBOOM, yeah... pro stuff right there, no more stupid dotted box  \n  \nSo 2 things of note here  \n\n1.  **sfMvcIcn**: This is the little blue MVC annotation\n2.  **sfImageLibraryViewIcn**: WTF!? Okay so all of the existing OOTB toolbox widgets are one big-ass sprite.  The backend breaks that up with these special classes which are not documented anywhere I know about.  So just right-click on the toolbox items icon you want, click Inspect and let the chrome inspector tell you the class name.\n3.  If you add this property to an EXISTING TOOLBOX widget nothing will change, you need to manually edit the ToolBox.config to add the class.  If this is a NEW widget being registered into the toolbox... it'll insert for you.  \n          \n![Blog toolbox icon](/images/posts/simple-way-to-add-toolbox-polish-to-your-custom-widgets/blog-toolbox-icon.png)\n\nPay special attention to the \".RadDock .rdTable .rdTitleBar div\" entry in the sidebar, it has a WebResource.axd link to the ACTUAL sprite being used... fun to look at.  Maybe you'll find a new asset not in yet in SF or something 😊\n\n### An aside\n\nYou aren't limited to using these icons or classes.  The entire backend is loaded in the same frame.  So your page template could load in (in design mode) a custom css file with your own icon class names to use.  This is just the easy button...",
+  "seoMetaImage": "/images/stock/500x280/img9.jpg",
+  "seoDescription": "Add some no-work polish to your custom Sitefinity Widgets"
+}

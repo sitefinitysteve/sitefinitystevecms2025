@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2017-07-18T13:47:11.4130000Z",
+  "legacyUrl": "/code/2017/07/18/sitefinity-10.1-and-development-load-times",
+  "needsFixing": true,
+  "slug": "sitefinity-10.1-and-development-load-times",
+  "featuredImage": "/images/stock/500x280/img8.jpg",
+  "markdown": true,
+  "title": "Sitefinity 10.1 and Development Load times",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Great post up on how the Sitefinity dev team was able to cut the previously PAINFUL sitefinity dev experience of \"Build, wait, wait, wait, wait, test new code\"   \n  \nI now get twice as much dev time in the day!  \n  \nOne important thing to note though if you aren't seeing much of a difference, you need to  \n  \nTURN OFF SITE WARMUP PLUGINS ON DEV  \n  \nSo this doesn't mean turning off the module.  Although you could do that, the problem is you then can't build any extensions.  \n  \nYou just need to go into the Advanced settings and disable each warmup item itself.  By default there's just the DefaultSiteMap, but you might have extended it with custom types.  \n  \n![Settings](/images/posts/sitefinity-10.1-and-development-load-times/settings.png)",
+  "seoMetaImage": "/images/stock/500x280/img8.jpg",
+  "seoDescription": "Don't forget to disable Sitefinity Warmup Plugins to get the most of the 10.1 dev speed improvements."
+}

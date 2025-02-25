@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2015-10-14T15:15:38.4170000Z",
+  "legacyUrl": "/code/2015/10/14/detect-indexing-in-your-feather-view",
+  "needsFixing": false,
+  "slug": "detect-indexing-in-your-feather-view",
+  "featuredImage": "/images/stock/500x280/img21.jpg",
+  "markdown": true,
+  "title": "Detect Indexing in your feather view",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Its good practice to hide unnessesary content from the Sitefinity Lucene indexer.  It's hard enough to find things IN lucene you don't want the results cluttered with like you menu or footer content.  \n  \nHere's the answer courtesy of Nikola Zagorchev\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/90cebd0658370a81402a.js\"></div>",
+  "seoMetaImage": "/images/stock/500x280/img21.jpg",
+  "seoDescription": "Here's a quick way you can hide content from being Indexed by Sitefinity Lucene search."
+}

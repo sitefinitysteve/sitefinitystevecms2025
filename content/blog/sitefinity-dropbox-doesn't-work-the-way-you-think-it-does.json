@@ -1,0 +1,15 @@
+{
+    "title": "Sitefinity Dropbox doesn't work the way you think it does",
+    "needsFixing": false,
+    "content": "The video on the Sitefinity dropbox integration has been published, you can see it here: [https://www.youtube.com/watch?v\u003daiDuwARU33o\u0026feature\u003dg-all-u](https://www.youtube.com/watch?v\u003daiDuwARU33o\u0026feature\u003dg-all-u)  \n  \nSo the key thing you need to notice is the title...the word \"Synchronization\".  \n  \n**What you expect to happen:**  \n\n*   Dropbox stores the images\n*   Sitefinity stores the meta data\n*   Embed link in sitefinity is right to the image over in the dropbox cdn\n\n  \n**What actually happens:**  \n\n*   Anything you put into dropbox Sitefinity \"consumes\" and makes a copy of\n*   Likewise anything you upload into Sitefinity, dropbox gets a copy of\n\nSo really you end up with duplicate content.  Stored in the DB\\\\filesystem and your dropbox account at the same time.  Only bonus I can see is that dropbox versions media so if you roll back in theory the sitefinity file would also rollback.  \n  \nSo knowing that (and I\u0027m sure they do, probably just a limitation on the current implimentation)...lets enhance the system work towards \"REAL\" cdn\\\\dropbox providers...the \"Sync\" is \"neat\", but doesn\u0027t solve the need.",
+    "featuredImage": "/images/stock/500x280/img1.jpg",
+    "seoDescription": "Sitefinity DropBox integration v1.  Should you use it?",
+    "seoMetaImage": "/images/stock/500x280/img1.jpg",
+    "publishedAt": "2012-11-20T16:12:23.7470000Z",
+    "slug": "sitefinity-dropbox-doesn't-work-the-way-you-think-it-does",
+    "legacyUrl": "/code/2012/11/20/sitefinity-dropbox-doesn't-work-the-way-you-think-it-does",
+    "markdown": true,
+    "tags": [
+        "Reviews"
+    ]
+}

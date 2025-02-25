@@ -1,0 +1,15 @@
+{
+    "title": "Custom Page Class in Sitefinity 3.x",
+    "needsFixing": false,
+    "content": "Every page inherits from the same page class...make it your own custom one instead!  \n\n1.  Create your new class in App\\_Code, and inherit from InternalPage\n2.  Find Site\\\\Sitefinity\\\\cmsentrypoint.aspx, edit it and change the Page Inherits to your new class",
+    "featuredImage": "/images/stock/500x280/img9.jpg",
+    "seoDescription": "Quick two steps to change which class every page inherits from",
+    "seoMetaImage": "/images/stock/500x280/img9.jpg",
+    "publishedAt": "2012-03-16T02:46:39.6370000Z",
+    "slug": "implimenting-your-own-custom-page-class",
+    "legacyUrl": "/code/2012/03/16/implimenting-your-own-custom-page-class",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

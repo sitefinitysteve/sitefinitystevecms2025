@@ -1,0 +1,11 @@
+{
+  "tags": [
+    "Tutorial",
+    "VueJs"
+  ],
+  "publishedAt": "2021-09-09T12:14:01.621Z",
+  "title": "VueJs Upload Input though a regular form postback",
+  "slug": "vuejs-upload-input-though-a-regular-form-postback",
+  "seoDescription": "Sometimes I don't want an Async upload before a form submission, I want to submit the results of a file through a regular form element postback, here's a quick way to do that.",
+  "content": "For a simple form I don't want to maintain a whole temp directory system for async uploads through most VueJs components.  I just want vue to manage the state of my submit button, maybe some basic client validation as well.  But I want a regular form postback with the input type=\"file\" browser component.\n\nThe tricky part is you can't bind it to a v-model, vue will throw console errors (I mean otherwise it seems to \"work\" in that it's storing something).\n\nSo my solution is to hook into the change event and just store the filename in vue... the posted file itself can live native in the *input*, but now we should be able to inform our client logic.\n\nSo lets start with the markup, please feel free to swap out the Razor markup for whatever your platform of choice is (Note the @@ should just be a @ for non-asp.net, it's just an escape)\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/a77df1e6d9c62de40c0ed36fb70be83c.js?file=form.html\"></div>\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/a77df1e6d9c62de40c0ed36fb70be83c.js?file=upload-test.js\"></div>\n\n* So very simply as stated.  When a file is picked with the native browser UI, vuejs triggers the change event into onSelectFile().\n* The Vue method gets the input reference, gets the first file, and stores it's name into Vue.\n* Now the computed method \"hasInvalidFile\" is able to handle the disabled state of the button.\n\nNow we have Vue Validation, with the simplicity of a postback!\n\nClearly you could go further to check allowed extensions (left in the helper), but this just a basic example for clarity.\n\nIf you ARE a .net developer, here's the stub you can use for the Controllers HttpPost\n\n<div class=\"embeddedscript\" data-src=\"https://gist.github.com/sitefinitysteve/a77df1e6d9c62de40c0ed36fb70be83c.js?file=HandlerCSharp.cs\"></div>\n\nHappy Coding!\n\r"
+}

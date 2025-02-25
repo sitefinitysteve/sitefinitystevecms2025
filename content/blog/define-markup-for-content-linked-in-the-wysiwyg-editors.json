@@ -1,0 +1,15 @@
+{
+    "title": "Set rendered html for images and docs in the editor",
+    "needsFixing": false,
+    "content": "One of the benifits of a WYSIWYG editor like in sitefinity is that it allows you to add custom content directly inline with the text, such as this blog post.  \n  \nHowever the limitation of Sitefinity (right now) is that it just converts a document to a link, or an image to the image, you have no control over the markup generated.  \n  \n### Example:\n\nLets say you drop a DocumentLink widget on a page and pick a document, it\u0027ll be styled all fancy with an extension\\\\type icon and some meta data.  However if you add it to the WYSIWYG editor it\u0027s just a dumb link, this creates a disconnect and frustration for content editors.  \n  \n![CustomMarkupBefore](/images/posts/define-markup-for-content-linked-in-the-wysiwyg-editors/custommarkupbefore.png?sfvrsn\u003dce298b66_0 \"CustomMarkupBefore\")It leaves you zero control over your markup, like what if you want all images to have the bootstrap \"img-responsive\" class, can\u0027t do it unless you wire up some javascript.\n\n### What\u0027s the fix, is there anything we can do?\n\nAs of now, on Razor, YES!  I\u0027ve created an extension you can use which will let you define cshtml views that will render the content exactly as you want.  Even better you can define different cshtml views wherever and whenever you want depending on the content.  \n  \nIt\u0027s as simple as adding a Nuget Package to your project.  \n\n### Do you have a practical use-case?\n\nSure!\n\n*   What, if you want all your images to have title\u003d\"Description\"\n*   What if you want every image to show the Authors name under the image\n*   Maybe you have a custom field on the image and you need to show that data in a [card](https://v4-alpha.getbootstrap.com/components/card/).\n*   ...Or maybe you just want all your content to render the same regardless of where it\u0027s added\n\nCheckout the WIKI over here: [Link](https://github.com/sitefinitysteve/RandomSiteControlsMVC/wiki/Extensions#sfshtml)",
+    "featuredImage": "/images/stock/500x280/img1.jpg",
+    "seoDescription": "How to change the way RadEditor\\Kendo WYSIWYG editors display their related content.",
+    "seoMetaImage": "/images/stock/500x280/img1.jpg",
+    "publishedAt": "2016-11-05T23:17:07.0200000Z",
+    "slug": "define-markup-for-content-linked-in-the-wysiwyg-editors",
+    "legacyUrl": "/code/2016/11/05/define-markup-for-content-linked-in-the-wysiwyg-editors",
+    "markdown": true,
+    "tags": [
+        "Tutorial"
+    ]
+}

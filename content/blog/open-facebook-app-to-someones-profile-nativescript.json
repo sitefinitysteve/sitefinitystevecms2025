@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2020-05-12T19:22:56.8530000Z",
+  "legacyUrl": "/code/2020/05/12/nativescript-open-facebook-app-to-someones-profile",
+  "needsFixing": false,
+  "slug": "open-facebook-app-to-someones-profile-nativescript",
+  "featuredImage": "/images/stock/500x280/img9.jpg",
+  "markdown": true,
+  "title": "Open facebook app to someones profile",
+  "tags": [
+    "Tutorial"
+  ],
+  "content": "Deeplinking to someones facebook profile from your mobile app is harder than it should be.  I think at some point the syntax changed, so I spent quite a while trying to sort it out, now you don't need to! \n\nStackoverflow is full of I guess old articles saying the facebook uri is like this:\n\n```\nfb://profile/username or fb://page/username.  \n```\n\nBut it doesn't work, just loads the facebook app to the default your profile view.  \n  \nI guess as of a certain version it is required to load into a special child view or something, anyway, this is the code that works.  \n  \nWas super straight forward on iOS\n\n```\nfb://profile?id=username\n```\n  \nThis was tested by me using Nativescript 6.5 Typescript, however this isn't Nativescript specific.",
+  "seoMetaImage": "/images/stock/500x280/img9.jpg",
+  "seoDescription": "There's lots of confusion about the schema syntax to generate an in-app link which will open the Facebook app right to someones profile. Here's what works, and what doesn't. "
+}
