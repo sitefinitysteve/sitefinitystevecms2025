@@ -1,0 +1,15 @@
+{
+  "publishedAt": "2012-03-16T02:10:52.1570000Z",
+  "legacyUrl": "/code/2012/03/16/new-control--background-image-content",
+  "needsFixing": false,
+  "slug": "new-control-background-image-content",
+  "featuredImage": "/images/stock/500x280/img7.jpg",
+  "markdown": true,
+  "title": "Background Image Content Widget for Sitefinity 3",
+  "tags": [
+    "News"
+  ],
+  "content": "Hey guys, new control to play with.\n\nThis time it's a generic content panel in which you can set background images (and placements).  So you could have text over top of an image, or have text on the left, and an image on the right (in the same panel)\n\n### Note 2020\nPlease contact for files",
+  "seoMetaImage": "/images/stock/500x280/img7.jpg",
+  "seoDescription": "New control released that lets you set a background image on your ContentBlock"
+} 
