@@ -18,5 +18,8 @@
   },
   "dependencies": {
     "@nuxtjs/cloudinary": "^2.3.4"
+  },
+  "overrides": {
+    "@parcel/watcher": "2.1.0"
   }
 }
