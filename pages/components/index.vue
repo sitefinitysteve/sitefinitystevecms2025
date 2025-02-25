@@ -131,91 +131,157 @@
       </div>
     </div>
 
-    <div class="bg-white py-16">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2>ServiceStack RestApi templates</h2>
-          <p class="text-xl mt-4">
+    <!-- Redesigned ServiceStack Templates Section -->
+    <div class="relative py-20 overflow-hidden">
+      <!-- Decorative background elements -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="absolute inset-0 opacity-20">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 0 10 L 40 10 M 10 0 L 10 40" fill="none" stroke="currentColor" stroke-width="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+      </div>
+      
+      <div class="container relative mx-auto px-4">
+        <div class="text-center mb-12">
+          <div class="inline-block mb-2">
+            <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Templates</span>
+          </div>
+          <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-blue-600">ServiceStack RestApi Templates</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             This is the fastest and best way to create a custom Sitefinity Service. Not MVC JsonResults, not Webforms Svc calls,
             <NavigationButton 
               variant="ghost" 
               size="sm"
+              class="text-teal-600 font-semibold hover:text-teal-800"
               @click="navigateTo('https://servicestack.net/')"
             >ServiceStack</NavigationButton> is fully licensed by Sitefinity, leverage it!
           </p>
         </div>
 
-        <div class="max-w-3xl mx-auto">
-          <div class="flex border-b mb-4">
+        <!-- Modern Tab Interface -->
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+          <!-- Tab Navigation -->
+          <div class="flex border-b">
             <button
-              :class="currentTab === 'plain' ? 'border-b-2 border-teal-500 text-teal-600' : 'text-gray-500 hover:text-gray-700'"
-              class="px-4 py-2 font-medium"
+              :class="[
+                'px-6 py-4 font-medium text-base transition-all duration-200 focus:outline-none',
+                currentTab === 'plain' 
+                  ? 'text-teal-600 border-b-2 border-teal-500 font-semibold' 
+                  : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
+              ]"
               @click="currentTab = 'plain'"
             >
-              Plain C#
+              <div class="flex items-center">
+                <CodeBracketIcon class="h-5 w-5 mr-2" />
+                Plain C#
+              </div>
             </button>
             <button
-              :class="currentTab === 'coderush' ? 'border-b-2 border-teal-500 text-teal-600' : 'text-gray-500 hover:text-gray-700'"
-              class="px-4 py-2 font-medium"
+              :class="[
+                'px-6 py-4 font-medium text-base transition-all duration-200 focus:outline-none',
+                currentTab === 'coderush' 
+                  ? 'text-teal-600 border-b-2 border-teal-500 font-semibold' 
+                  : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
+              ]"
               @click="currentTab = 'coderush'"
             >
-              CodeRush Template
+              <div class="flex items-center">
+                <BoltIcon class="h-5 w-5 mr-2" />
+                CodeRush Template
+              </div>
             </button>
           </div>
 
-          <div class="bg-gray-100 p-4 rounded-lg">
-            <div v-if="currentTab === 'plain'">
-              <pre class="overflow-auto p-4 bg-gray-800 text-white rounded">
-// Plain C# ServiceStack template
-public class HelloRequest : IReturn&lt;HelloResponse&gt;
-{
-    public string Name { get; set; }
-}
-
-public class HelloResponse
-{
-    public string Result { get; set; }
-}
-
-public class HelloService : Service
-{
-    public object Any(HelloRequest request)
-    {
-        return new HelloResponse { Result = "Hello, " + request.Name };
-    }
-}
-              </pre>
+          <!-- Tab Content -->
+          <div class="p-6">
+            <!-- Plain C# Tab -->
+            <div v-if="currentTab === 'plain'" class="transition-opacity duration-300">
+              <div class="relative">
+                <!-- Code Editor Header -->
+                <div class="flex items-center justify-between bg-gray-800 text-white px-4 py-2 rounded-t-lg">
+                  <div class="flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                      <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-sm font-mono">ServiceStack.cs</span>
+                  </div>
+                  <div class="text-xs text-gray-400">Plain C# Template</div>
+                </div>
+                
+                <!-- Gist Embed Container -->
+                <div class="gist-container rounded-b-lg overflow-hidden" data-src="https://gist.github.com/sitefinitysteve/86e05160c2e2be5410dcc754549c272a.js">
+                  <div class="p-4 bg-gray-800 text-white text-center">
+                    <span class="animate-pulse">Loading Gist...</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-4 text-gray-600 text-sm">
+                <p>This template provides a basic structure for creating ServiceStack API endpoints in Sitefinity.</p>
+              </div>
             </div>
-            <div v-if="currentTab === 'coderush'">
-              <pre class="overflow-auto p-4 bg-gray-800 text-white rounded">
-// CodeRush ServiceStack template
-public class $NAME$Request : IReturn&lt;$NAME$Response&gt;
-{
-    $END$
-}
-
-public class $NAME$Response
-{
-    
-}
-
-public class $NAME$Service : Service
-{
-    public object Any($NAME$Request request)
-    {
-        return new $NAME$Response { };
-    }
-}
-              </pre>
-              <div class="mt-4 text-center">
+            
+            <!-- CodeRush Tab -->
+            <div v-if="currentTab === 'coderush'" class="transition-opacity duration-300">
+              <div class="relative">
+                <!-- Code Editor Header -->
+                <div class="flex items-center justify-between bg-gray-800 text-white px-4 py-2 rounded-t-lg">
+                  <div class="flex items-center">
+                    <div class="flex space-x-2 mr-4">
+                      <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-sm font-mono">ServiceStackTemplate.cs</span>
+                  </div>
+                  <div class="text-xs text-gray-400">CodeRush Template</div>
+                </div>
+                
+                <!-- Gist Embed Container -->
+                <div class="gist-container rounded-b-lg overflow-hidden" data-src="https://gist.github.com/sitefinitysteve/d49c43830fb79d3179d7.js">
+                  <div class="p-4 bg-gray-800 text-white text-center">
+                    <span class="animate-pulse">Loading Gist...</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-6 flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-teal-50 to-blue-50 p-4 rounded-lg">
+                <div class="text-gray-700 mb-4 md:mb-0 md:mr-4">
+                  <p class="font-medium">Supercharge your development with CodeRush</p>
+                  <p class="text-sm mt-1">Use this template with CodeRush to quickly generate ServiceStack endpoints</p>
+                </div>
                 <NavigationButton 
                   variant="secondary" 
-                  size="lg"
+                  size="md"
+                  class="bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:from-teal-600 hover:to-blue-600 shadow-md"
                   @click="navigateTo('https://www.devexpress.com/products/coderush/')"
-                >Download CodeRush</NavigationButton>
+                >
+                  Download CodeRush
+                </NavigationButton>
               </div>
             </div>
           </div>
+        </div>
+        
+        <!-- Additional Resources -->
+        <div class="mt-12 text-center">
+          <p class="text-gray-600 mb-6">Want to learn more about ServiceStack integration with Sitefinity?</p>
+          <NavigationButton 
+            variant="primary" 
+            size="lg"
+            class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 shadow-sm"
+            @click="navigateTo('https://www.progress.com/documentation/sitefinity-cms/for-developers-create-a-servicestack-web-service-in-sitefintiy-cms')"
+          >
+            View Examples on GitHub
+          </NavigationButton>
         </div>
       </div>
     </div>
@@ -223,7 +289,7 @@ public class $NAME$Service : Service
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import NavigationButton from '~/components/navigation/button.vue';
 import { 
   Bars3Icon, 
@@ -236,6 +302,76 @@ import {
 } from '@heroicons/vue/24/outline';
 
 const currentTab = ref('plain');
+
+// Function to load GitHub Gist embeds
+onMounted(() => {
+  loadGistEmbeds();
+});
+
+const loadGistEmbeds = async () => {
+  const gistContainers = document.querySelectorAll('.gist-container');
+  
+  for (const container of gistContainers) {
+    // Extract Gist ID
+    const gistUrl = container.dataset.src;
+    const gistIdMatch = gistUrl.match(/\/([a-zA-Z0-9]+)\.js$/);
+    if (!gistIdMatch) continue;
+    
+    const gistId = gistIdMatch[1];
+    
+    try {
+      // Fetch the Gist content using the GitHub API
+      const response = await fetch(`https://api.github.com/gists/${gistId}`);
+      const data = await response.json();
+      
+      if (!data || !data.files) {
+        container.innerHTML = '<div class="p-4 bg-gray-800 text-white">Failed to load Gist</div>';
+        continue;
+      }
+      
+      // Get the first file in the Gist
+      const filename = Object.keys(data.files)[0];
+      const file = data.files[filename];
+      
+      // Create a code element with syntax highlighting (you might want to use a library like Prism.js or highlight.js)
+      const codeElement = document.createElement('pre');
+      codeElement.className = 'p-4 overflow-auto bg-gray-900 text-white rounded-b-lg';
+      codeElement.style.maxHeight = '600px';
+      
+      const code = document.createElement('code');
+      code.textContent = file.content;
+      code.className = 'language-csharp'; // Adjust based on file type
+      
+      codeElement.appendChild(code);
+      
+      // Create header with filename
+      const header = document.createElement('div');
+      header.className = 'flex justify-between items-center p-2 bg-gray-800 text-white text-sm border-t border-gray-700';
+      header.innerHTML = `
+        <span>${filename}</span>
+        <a href="${data.html_url}" target="_blank" class="text-blue-400 hover:text-blue-300">View on GitHub</a>
+      `;
+      
+      // Clear container and append content
+      container.innerHTML = '';
+      container.appendChild(codeElement);
+      container.appendChild(header);
+      
+      // If you're using a syntax highlighting library, initialize it here
+      // For example: Prism.highlightElement(code);
+    } catch (error) {
+      console.error('Error loading Gist:', error);
+      container.innerHTML = '<div class="p-4 bg-gray-800 text-white">Error loading Gist</div>';
+    }
+  }
+};
+
+// Watch for tab changes to reload gists when tab changes
+watch(currentTab, (newTab) => {
+  setTimeout(() => {
+    loadGistEmbeds();
+  }, 200);
+});
 
 // Updated widgets array without Twitter Feed and with Heroicons v2
 const widgets = [
@@ -353,6 +489,27 @@ useHead({
     font-family: monospace;
     font-size: 0.9em;
     line-height: 1.4;
+  }
+  
+  // GitHub Gist styling
+  .gist-container {
+    .gist {
+      margin: 0 !important;
+      
+      .gist-file {
+        margin-bottom: 0 !important;
+        border-radius: 0 0 0.5rem 0.5rem !important;
+        border: none !important;
+      }
+      
+      .gist-data {
+        border-radius: 0 !important;
+      }
+      
+      .gist-meta {
+        display: none !important;
+      }
+    }
   }
 }
 </style> 
