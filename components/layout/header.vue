@@ -1,45 +1,6 @@
 <template>
-	<header id="header" class="">
-		<LayoutLogo />
-		<NavigationMainMenu />
+	<header id="header" class="relative grid grid-cols-[1fr_auto_1fr] grid-rows-[1fr] p-4 before:absolute before:content-[''] before:w-full before:h-[0.1em] before:top-full before:bg-gradient-to-r before:from-[#FF0000] before:to-[#00FF00]">
+		<LayoutLogo class="col-start-1 row-start-1" />
+		<NavigationMainMenu class="col-start-2 row-start-1 place-self-center" />
 	</header>
 </template>
-
-
-<style lang="scss" scoped>
-#header {
-	position: relative;
-	display: grid;
-	grid-template-columns: 1fr auto 1fr;
-	grid-template-rows: 1fr;
-	padding: $spacing2;
-	&::before {
-		position: absolute;
-		content: "";
-		width: 100%;
-		height: 0.1em;
-		top: 100%;
-		background-image: linear-gradient(90deg, $base-color, $secondary-color);
-	}
-	@include media(xsm) {
-		display: block;
-		padding: $spacing1 0;
-
-		#locale-toggle {
-			display: none;
-		}
-	}
-}
-
-#header__logo {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-#main-menu {
-	grid-column: 2;
-	grid-row: 1;
-	align-self: center;
-	justify-self: center;
-}
-</style>

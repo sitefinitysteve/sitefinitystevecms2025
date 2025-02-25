@@ -8,14 +8,11 @@
 		<nav :class="{ mobileMenuOpen: mobileMenuActive }">
 
 			<menu class="main-menu__basic">
-				<NuxtLink to="/" class="menu-item item--home" prefetch>
-					<span>home</span>
-				</NuxtLink>
-				<NuxtLink to="/typography" class="menu-item" prefetch>
-					<span>typography</span>
-				</NuxtLink>
 				<NuxtLink to="/blog" class="menu-item" prefetch>
 					<span>blog</span>
+				</NuxtLink>
+				<NuxtLink to="/components" class="menu-item item--home" prefetch>
+					<span>components</span>
 				</NuxtLink>
 			</menu>
 		</nav>

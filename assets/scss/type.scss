@@ -16,6 +16,7 @@ h3, .h3 {
 }
 
 h1, .h1 {
+	display: inline-block;
 	font-size: $font-size1;
 	@include media(xsm) {
 		font-size: $font-size2;

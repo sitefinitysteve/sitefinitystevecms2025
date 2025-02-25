@@ -100,7 +100,7 @@
 
 <script setup>
 import { useAsyncData } from 'nuxt/app';
-import BlogPagination from '~/components/blog/Pagination.vue';
+import BlogPagination from '~/components/blog/pagination.vue';
 
 // Format date to a readable format
 const formatDate = (date) => {
