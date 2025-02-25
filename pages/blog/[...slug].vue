@@ -140,6 +140,16 @@ const renderContent = (content) => {
     return placeholder;
   });
   
+  // Configure marked to add language classes to code blocks
+  marked.setOptions({
+    highlight: function(code, lang) {
+      // If a language is specified, add the appropriate class
+      const language = lang || 'plaintext';
+      return `<code class="language-${language}">${code}</code>`;
+    },
+    langPrefix: 'language-'
+  });
+  
   // Render markdown
   const renderedContent = marked(processedContent);
   
@@ -207,12 +217,45 @@ const loadPrismJs = () => {
     // Initialize Prism on any existing code blocks
     if (window.Prism) {
       setTimeout(() => {
+        // Ensure all code blocks have proper language classes
+        prepareCodeBlocksForPrism();
         window.Prism.highlightAll();
       }, 500);
     }
   };
   
   document.head.appendChild(prismJs);
+};
+
+// Function to prepare code blocks for Prism highlighting
+const prepareCodeBlocksForPrism = () => {
+  // Find all pre > code elements
+  const codeBlocks = document.querySelectorAll('pre > code');
+  
+  codeBlocks.forEach(codeBlock => {
+    // If the code block doesn't have a language class, add a default one
+    if (!Array.from(codeBlock.classList).some(cls => cls.startsWith('language-'))) {
+      codeBlock.classList.add('language-plaintext');
+    }
+    
+    // Make sure the parent pre element has the proper class
+    if (codeBlock.parentElement) {
+      const languageClass = Array.from(codeBlock.classList)
+        .find(cls => cls.startsWith('language-'));
+      
+      if (languageClass && !codeBlock.parentElement.classList.contains(languageClass)) {
+        codeBlock.parentElement.classList.add(languageClass);
+      }
+    }
+  });
+  
+  // Also find inline code elements that might need highlighting
+  const inlineCodeBlocks = document.querySelectorAll('p > code, li > code');
+  inlineCodeBlocks.forEach(codeBlock => {
+    if (!Array.from(codeBlock.classList).some(cls => cls.startsWith('language-'))) {
+      codeBlock.classList.add('language-plaintext');
+    }
+  });
 };
 
 const loadEmbeddedGists = async () => {
@@ -344,6 +387,7 @@ const loadEmbeddedGists = async () => {
     border-radius: 0.375em;
     background-color: #f3f4f6;
     overflow-x: auto;
+    margin: 1.5em 0;
   }
   
   code {
@@ -362,6 +406,64 @@ const loadEmbeddedGists = async () => {
     padding: 0;
     border: none;
     font-size: 0.9em;
+    display: block;
+    overflow-x: auto;
+  }
+  
+  /* Ensure Prism.js token colors are visible */
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #5e6e87;
+  }
+  
+  .token.punctuation {
+    color: #5e6e87;
+  }
+  
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    color: #c92c2c;
+  }
+  
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    color: #2f9c0a;
+  }
+  
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string {
+    color: #a67f59;
+  }
+  
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    color: #1a85c5;
+  }
+  
+  .token.function,
+  .token.class-name {
+    color: #c18401;
+  }
+  
+  .token.regex,
+  .token.important,
+  .token.variable {
+    color: #e90;
   }
   
   img {
