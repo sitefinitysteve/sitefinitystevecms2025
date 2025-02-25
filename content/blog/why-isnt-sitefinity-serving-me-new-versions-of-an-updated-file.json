@@ -1,0 +1,17 @@
+{
+  "publishedAt": "2020-06-16T16:07:49.1170000Z",
+  "legacyUrl": "/code/2020/06/16/why-isn't-sitefinity-serving-me-new-versions-of-an-updated-file",
+  "needsFixing": false,
+  "slug": "why-isnt-sitefinity-serving-me-new-versions-of-an-updated-file",
+  "featuredImage": "/images/stock/500x280/img8.jpg",
+  "markdown": true,
+  "title": "Sitefinity serving old versions of files",
+  "tags": [
+    "Tutorial",
+    "Fixes",
+    "Sitefinity"
+  ],
+  "content": "This one came though my drift today, thought I'd share the \"why\"\n\n### Problem\n\nWhen I click a file link, sitefinity serves me the old version, not the updated one\n\n### Why it's happening\n\nSo the good news, is this isn't a Sitefinity problem at all; it's a browser issue.  When a file is requested the browser uses the FULL url as the cache key.  So subsequent downloads just serve up the local file instead of having to get it again.\n\nSo if you clear your browser cache, you get the file again because there's nothing locally to grab it from.  Now telling all your users to clear their cache **is not an option** (because users).  The fix is to somehow change that cache key (url) in some way to FORCE the new file.\n\n### Resolution\n\nLets use this as the example url\n\n**/docs/default/myfile.pdf**\n\nIt's a nice clean url, you probably just pasted it into a content block link right?  This is a cache nightmare and should be avoided.\n\nInstead you should be using the SF Document picker to physically choose the file.  The doc picker automatically adds a cache busting querystring value to the end, and any time that file gets updated through the backend UI, that version code changes and users are served the server version, not their local cached version!\n\n**/docs/default/myfile.pdf?sfvrn=3249uf09\\_2**\n\nYou can change it yourself though too, however it changes **\\*doesnt matter\\*** \n\n**/docs/default/myfile.pdf?huh=thisworks**  \n**/docs/default/myfile.pdf?lol=rofl&busting=makesmefeelgood**  \n\nKinda get the idea?  You can do it by hand every time the file changes, or just let SF handle it for you.\n\nIn the case of the issue the user had though, they were physically changing the sitefinity file in /App\\_Data/Storage, not using the SF UI.  Which means SF isn't informed on the database side anything has been updated so all the version codes throughout the site didn't change, even though they were linked properly.\n\nIn that case, a custom widget where you could manually bust the cache, or some simple jquery to find the file (or files) and append something unique on every load.\n\nLike this\n\n<div class='embeddedscript' data-src=\"https://gist.github.com/sitefinitysteve/5dd1b9997a32c334939d9a8828b6b65f.js\"></div>",
+  "seoMetaImage": "/images/stock/500x280/img8.jpg",
+  "seoDescription": "Why am I downloading an old file from Sitefinity even though it's content has changed"
+} 

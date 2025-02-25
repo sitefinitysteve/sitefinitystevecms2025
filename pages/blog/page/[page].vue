@@ -7,8 +7,9 @@
       <div class="relative max-w-7xl mx-auto">
         <div class="text-center">
           <div>
-            <h1 class="">
+            <h1 class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
               From the blog ✍️
+              <span class="text-orange-400 text-normal">page {{ currentPage }}</span>
             </h1>
             <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
               Tutorials, Rants, Coding, Sitefinity, Javascript, it's all here. Please enjoy my content and let me know what you think!
@@ -88,10 +89,10 @@
             </div>
           </div>
         </div>
-
+        
         <div class="mt-5">
           <!-- Pagination -->
-          <BlogPagination v-if="totalPages > 1" :current-page="1" :total-pages="totalPages" />
+          <BlogPagination :current-page="currentPage" :total-pages="totalPages" />
         </div>
       </div>
     </div>
@@ -99,8 +100,31 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
 import { useAsyncData } from 'nuxt/app';
 import BlogPagination from '~/components/blog/Pagination.vue';
+
+// Get the current route
+const route = useRoute();
+const currentPage = parseInt(route.params.page) || 1;
+const perPage = 10; // Number of posts per page
+
+// Get all blog posts
+const { data: allPosts } = await useAsyncData(`blog-posts-page-${currentPage}`, () => 
+  queryContent('/blog').sort({ publishedAt: -1 }).find()
+);
+
+// Calculate total pages
+const totalPages = computed(() => {
+  return Math.ceil(allPosts.value.length / perPage);
+});
+
+// Get paginated posts
+const paginatedPosts = computed(() => {
+  const startIndex = (currentPage - 1) * perPage;
+  const endIndex = startIndex + perPage;
+  return allPosts.value.slice(startIndex, endIndex);
+});
 
 // Format date to a readable format
 const formatDate = (date) => {
@@ -115,31 +139,13 @@ const getAllTags = (posts) => {
   return [...new Set(allTags)];
 };
 
-// Get all blog posts sorted by publishedAt in descending order
-const { data: allPosts } = await useAsyncData('all-blog-posts', () => 
-  queryContent('/blog').sort({ publishedAt: -1 }).find()
-);
-
-// Calculate total pages
-const perPage = 30; // Number of posts per page
-const totalPages = computed(() => {
-  return Math.ceil(allPosts.value.length / perPage);
-});
-
-// Get paginated posts for the first page
-const paginatedPosts = computed(() => {
-  const startIndex = 0; // First page
-  const endIndex = perPage;
-  return allPosts.value.slice(startIndex, endIndex);
-});
-
 // Set page metadata
 useHead({
-  title: 'Blog - SitefinitySteve',
+  title: `Blog Posts - Page ${currentPage} - SitefinitySteve Blog`,
   meta: [
     { 
       name: 'description', 
-      content: 'Tutorials, Rants, Coding, Sitefinity, Javascript, it\'s all here. Please enjoy my content and let me know what you think!' 
+      content: `Page ${currentPage} of blog posts - Tutorials, Rants, Coding, Sitefinity, Javascript, and more.` 
     }
   ]
 });
